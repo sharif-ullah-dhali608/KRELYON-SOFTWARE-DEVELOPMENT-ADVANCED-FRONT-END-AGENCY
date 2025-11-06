@@ -323,6 +323,52 @@
   z-index: 1;
 }
 
+
+/* ============================================= */
+/* === 4. PROJECT CARD & IMAGE FIX === */
+/* ============================================= */
+
+/* 1. Make the Card a flex container */
+.project-card {
+  height: 100%; /* Allows card to fill the grid row height */
+  display: flex;
+  flex-direction: column; /* Stacks image and content vertically */
+}
+
+/* 2. Make the Image Container have a fixed ratio */
+.project-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Forces a 16:9 widescreen ratio */
+  overflow: hidden; /* Hides parts of the image that don't fit */
+  background-color: var(--bg-secondary); /* Placeholder color */
+  flex-shrink: 0; /* Prevents image container from shrinking */
+}
+
+/* 3. Make the Image fill the container without stretching */
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the container, crops excess */
+}
+
+/* 4. Make the Content area fill the remaining space */
+.project-content {
+  flex-grow: 1; /* Makes this area expand to fill the space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 5. Truncate the text to a fixed number of lines */
+.project-content p {
+  flex-grow: 1; /* Helps push content to the bottom (if needed) */
+  
+  /* This adds "..." after 6 lines */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; /* You can change 6 to 5 or 7 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* --- REMOVED: .product-slide::before glow is gone from here --- */
 
 .slide-title {
