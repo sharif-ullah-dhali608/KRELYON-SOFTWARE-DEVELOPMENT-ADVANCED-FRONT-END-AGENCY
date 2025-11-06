@@ -1,849 +1,1474 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KRELYON-home</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codifia - Website Clone (Joss Version)</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/dropdown.css">
-</head>
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/dropdown.css" />
+  </head>
 
-<body>
-
+  <body>
     <div id="preloader-bg"></div>
     <div id="preloader-circle"></div>
     <header id="main-header">
-        <a href="home.html" class="logo">CODIFIA</a>
-        
-        <nav class="desktop-nav">
-            <a href="home.html">Home</a>
+      <a href="home.html" class="logo">KRELYON</a>
 
-            <div class="nav-item-dropdown">
-                <button class="nav-dropdown-toggle" id="services-toggle">
-                    Services
-                    <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
+      <nav class="desktop-nav">
+        <a href="home.html">Home</a>
 
-                <div class="mega-menu-dropdown" id="services-menu">
-                    <div class="mega-menu-grid">
+        <div class="nav-item-dropdown">
+          <button class="nav-dropdown-toggle" id="services-toggle">
+            Services
+            <svg
+              class="nav-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
 
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"></path><circle cx="12" cy="12" r="4"></circle></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Mobile App Development</h4>
-                                <p>
-                                    Security is paramount in our mobile app development process we implement rigorous security
-                                </p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Web Development</h4>
-                                <p>In addition to our front-end design and development expertise, our web development services.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>UI/UX Design</h4>
-                                <p>We focus on understanding user motivations, pain points, and goals, ensuring that.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"/></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Consulting</h4>
-                                <p>Furthermore, our software industry consulting services extend beyond just technical expertise.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>UI/UX & Branding</h4>
-                                <p>Leverage overall user-experience with our innovative visual styles and intelligent design architectures.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Migration as a Service</h4>
-                                <p>Unify your tech infrastructure, accelerate data processing, and launch solutions anywhere.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"></path><circle cx="12" cy="12" r="4"></circle></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Mobile App Development</h4>
-                                <p>
-                                    Security is paramount in our mobile app development process we implement rigorous security
-                                </p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Web Development</h4>
-                                <p>In addition to our front-end design and development expertise, our web development services.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>UI/UX Design</h4>
-                                <p>We focus on understanding user motivations, pain points, and goals, ensuring that.</p>
-                            </div>
-                        </a>
-                        <a href="service.html" class="mega-menu-item">
-                            <div class="mega-menu-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"/></svg>
-                            </div>
-                            <div class="mega-menu-content">
-                                <h4>Consulting</h4>
-                                <p>Furthermore, our software industry consulting services extend beyond just technical expertise.</p>
-                            </div>
-                        </a>
-
-                    </div>
+          <div class="mega-menu-dropdown" id="services-menu">
+            <div class="mega-menu-grid">
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                  </svg>
                 </div>
-            </div>
-
-            <a href="products.html">Work</a>
-            
-            <div class="nav-item-dropdown">
-                <button class="nav-dropdown-toggle" id="about-toggle">
-                    About us
-                    <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="simple-dropdown-menu" id="about-menu">
-                    <a href="about.html">Our Company</a>
-                    <a href="about.html">Our Milestones</a>
-                    <a href="about.html">Our Certifications</a>
+                <div class="mega-menu-content">
+                  <h4>Mobile App Development</h4>
+                  <p>
+                    Security is paramount in our mobile app development process
+                    we implement rigorous security
+                  </p>
                 </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Web Development</h4>
+                  <p>
+                    In addition to our front-end design and development
+                    expertise, our web development services.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>UI/UX Design</h4>
+                  <p>
+                    We focus on understanding user motivations, pain points, and
+                    goals, ensuring that.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"
+                    />
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Consulting</h4>
+                  <p>
+                    Furthermore, our software industry consulting services
+                    extend beyond just technical expertise.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>UI/UX & Branding</h4>
+                  <p>
+                    Leverage overall user-experience with our innovative visual
+                    styles and intelligent design architectures.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Migration as a Service</h4>
+                  <p>
+                    Unify your tech infrastructure, accelerate data processing,
+                    and launch solutions anywhere.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Mobile App Development</h4>
+                  <p>
+                    Security is paramount in our mobile app development process
+                    we implement rigorous security
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Web Development</h4>
+                  <p>
+                    In addition to our front-end design and development
+                    expertise, our web development services.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>UI/UX Design</h4>
+                  <p>
+                    We focus on understanding user motivations, pain points, and
+                    goals, ensuring that.
+                  </p>
+                </div>
+              </a>
+              <a href="service.html" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"
+                    />
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Consulting</h4>
+                  <p>
+                    Furthermore, our software industry consulting services
+                    extend beyond just technical expertise.
+                  </p>
+                </div>
+              </a>
             </div>
+          </div>
+        </div>
 
-            <a href="service.html">Insights</a>
-            <a href="products.html">Products</a>
-        </nav>
-        <a href="contact.html" class="cta-button">START A PROJECT</a>
+        <a href="products.html">Work</a>
 
-        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-            <span class="line line1"></span>
-            <span class="line line2"></span>
-            <span class="line line3"></span>
-        </button>
+        <div class="nav-item-dropdown">
+          <button class="nav-dropdown-toggle" id="about-toggle">
+            About us
+            <svg
+              class="nav-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="simple-dropdown-menu" id="about-menu">
+            <a href="about.html">Our Company</a>
+            <a href="about.html">Our Milestones</a>
+            <a href="about.html">Our Certifications</a>
+          </div>
+        </div>
+
+        <a href="service.html">Insights</a>
+        <a href="products.html">Products</a>
+      </nav>
+      <a href="contact.html" class="cta-button">START A PROJECT</a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </button>
     </header>
     <div id="mobile-nav">
-        <div class="mobile-nav-header">
-            <button class="mobile-nav-close" id="mobile-nav-close">Close <span>&times;</span></button>
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-nav-close">
+          Close <span>&times;</span>
+        </button>
+      </div>
+      <div class="mobile-nav-body">
+        <div class="social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Youtube</a>
+          <a href="#">Dribbble</a>
+          <a href="#">Behance</a>
+          <a href="#">Twitter</a>
         </div>
-        <div class="mobile-nav-body">
-            <div class="social-links">
-                <a href="#">LinkedIn</a>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Youtube</a>
-                <a href="#">Dribbble</a>
-                <a href="#">Behance</a>
-                <a href="#">Twitter</a>
+        <div class="main-links">
+          <a href="home.html">Home</a>
+
+          <div class="mobile-nav-item-with-sub">
+            <button class="mobile-nav-sub-toggle">
+              Services
+              <svg
+                class="nav-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-sub-menu">
+              <a href="service.html">Integration As A Service</a>
+              <a href="service.html">Implementation As A Service</a>
+              <a href="service.html">3D Design and Illustration</a>
+              <a href="service.html">Xtended Reality</a>
+              <a href="service.html">UI/UX & Branding</a>
+              <a href="service.html">Migration as a Service</a>
+              <a href="service.html">AI and Machine Learning</a>
+              <a href="service.html">Omnichannel Digitalization</a>
+              <a href="service.html">DevOps</a>
+              <a href="service.html">Apple Ecosystem</a>
             </div>
-            <div class="main-links">
-                <a href="home.html">Home</a>
+          </div>
 
-                <div class="mobile-nav-item-with-sub">
-                    <button class="mobile-nav-sub-toggle">
-                        Services
-                        <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="mobile-sub-menu">
-                        <a href="service.html">Integration As A Service</a>
-                        <a href="service.html">Implementation As A Service</a>
-                        <a href="service.html">3D Design and Illustration</a>
-                        <a href="service.html">Xtended Reality</a>
-                        <a href="service.html">UI/UX & Branding</a>
-                        <a href="service.html">Migration as a Service</a>
-                        <a href="service.html">AI and Machine Learning</a>
-                        <a href="service.html">Omnichannel Digitalization</a>
-                        <a href="service.html">DevOps</a>
-                        <a href="service.html">Apple Ecosystem</a>
-                    </div>
-                </div>
-                
-                <a href="service.html">Work</a>
+          <a href="service.html">Work</a>
 
-                <div class="mobile-nav-item-with-sub">
-                    <button class="mobile-nav-sub-toggle">
-                        About us
-                        <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="mobile-sub-menu">
-                        <a href="about.html">Our Company</a>
-                        <a href="about.html">Our Milestones</a>
-                        <a href="about.html">Our Certifications</a>
-                    </div>
-                </div>
-
-                <a href="service.html">Insights</a>
-                <a href="products.html">Products</a>
-                <a href="contact.html">Contact</a>
+          <div class="mobile-nav-item-with-sub">
+            <button class="mobile-nav-sub-toggle">
+              About us
+              <svg
+                class="nav-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-sub-menu">
+              <a href="about.html">Our Company</a>
+              <a href="about.html">Our Milestones</a>
+              <a href="about.html">Our Certifications</a>
             </div>
+          </div>
+
+          <a href="service.html">Insights</a>
+          <a href="products.html">Products</a>
+          <a href="contact.html">Contact</a>
         </div>
-        <div class="mobile-nav-footer">
-            <p>Get in touch</p>
-            <a href="mailto:info@codifia.com">info@Krelyon.com</a>
-        </div>
+      </div>
+      <div class="mobile-nav-footer">
+        <p>Get in touch</p>
+        <a href="mailto:info@codifia.com">info@Krelyon.com</a>
+      </div>
     </div>
     <main id="main-content">
-
-        <section class="hero">
-            <div class="hero-text-left">
-                <span class="hero-subtitle anim-fade">EXPRESS YOUR IDEA &</span>
-                <h1><div class="anim-line-inner">WE GROW BRANDS</div></h1>
-                <h1><div class="anim-line-inner"><strong>ONLINE</strong></div></h1>
-                <p class="anim-fade">
-                    Dhontech Limited is a software design & development
-                    company located in Dhaka Bangladesh, we do provide
-                    technical & engineering solutions for helping local &
-                    international companies & agencies. We are providing
-                    development support since 2025.
-                </p>
-                <a href="#" class="btn-about anim-fade">REQUEST A QUOTE &gt;</a>
-            </div>
-
-            <div class="hero-grid-right">
-                <div class="hero-grid-col col-1">
-                    <div class="col-content">
-                        <div class="hero-grid-card"><img src="../images/hh.jpg" alt="Project 1"></div>
-                        <div class="hero-grid-card"><img src="../images/download.png" alt="Project 2"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 3"></div>
-                        <div class="hero-grid-card"><img src="../images/hh.jpg" alt="Project 1"></div>
-                        <div class="hero-grid-card"><img src="../images/download.png" alt="Project 2"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 3"></div>
-                    </div>
-                </div>
-                <div class="hero-grid-col col-2">
-                    <div class="col-content">
-                        <div class="hero-grid-card"><img src="../images/chire noni chi.png" alt="Project 4"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 5"></div>
-                        <div class="hero-grid-card"><img src="../images/download.png" alt="Project 6"></div>
-                        <div class="hero-grid-card"><img src="../images/chire noni chi.png" alt="Project 4"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 5"></div>
-                        <div class="hero-grid-card"><img src="../images/download.png" alt="Project 6"></div>
-                    </div>
-                </div>
-                <div class="hero-grid-col col-3">
-                    <div class="col-content">
-                        <div class="hero-grid-card"><img src="../images/hh.jpg" alt="Project 7"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 8"></div>
-                        <div class="hero-grid-card"><img src="../images/chire noni chi.png" alt="Project 9"></div>
-                        <div class="hero-grid-card"><img src="../images/hh.jpg" alt="Project 7"></div>
-                        <div class="hero-grid-card"><img src="../images/hhh.png" alt="Project 8"></div>
-                        <div class="hero-grid-card"><img src="../images/chire noni chi.png" alt="Project 9"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-client-scroller anim-fade">
-                <div class="hero-scroller-track">
-                    <span>ENCHANT</span>
-                    <span>BABIESRUs</span>
-                    <span>XEROX</span>
-                    <span>SONY</span>
-                    <span>P&G</span>
-                    <span>NYU</span>
-                    <span>NFL</span>
-                    <span>hp</span>
-                    <span>ENCHANT</span>
-                    <span>BABIESRUs</span>
-                    <span>XEROX</span>
-                    <span>SONY</span>
-                    <span>P&G</span>
-                    <span>NYU</span>
-                    <span>NFL</span>
-                    <span>hp</span>
-                </div>
-            </div>
-        </section>
-        <section class="content-section creative-agency-section">
-            <div class="creative-agency-container">
-                <div class="creative-agency-left">
-                    <h2 class="creative-agency-title">
-                        <div class="anim-line-inner">Creative Web Agency</div>
-                        <div class="anim-line-inner">Delivering Custom Solutions</div>
-                    </h2>
-
-                    <ul class="creative-agency-list anim-fade-in">
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                            <span>Custom Web Design Solutions <strong>To Drive Conversions</strong></span>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                            <span>Effective Marketing Campaigns <strong>To Generate Growth</strong></span>
-                        </li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                            <span>Tailored Branding Strategies <strong>To Drive Engagement</strong></span>
-                        </li>
-                    </ul>
-
-                    <p class="creative-agency-description anim-fade-in">
-                        Codifia is a web design company & digital marketing agency focused on growing brands online. We create effective brand strategies, custom web design, development, and digital marketing solutions to generate greater brand engagement and conversions. We work closely with our clients to ensure each project meets their brand guidelines and business goals and provide technical and marketing expertise to ensure optimal results.
-                    </p>
-
-                    <a href="#" class="creative-agency-video-box anim-fade-in">
-                        <img src="../images/hhh.png" alt="Video thumbnail"> <button class="video-play-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.99a1.875 1.875 0 01-2.779-1.643V5.653z"></path></svg>
-                        </button>
-                        <div class="video-text">
-                            <h4>See Our Work In Action</h4>
-                            <span>1 MINUTE</span>
-                        </div>
-                    </a>
-
-                </div>
-                <div class="creative-agency-right anim-fade-in">
-                    <img src="../images/chire noni chi.png" alt="Agency Work Collage" class="collage-image">
-                </div>
-            </div>
-        </section>
-        <section class="stats-section">
-            <div class="stats-container">
-                <div class="stat-item">
-                    <p>Total Raised by our clients</p> <h3 data-count="3">0M+</h3>
-                </div>
-                <div class="stat-item">
-                    <p>Years of experience</p> <h3 data-count="6">0+</h3>
-                </div>
-                <div class="stat-item">
-                    <p>Projects completed</p> <h3 data-count="160">0+</h3>
-                </div>
-            </div>
-        </section>
-        <section class="marquee">
-            <div class="marquee-content">
-                <span>DARE TO CHANGE</span> <span>DARE TO CHANGE</span>
-                <span>DARE TO CHANGE</span> <span>DARE TO CHANGE</span>
-                <span>DARE TO CHANGE</span> <span>DARE TO CHANGE</span>
-            </div>
-        </section>
-        <section class="content-section projects">
-            <div class="section-header">
-                <h2>
-                    <div class="anim-line-inner">COOLEST PROJECTS</div>
-                    <div class="anim-line-inner">PROJECTS</div>
-                </h2>
-                <a href="#">See more of our work &rarr;</a>
-            </div>
-
-            <div class="project-grid">
-                <a href="#" class="project-card">
-                    <div class="project-image-container">
-                        <img src="../images/chire noni chi.png" alt="SpeedyRecon Project">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span>Car Parts Sales</span> <span>Optimizing</span> <span>Automotive</span>
-                        </div>
-                        <h4>SpeedyRecon - International company...</h4>
-                        <p>The "SpeedyRecon - Car Parts Expansion Project" is a comprehensive endeav...</p>
-                    </div>
-                </a>
-                <a href="#" class="project-card">
-                    <div class="project-image-container">
-                        <img src="../images/download.png" alt="Dbug Academy Project">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span>E-Learning</span> <span>Adaptive Learning</span> <span>Online Learning</span>
-                        </div>
-                        <h4>Dbug Academy - Online Learning Management...</h4>
-                        <p>An online learning platform is a web-based application that provides student...</p>
-                    </div>
-                </a>
-                <a href="#" class="project-card">
-                    <div class="project-image-container">
-                        <img src="../images/hh.jpg" alt="Pet Zoo Project">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span>UI/UX</span> <span>Web Development</span> <span>Mobile Responsive</span>
-                        </div>
-                        <h4>Pet Zoo: Urgent Need for Pet Adoption...</h4>
-                        <p>Not knowing where to start or which animals are available makes it very...</p>
-                    </div>
-                </a>
-                <a href="#" class="project-card">
-                    <div class="project-image-container">
-                        <img src="../images/hhh.png" alt="Retouch Project">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span>Image Editing</span> <span>Photography</span> <span>Retouching</span>
-                        </div>
-                        <h4>'Retouch' - Photo Editor | Video Editor |...</h4>
-                        <p>"Retouch" is a free, easy-to-use photo & video editor that helps you quickly...</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-        <section class="content-section services-section">
-            <div class="section-header">
-                <h2>
-                    <div class="anim-line-inner">OUR SERVICES</div>
-                    <div class="anim-line-inner">SERVICES</div>
-                </h2>
-                <a href="#">See all our services &rarr;</a>
-            </div>
-
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="../images/chire noni chi.png" alt="Mobile App Development">
-                    <h4>Mobile App Development</h4>
-                    <p>Security is paramount in our mobile app development process we implement rigorous security.</p>
-                </div>
-                <div class="service-card">
-                    <img src="../images/hhh.png" alt="Web Development">
-                    <h4>Web Development</h4>
-                    <p>In addition to our front-end design and development expertise, our web development services.</p>
-                </div>
-                <div class="service-card">
-                    <img src="../images/hhh.png" alt="UI/UX Design">
-                    <h4>UI/UX Design</h4>
-                    <p>We focus on understanding user motivations, pain points, and goals, ensuring that.</p>
-                </div>
-            </div>
-        </section>
-        <section class="content-section process-section">
-            <div class="section-header" style="text-align: center; flex-direction: column; align-items: center; justify-content: center;">
-                <h2 style="text-align: center;">
-                    <div>
-                        Our Business Processes
-                    </div>
-                </h2>
-                <p class="anim-fade-in" style="color: var(--text-muted); max-width: 600px; margin-top: 1rem; font-size: 1.1rem; line-height: 1.6;">
-                    At Mako, we develop and deploy cutting-edge experiences for our clients and their
-                    customers using a proven developmental strategy.
-                </p>
-            </div>
-
-            <div class="process-tabs anim-fade-in">
-                <div class="process-tab-item active" data-target="panel-discover">
-                    <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M249.5 700.6c14.5 135.5 132.6 241.1 276 241.1s261.5-105.6 276-241.1h-552z" fill="#F9C0C0"></path><path d="M512 957.3c-79.6 0-154.5-28.7-210.8-80.8-56.5-52.2-87.6-121.7-87.6-195.7 0-59.7 20.2-116.5 58.4-164.3 36.2-45.3 85.4-78.8 142.6-97.1V206.1h-46.1c-11.2 0-20.4-9.1-20.4-20.4v-17.1c0-11.2 9.1-20.4 20.4-20.4h287.2c11.2 0 20.4 9.1 20.4 20.4v17.1c0 11.2-9.1 20.4-20.4 20.4h-46.1v213.4c57.1 18.3 106.3 51.8 142.6 97.1 38.2 47.8 58.4 104.6 58.4 164.3 0 74-31.1 143.5-87.6 195.7-56.5 52-131.4 80.7-211 80.7zM368.4 163.2c-3 0-5.4 2.4-5.4 5.4v17.1c0 3 2.4 5.4 5.4 5.4h61.1v239.5l-5.3 1.6c-56.5 17-105.1 49.4-140.5 93.7-36 45.1-55.1 98.7-55.1 154.9 0 69.7 29.4 135.3 82.8 184.7C365 915 436.2 942.3 512 942.3s147.1-27.3 200.6-76.8c53.4-49.4 82.8-115 82.8-184.7 0-56.2-19-109.8-55.1-154.9-35.4-44.4-84-76.8-140.5-93.7l-5.3-1.6V191.1h61.1c3 0 5.4-2.4 5.4-5.4v-17.1c0-3-2.4-5.4-5.4-5.4H368.4z" fill="#999999"></path><path d="M220.7 676.8h581.9v8H220.7zM413 190.8h39.6v8H413zM495.5 190.8h106.1v8H495.5z" fill="#999999"></path><path d="M452.7 645.7c-14 0-25.4-11.4-25.4-25.4s11.4-25.4 25.4-25.4 25.4 11.4 25.4 25.4-11.4 25.4-25.4 25.4z m0-42.9c-9.6 0-17.4 7.8-17.4 17.4s7.8 17.4 17.4 17.4 17.4-7.8 17.4-17.4-7.8-17.4-17.4-17.4zM571.6 556.8c-27.6 0-50.1-22.5-50.1-50.1s22.5-50.1 50.1-50.1 50.1 22.5 50.1 50.1-22.5 50.1-50.1 50.1z m0-92.2c-23.2 0-42.1 18.9-42.1 42.1s18.9 42.1 42.1 42.1 42.1-18.9 42.1-42.1-18.9-42.1-42.1-42.1zM491.2 316.7c-17 0-30.8-13.8-30.8-30.8s13.8-30.8 30.8-30.8 30.8 13.8 30.8 30.8-13.8 30.8-30.8 30.8z m0-53.6c-12.6 0-22.8 10.2-22.8 22.8s10.2 22.8 22.8 22.8c12.6 0 22.8-10.2 22.8-22.8s-10.2-22.8-22.8-22.8zM543.2 113.1c-12 0-21.7-9.7-21.7-21.7s9.7-21.7 21.7-21.7 21.7 9.7 21.7 21.7-9.7 21.7-21.7 21.7z m0-35.4c-7.5 0-13.7 6.1-13.7 13.7s6.1 13.7 13.7 13.7 13.7-6.1 13.7-13.7-6.1-13.7-13.7-13.7z" fill="#CE0202"></path></g></svg>
-                    <span>Discover</span>
-                </div>
-
-                <div class="process-arrow">&rarr;</div>
-
-                <div class="process-tab-item" data-target="panel-define">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                    </svg>
-                    <span>Define</span>
-                </div>
-
-                <div class="process-arrow">&rarr;</div>
-
-                <div class="process-tab-item" data-target="panel-develop">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5 0-4.5 16.5" />
-                    </svg>
-                    <span>Develop</span>
-                </div>
-
-                <div class="process-arrow">&rarr;</div>
-
-                <div class="process-tab-item" data-target="panel-evolve">
-                    <svg fill="#d21479" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 202.072 202.072" xml:space="preserve" stroke="#d21479"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M200.931,48.072L156.848,3.989c-1.366-1.372-3.542-1.524-5.091-0.362l-41.379,31.036L98.985,23.271 c-0.963-0.966-2.367-1.358-3.676-1.031c-1.321,0.321-2.378,1.309-2.793,2.605L55.697,140.567l-3.942,3.942l2.098,2.098 c-0.211,1.233,0.147,2.506,1.049,3.409c0.742,0.742,1.739,1.142,2.755,1.142c0.396,0,0.795-0.061,1.179-0.183l121.235-38.574 c1.298-0.415,2.283-1.473,2.606-2.793c0.32-1.321-0.069-2.713-1.031-3.676l-11.387-11.386l31.033-41.379 C202.457,51.614,202.301,49.443,200.931,48.072z M171.607,106.913L67.126,140.158l35.916-35.915 c3.502,2.953,7.84,4.64,12.477,4.64c5.205,0,10.099-2.028,13.775-5.708c3.68-3.68,5.708-8.571,5.708-13.775 c0-5.205-2.028-10.097-5.708-13.777c-3.68-3.681-8.569-5.708-13.775-5.708s-10.099,2.028-13.775,5.708 c-3.68,3.68-5.708,8.571-5.708,13.777c0,3.082,0.79,6.017,2.135,8.693L67.692,128.57l30.311-95.261l9.247,9.247 c0.002,0.002,0.002,0.004,0.002,0.004l55.105,55.107c0.005,0.005,0.012,0.006,0.016,0.011L171.607,106.913z M103.829,89.401 c0-3.124,1.218-6.058,3.425-8.267c2.207-2.209,5.141-3.425,8.265-3.425c3.124,0,6.058,1.216,8.265,3.425 c2.207,2.209,3.425,5.143,3.425,8.267c0,3.122-1.218,6.056-3.425,8.265c-4.414,4.418-12.116,4.418-16.53,0 C105.047,95.456,103.829,92.523,103.829,89.401z M164.692,88.977l-48.75-48.749l37.784-28.34l39.305,39.304L164.692,88.977z"></path> <path d="M194.976,167.903h-19.631v-19.483c0-2.154-1.743-3.897-3.897-3.897s-3.897,1.743-3.897,3.897v19.483h-19.483 c-2.154,0-3.897,1.743-3.897,3.897s1.743,3.897,3.897,3.897h19.483v19.631c0,2.154,1.743,3.897,3.897,3.897 s3.897-1.743,3.897-3.897v-19.631h19.631c2.154,0,3.897-1.743,3.897-3.897S197.13,167.903,194.976,167.903z"></path> <path d="M38.966,164.005c0-2.154-1.743-3.897-3.897-3.897h-11.69v-23.379h-7.793v23.379H3.897c-2.154,0-3.897,1.743-3.897,3.897 v31.172c0,2.154,1.743,3.897,3.897,3.897h31.172c2.154,0,3.897-1.743,3.897-3.897v-11.69h23.379v-7.793H38.966V164.005z M31.172,191.281H7.793v-23.379h23.379V191.281z"></path> </g> </g> </g> </g></svg>
-                    <span>Evolve</span>
-                </div>
-            </div>
-
-            <div class="process-content-panels">
-
-                <div class="process-content-panel active" id="panel-discover">
-                    <h3>Discover</h3>
-                    <p class="panel-subtitle">Learn before we leap</p>
-                    <p class="panel-description">Research and narrow down your development objectives. We define a solution that can disrupt market dynamics.</p>
-                    <div class="process-content-grid">
-                        <div class="process-grid-item">
-                            <span>01</span>
-                            <h4>Collaborative Insights</h4>
-                            <p>We synergize with you for an inside-out breakdown of your vision – analyzing pain points and gaps that your solution can fill.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>02</span>
-                            <h4>Development Roadmap</h4>
-                            <p>Whether it's fixed bids, retainers, or iterative development plans. We help you create a strategy that works best for your business.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>03</span>
-                            <h4>Project Scheduling</h4>
-                            <p>From ideation to licensing in on the perfect deployment. We help you set a timeframe to ideate, build, test, and release solutions.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-content-panel" id="panel-define">
-                    <h3>Define</h3>
-                    <p class="panel-subtitle">Blueprint for success</p>
-                    <p class="panel-description">See your vision take shape. Review proof of concepts, skeletal wireframes before we migrate ready.</p>
-                    <div class="process-content-grid">
-                        <div class="process-grid-item">
-                            <span>01</span>
-                            <h4>Platform Validation</h4>
-                            <p>Uncover the right tech platform that combines framework and architecture to ensure impeccable performance.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>02</span>
-                            <h4>Enterprise Architecture</h4>
-                            <p>Seamlessly adopts to user journeys, tech disruption, and more. Each interaction, data model, and API is mapped.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>03</span>
-                            <h4>Rapid Prototyping</h4>
-                            <p>Simulate the end-product experience with interactive prototypes, wireframes, and mockups.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-content-panel" id="panel-develop">
-                    <h3>Develop</h3>
-                    <p class="panel-subtitle">Result-oriented execution</p>
-                    <p class="panel-description">Stack-agnostic development. We pick the right set of tools to bring your idea to life.</p>
-                    <div class="process-content-grid">
-                        <div class="process-grid-item">
-                            <span>01</span>
-                            <h4>Agile Workflows</h4>
-                            <p>Our team of inter-disciplinary experts works cohesively as a unit – you’re always in the loop without the hassle of a complex chain of command.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>02</span>
-                            <h4>Meticulous Testing</h4>
-                            <p>Continuously testing solutions with our refined testing processes. Validate each step and phase out nagging defects.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>03</span>
-                            <h4>Product Deployment</h4>
-                            <p>Deliver game-changing outputs that can trump market dynamics and user-driven expectations.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-content-panel" id="panel-evolve">
-                    <h3>Evolve</h3>
-                    <p class="panel-subtitle">Turn progress into a lifecycle</p>
-                    <p class="panel-description">Continuously attain perfection by integrating with the evolving standards of people, processes, and technology.</p>
-                    <div class="process-content-grid">
-                        <div class="process-grid-item">
-                            <span>01</span>
-                            <h4>Continuous Integration</h4>
-                            <p>Seize every opportunity to merge innovative data modules across platforms and services – embracing universal data distribution.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>02</span>
-                            <h4>Continuous Development</h4>
-                            <p>Incrementally feature critical updates without starting from scratch. Stay ahead amidst an endless sea of innovation.</p>
-                        </div>
-                        <div class="process-grid-item">
-                            <span>03</span>
-                            <h4>MVP Releases</h4>
-                            <p>Consistently launch the best version of your product. Bring versatility and flexibility to create new opportunities and better solutions.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-        <section class="design-process-section">
-            <div class="design-process-header">
-                <h2>Website Design Process</h2>
-                <p>Take a peek behind the curtain and explore the custom web design process our team follows. We build custom sites for brands of all sizes that deliver <a href="#">measurable results</a>.</p>
-
-                <div class="process-line-wrapper">
-                    <div class="process-line-base"></div>
-                    <div class="process-line-progress" id="process-line-progress-bar"></div>
-                    <div class="process-step-indicator active" style="left: 0%;"></div>
-                    <div class="process-step-indicator" style="left: 20%;"></div>
-                    <div class="process-step-indicator" style="left: 40%;"></div>
-                    <div class="process-step-indicator" style="left: 60%;"></div>
-                    <div class="process-step-indicator" style="left: 80%;"></div>
-                    <div class="process-step-indicator" style="left: 100%;"></div>
-                </div>
-            </div>
-
-            <div class="process-scroller-container" id="process-scroller-js">
-
-                <div class="process-scroll-track" id="process-track-js">
-
-                    <div class="process-step-item" id="step-item-1">
-                        <div class="process-step-icon">
-                            <img src="../images/website-strategy.jpg" alt="Web Strategy Icon">
-                        </div>
-                        <h4 data-target-id="step-item-1">Web Strategy</h4>
-                        <p>We use in-depth research and analysis as key pillars to build a step-by-step plan that expands your digital presence and drives online growth.</p>
-                        <ul class="process-step-list">
-                            <li>Identify your target audiences</li>
-                            <li>Analyze user pain-points & define your UVPs</li>
-                            <li>Define key performance indicators (KPIs)</li>
-                            <li>Create a sitemap to build a robust site architecture</li>
-                        </ul>
-                        <div class="process-step-number">01</div>
-                    </div>
-
-                    <div class="process-step-item" id="step-item-2">
-                        <div class="process-step-icon">
-                            <img src="../images/web.png" alt="Planning Icon">
-                        </div>
-                        <h4 data-target-id="step-item-2">Planning & Information Architecture</h4>
-                        <p>We utilize proven techniques to map your content, meet user intentions and create an engaging user experience. By outlining your site's structure, we ensure seamless user journeys to key conversion points.</p>
-                        <ul class="process-step-list">
-                            <li>Here's how our team does it:</li>
-                            <li>We develop a base-level user flow & sitemap</li>
-                            <li>We utilize wireframing to create a seamless conversion funnel</li>
-                            <li>We establish consistent, responsive messaging for your brand</li>
-                        </ul>
-                        <div class="process-step-number">02</div>
-                    </div>
-
-                    <div class="process-step-item" id="step-item-3">
-                        <div class="process-step-icon">
-                            <img src="../images/web.png" alt="Creative Design Icon">
-                        </div>
-                        <h4 data-target-id="step-item-3">Creative Design</h4>
-                        <p>This stage is where you will see your site come to life. Our award-winning designers implement your unique branding elements to add your identity to your custom web design in NYC.</p>
-                        <ul class="process-step-list">
-                            <li>With just 50 milliseconds to make a good first impression, your website needs to stand out. To achieve this, we:</li>
-                            <li>Thoughtfully place design features to guide the user journey</li>
-                            <li>Utilize interactive videos & animations</li>
-                            <li>Create custom-branded illustrations</li>
-                            <li>Ensure accessibility & user-centric optimization</li>
-                        </ul>
-                        <div class="process-step-number">03</div>
-                    </div>
-
-                    <div class="process-step-item" id="step-item-4">
-                        <div class="process-step-icon">
-                            <img src="../images/web.png" alt="Responsive Development Icon">
-                        </div>
-                        <h4 data-target-id="step-item-4">Responsive Development</h4>
-                        <p>A responsive website is fast, accessible and easy to navigate. It automatically scales to various screen sizes and devices, driving user experience and climbing search engine rankings.</p>
-                        <ul class="process-step-list">
-                            <li>To ensure your website reaches and satisfies every user, we:</li>
-                            <li>Gather touchpoint & user-channel insights</li>
-                            <li>Transform your wireframes into a flexible UI</li>
-                            <li>Test across devices before approval to launch</li>
-                        </ul>
-                        <div class="process-step-number">04</div>
-                    </div>
-
-                    <div class="process-step-item" id="step-item-5">
-                        <div class="process-step-icon">
-                            <img src="../images/web.png" alt="QA Icon">
-                        </div>
-                        <h4 data-target-id="step-item-5">Quality Assurance (QA)</h4>
-                        <p>At Digital Silk, we pride ourselves on delivering measurable results and professional outcomes. By following a strict quality assurance (QA) protocol, we guarantee a high-quality digital experience for your brand.</p>
-                        <ul class="process-step-list">
-                            <li>To achieve this, we:</li>
-                            <li>Actively involve our clients throughout every project</li>
-                            <li>Meticulously test all designs to each device</li>
-                            <li>Use front and backend tests to secure before launch</li>
-                        </ul>
-                        <div class="process-step-number">05</div>
-                    </div>
-
-                    <div class="process-step-item" id="step-item-6">
-                        <div class="process-step-icon">
-                            <img src="../images/web.png" alt="Launch Icon">
-                        </div>
-                        <h4 data-target-id="step-item-6">Launch & Optimization</h4>
-                        <p>Our end-to-end website design services cover both launch and post-launch support. We meticulously monitor, test and optimize your website elements to ensure every part of your site is functioning optimally.</p>
-                        <ul class="process-step-list">
-                            <li>Our design specialists make this happen by:</li>
-                            <li>Following a strict protocol for every website launch</li>
-                            <li>Offering post-launch maintenance & optimization</li>
-                            <li>Creating & implementing a digital marketing plan to drive awareness across touchpoints</li>
-                        </ul>
-                        <div class="process-step-number">06</div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <section class="pricing-section">
-            <div class="pricing-content">
-                <h2>Custom Web Design Pricing For <strong>Each Client's Objectives</strong></h2>
-                <p>Every website design project comes with unique challenges and specific requirements that influence its final cost. A simple project typically ranges from <strong>$25,000 to $30,000</strong>, while more complex endeavors can reach <strong>$50,000 to $60,000</strong> or more.</p>
-                <p>The technical setup of your website, which directly impacts its performance, is a key factor in determining cost. More complex setups that demand significant time and effort will naturally increase the overall price.</p>
-
-                <a href="#" class="btn-calculate">CALCULATE YOUR WEBSITE &gt;</a>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="pricing-grid-item">
-                    <h4>Your choice of platform</h4>
-                    <p>also plays a role in the cost. Templated solutions are more affordable while developing a fully custom site will increase the project's total expense.</p>
-                </div>
-                <div class="pricing-grid-item">
-                    <h4>Custom graphic elements</h4>
-                    <p>are essential for enhancing your web presence. However, the more complex the design requirements, the higher the overall cost.</p>
-                </div>
-                <div class="pricing-grid-item">
-                    <h4>After launching</h4>
-                    <p>your new website, the next step is to outperform competitors in search engine rankings and secure top positions in your industry.</p>
-                </div>
-                <div class="pricing-grid-item">
-                    <h4>Our full-service</h4>
-                    <p>web design company offers expertise to clients of all sizes. You can use our design cost calculator below for an estimate or schedule a free consultation with one of our experts to discuss your project's specifics.</p>
-                </div>
-            </div>
-        </section>
-        <section class="content-section tech-stack-section">
-            <div class="tech-stack-header anim-fade-in">
-                <p>We think and speak mainly Kotlin, Node, React, Java. That's everything you need!</p>
-            </div>
-            <div class="tech-logo-grid">
-                <div class="tech-logo">Kotlin</div>
-                <div class="tech-logo icon">K.</div>
-                <div class="tech-logo"><span class="tech-logo-tag">MOBILE</span></div>
-                <div class="tech-logo">Java</div>
-                <div class="tech-logo">node.js</div>
-                <div class="tech-logo icon">&#128196;</div>
-                <div class="tech-logo"><span class="tech-logo-tag">WEB</span></div>
-                <div class="tech-logo">JS</div>
-            </div>
-        </section>
-        <section class="content-section products-section">
-            <div class="section-header">
-                <h2>
-                    <div class="anim-line-inner">OUR PRODUCTS</div>
-                    <div class="anim-line-inner">PRODUCTS</div>
-                </h2>
-                <a href="#">See all our products &rarr;</a>
-            </div>
-            <div class="products-container">
-                <div class="product-list">
-                    <a href="#" class="product-item" data-image="../images/chire noni chi.png">
-                        IPTV Player- Flutter Streaming Player
-                    </a>
-                    <a href="#" class="product-item" data-image="../images/download.png">
-                        Stream Play | Movies, Live TV Streaming
-                    </a>
-                    <a href="#" class="product-item active" data-image="../images/hh.jpg">
-                        Flutter Mini OTT | Live TV, Movie, Videos
-                    </a>
-                    <a href="#" class="product-item" data-image="../images/hhh.png">
-                        Mini OTT | Live TV, Streaming, Movie, Radio
-                    </a>
-                </div>
-                <div class="product-image-preview anim-fade-in">
-                    <img src="../images/chire noni chi.png" alt="Product preview 1" data-id="../images/chire noni chi.png">
-                    <img src="../images/download.png" alt="Product preview 2" data-id="../images/download.png">
-                    <img src="../images/hh.jpg" alt="Product preview 3" data-id="../images/hh.jpg" class="visible">
-                    <img src="../images/hhh.png" alt="Product preview 4" data-id="../images/hhh.png">
-                </div>
-            </div>
-        </section>
-        <section class="client-scroller-section">
-            <h2 class="anim-fade-in">FEATURED CLIENTS</h2>
-            <div class="client-scroller-container" id="client-scroller">
-                <div class="scroller-track" id="scroller-track">
-                    <img src="../images/download.png" alt="Cisco">
-                    <img src="../images/exon.png" alt="ExxonMobil">
-                    <img src="../images/tencent.png" alt="Tencent">
-                    <img src="../images/amazon.png" alt="Amazon">
-                    <img src="../images/apple.png" alt="Apple">
-                    <img src="../images/google.png" alt="Google">
-                    <img src="../images/meta.png" alt="Meta">
-
-                    <img src="../images/download.png" alt="Cisco">
-                    <img src="../images/exon.png" alt="ExxonMobil">
-                    <img src="../images/tencent.png" alt="Tencent">
-                    <img src="../images/amazon.png" alt="Amazon">
-                    <img src="../images/apple.png" alt="Apple">
-                    <img src="../images/google.png" alt="Google">
-                    <img src="../images/meta.png" alt="Meta">
-                </div>
-            </div>
-        </section>
-        <section class="content-section faq">
-            <div class="section-header">
-                <h2>
-                    <div class="anim-line-inner">FREQUENTLY</div>
-                    <div class="anim-line-inner">ASKED QUESTIONS</div>
-                </h2>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>How can your software benefit my business?</span>
-                    <span class="accordion-toggle">+</span>
-                </div>
-                <div class="accordion-content">
-                    <p>Our software can enhance efficiency, streamline operations, reduce costs, and improve productivity. It’s tailored to address specific needs in your industry.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Is your software customizable?</span>
-                    <span class="accordion-toggle">+</span>
-                </div>
-                <div class="accordion-content">
-                    <p>Yes, our software solutions are highly customizable to meet your unique business needs.</p>
-                </div>
-            </div>
-        </section>
-        </main>
-    <footer>
-        <a href="#" class="logo">CODIFIA</a>
-        <div class="footer-links">
-            <div><a href="#">Instagram</a> <a href="#">Dribbble</a> <a href="#">YouTube</a></div>
-            <div><a href="#">Mobile App Development</a> <a href="#">Web Development</a> <a href="#">UI/UX Design</a></div>
-            <div><a href="#">Home</a> <a href="#">Work</a> <a href="#">About</a></div>
+      <section class="hero">
+        <div class="hero-text-left">
+          <span class="hero-subtitle anim-fade">EXPRESS YOUR IDEA &</span>
+          <h1><div class="anim-line-inner">WE GROW BRANDS</div></h1>
+          <h1>
+            <div class="anim-line-inner"><strong>ONLINE</strong></div>
+          </h1>
+          <p class="anim-fade">
+            Krelyon is a software design & development company located in Dhaka
+            Bangladesh, we do provide technical & engineering solutions for
+            helping local & international companies & agencies. We are providing
+            development support since 2025.
+          </p>
+          <a href="#" class="btn-about anim-fade">REQUEST A QUOTE &gt;</a>
         </div>
+
+        <div class="hero-grid-right">
+          <div class="hero-grid-col col-1">
+            <div class="col-content">
+              <div class="hero-grid-card">
+                <img src="../images/angular.png" alt="Project 1" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/flutter.png" alt="Project 2" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/mongoExpressNode.jpg" alt="Project 3" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/mysql.png" alt="Project 1" />
+              </div>
+              <!-- <div class="hero-grid-card"><img src="../images/download.png" alt="Project 2"></div> -->
+              <div class="hero-grid-card">
+                <img src="../images/aws.webp" alt="Project 3" />
+              </div>
+            </div>
+          </div>
+          <div class="hero-grid-col col-2">
+            <div class="col-content">
+              <div class="hero-grid-card">
+                <img src="../images/docker.png" alt="Project 4" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/spring.gif" alt="Project 5" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/postgres-logo.png" alt="Project 6" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/nextjs.png" alt="Project 4" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/kubernetes.png" alt="Project 5" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/gitlab.jpg" alt="Project 6" />
+              </div>
+            </div>
+          </div>
+          <div class="hero-grid-col col-3">
+            <div class="col-content">
+              <div class="hero-grid-card">
+                <img src="../images/nextjs.png" alt="Project 7" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/docker.png" alt="Project 8" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/gitlab.jpg" alt="Project 9" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/flutter.png" alt="Project 7" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/spring.gif" alt="Project 8" />
+              </div>
+              <div class="hero-grid-card">
+                <img src="../images/angular.png" alt="Project 9" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-client-scroller anim-fade">
+          <div class="hero-scroller-track">
+            <span>Next.js</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>ReactJs</span>
+            <span>SpringBoot</span>
+            <span>Angular</span>
+            <span>Vue</span>
+            <span>MySQL</span>
+            <span>MongoDB</span>
+            <span>Kubernetes</span>
+            <span>PostgreSQL</span>
+            <span>Bootstrap</span>
+          </div>
+        </div>
+      </section>
+      <section class="content-section creative-agency-section">
+        <div class="creative-agency-container">
+          <div class="creative-agency-left">
+            <h2 class="creative-agency-title">
+              <div class="anim-line-inner">Creative Web Agency</div>
+              <div class="anim-line-inner">Delivering Custom Solutions</div>
+            </h2>
+
+            <ul class="creative-agency-list anim-fade-in">
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Custom Web Design Solutions
+                  <strong>To Drive Conversions</strong></span
+                >
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Effective Marketing Campaigns
+                  <strong>To Generate Growth</strong></span
+                >
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span
+                  >Tailored Branding Strategies
+                  <strong>To Drive Engagement</strong></span
+                >
+              </li>
+            </ul>
+
+            <p class="creative-agency-description anim-fade-in">
+              Krelyon is a web design company & digital marketing agency focused
+              on growing brands online. We create effective brand strategies,
+              custom web design, development, and digital marketing solutions to
+              generate greater brand engagement and conversions. We work closely
+              with our clients to ensure each project meets their brand
+              guidelines and business goals and provide technical and marketing
+              expertise to ensure optimal results.
+            </p>
+
+            <a href="#" class="creative-agency-video-box anim-fade-in">
+              <img src="../images/agency.jpg" alt="Video thumbnail" />
+              <button class="video-play-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.99a1.875 1.875 0 01-2.779-1.643V5.653z"
+                  ></path>
+                </svg>
+              </button>
+              <div class="video-text">
+                <h4>See Our Work In Action</h4>
+                <span>1 MINUTE</span>
+              </div>
+            </a>
+          </div>
+          <div class="creative-agency-right anim-fade-in">
+            <img
+              src="../images/agency.jpg"
+              alt="Agency Work Collage"
+              class="collage-image"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="stats-section">
+        <div class="stats-container">
+          <div class="stat-item">
+            <p>Total Raised by our clients</p>
+            <h3 data-count="3">0M+</h3>
+          </div>
+          <div class="stat-item">
+            <p>Years of experience</p>
+            <h3 data-count="6">0+</h3>
+          </div>
+          <div class="stat-item">
+            <p>Projects completed</p>
+            <h3 data-count="160">0+</h3>
+          </div>
+        </div>
+      </section>
+      <section class="marquee">
+        <div class="marquee-content">
+          <span>KRELYON</span> <span>KRELYON</span> <span>KRELYON</span>
+          <span>KRELYON</span> <span>KRELYON</span> <span>KRELYON</span>
+        </div>
+      </section>
+      <section class="content-section projects">
+        <div class="section-header">
+          <h2>
+            <div class="anim-line-inner">COOLEST PROJECTS</div>
+            <div class="anim-line-inner">PROJECTS</div>
+          </h2>
+          <a href="#">See more of our work &rarr;</a>
+        </div>
+
+        <div class="project-grid">
+          <a href="#" class="project-card">
+            <div class="project-image-container">
+              <img
+                src="../images/project-react.webp"
+                alt="SpeedyRecon Project"
+              />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>React based project</span> <span>Optimizing</span>
+                <span>Web project</span>
+              </div>
+              <h4>SpeedyRecon - International company...</h4>
+              <p>
+                The "SpeedyRecon - Web Expansion Project" is a comprehensive
+                endeav...
+              </p>
+            </div>
+          </a>
+          <a href="#" class="project-card">
+            <div class="project-image-container">
+              <img src="../images/flutter.png" alt="Dbug Academy Project" />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Flutter Mobile App</span> <span>Adaptive Learning</span>
+                <span>Online Learning</span>
+              </div>
+              <h4>Dbug Academy - Online Learning Management...</h4>
+              <p>
+                An online learning platform is a Mobile App-based application
+                that provides student...
+              </p>
+            </div>
+          </a>
+          <a href="#" class="project-card">
+            <div class="project-image-container">
+              <img src="../images/project-angular.jpg" alt="Pet Zoo Project" />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Angular Project</span> <span>Web Development</span>
+                <span>Mobile Responsive</span>
+              </div>
+              <h4>Urgent Need for Pet Adoption...</h4>
+              <p>
+                Not knowing where to start or which animals are available makes
+                it very...
+              </p>
+            </div>
+          </a>
+          <a href="#" class="project-card">
+            <div class="project-image-container">
+              <img src="../images/postgres-logo.png" alt="Retouch Project" />
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Database Management</span> <span>Data Load</span>
+                <span>Debug</span>
+              </div>
+              <h4>'Database' - Debug | Database Relation |...</h4>
+              <p>
+                "Retouch" is a free, easy-to-use photo & video editor that helps
+                you quickly...
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="content-section services-section">
+        <div class="section-header">
+          <h2>
+            <div class="anim-line-inner">OUR SERVICES</div>
+            <div class="anim-line-inner">SERVICES</div>
+          </h2>
+          <a href="#">See all our services &rarr;</a>
+        </div>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <img src="../images/aws.webp" alt="Web Services Development" />
+            <h4>Web Services Development</h4>
+            <p>
+              Security is paramount in our web services development process we
+              implement rigorous security.
+            </p>
+          </div>
+          <div class="service-card">
+            <img src="../images/docker.png" alt="Web Development" />
+            <h4>Docker</h4>
+            <p>
+              In addition to our front-end design and development expertise, our
+              web development services.
+            </p>
+          </div>
+          <div class="service-card">
+            <img src="../images/web-design.png" alt="UI/UX Design" />
+            <h4>UI/UX Design</h4>
+            <p>
+              We focus on understanding user motivations, pain points, and
+              goals, ensuring that.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="content-section process-section">
+        <div
+          class="section-header"
+          style="
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <h2 style="text-align: center">
+            <div>Our Business Processes</div>
+          </h2>
+          <p
+            class="anim-fade-in"
+            style="
+              color: var(--text-muted);
+              max-width: 600px;
+              margin-top: 1rem;
+              font-size: 1.1rem;
+              line-height: 1.6;
+            "
+          >
+            At Krelyon, we develop and deploy cutting-edge experiences for our
+            clients and their customers using a proven developmental strategy.
+          </p>
+        </div>
+
+        <div class="process-tabs anim-fade-in">
+          <div class="process-tab-item active" data-target="panel-discover">
+            <svg
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M249.5 700.6c14.5 135.5 132.6 241.1 276 241.1s261.5-105.6 276-241.1h-552z"
+                  fill="#F9C0C0"
+                ></path>
+                <path
+                  d="M512 957.3c-79.6 0-154.5-28.7-210.8-80.8-56.5-52.2-87.6-121.7-87.6-195.7 0-59.7 20.2-116.5 58.4-164.3 36.2-45.3 85.4-78.8 142.6-97.1V206.1h-46.1c-11.2 0-20.4-9.1-20.4-20.4v-17.1c0-11.2 9.1-20.4 20.4-20.4h287.2c11.2 0 20.4 9.1 20.4 20.4v17.1c0 11.2-9.1 20.4-20.4 20.4h-46.1v213.4c57.1 18.3 106.3 51.8 142.6 97.1 38.2 47.8 58.4 104.6 58.4 164.3 0 74-31.1 143.5-87.6 195.7-56.5 52-131.4 80.7-211 80.7zM368.4 163.2c-3 0-5.4 2.4-5.4 5.4v17.1c0 3 2.4 5.4 5.4 5.4h61.1v239.5l-5.3 1.6c-56.5 17-105.1 49.4-140.5 93.7-36 45.1-55.1 98.7-55.1 154.9 0 69.7 29.4 135.3 82.8 184.7C365 915 436.2 942.3 512 942.3s147.1-27.3 200.6-76.8c53.4-49.4 82.8-115 82.8-184.7 0-56.2-19-109.8-55.1-154.9-35.4-44.4-84-76.8-140.5-93.7l-5.3-1.6V191.1h61.1c3 0 5.4-2.4 5.4-5.4v-17.1c0-3-2.4-5.4-5.4-5.4H368.4z"
+                  fill="#999999"
+                ></path>
+                <path
+                  d="M220.7 676.8h581.9v8H220.7zM413 190.8h39.6v8H413zM495.5 190.8h106.1v8H495.5z"
+                  fill="#999999"
+                ></path>
+                <path
+                  d="M452.7 645.7c-14 0-25.4-11.4-25.4-25.4s11.4-25.4 25.4-25.4 25.4 11.4 25.4 25.4-11.4 25.4-25.4 25.4z m0-42.9c-9.6 0-17.4 7.8-17.4 17.4s7.8 17.4 17.4 17.4 17.4-7.8 17.4-17.4-7.8-17.4-17.4-17.4zM571.6 556.8c-27.6 0-50.1-22.5-50.1-50.1s22.5-50.1 50.1-50.1 50.1 22.5 50.1 50.1-22.5 50.1-50.1 50.1z m0-92.2c-23.2 0-42.1 18.9-42.1 42.1s18.9 42.1 42.1 42.1 42.1-18.9 42.1-42.1-18.9-42.1-42.1-42.1zM491.2 316.7c-17 0-30.8-13.8-30.8-30.8s13.8-30.8 30.8-30.8 30.8 13.8 30.8 30.8-13.8 30.8-30.8 30.8z m0-53.6c-12.6 0-22.8 10.2-22.8 22.8s10.2 22.8 22.8 22.8c12.6 0 22.8-10.2 22.8-22.8s-10.2-22.8-22.8-22.8zM543.2 113.1c-12 0-21.7-9.7-21.7-21.7s9.7-21.7 21.7-21.7 21.7 9.7 21.7 21.7-9.7 21.7-21.7 21.7z m0-35.4c-7.5 0-13.7 6.1-13.7 13.7s6.1 13.7 13.7 13.7 13.7-6.1 13.7-13.7-6.1-13.7-13.7-13.7z"
+                  fill="#CE0202"
+                ></path>
+              </g>
+            </svg>
+            <span>Discover</span>
+          </div>
+
+          <div class="process-arrow">&rarr;</div>
+
+          <div class="process-tab-item" data-target="panel-define">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+              />
+            </svg>
+            <span>Define</span>
+          </div>
+
+          <div class="process-arrow">&rarr;</div>
+
+          <div class="process-tab-item" data-target="panel-develop">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5 0-4.5 16.5"
+              />
+            </svg>
+            <span>Develop</span>
+          </div>
+
+          <div class="process-arrow">&rarr;</div>
+
+          <div class="process-tab-item" data-target="panel-evolve">
+            <svg
+              fill="#d21479"
+              height="200px"
+              width="200px"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 202.072 202.072"
+              xml:space="preserve"
+              stroke="#d21479"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        d="M200.931,48.072L156.848,3.989c-1.366-1.372-3.542-1.524-5.091-0.362l-41.379,31.036L98.985,23.271 c-0.963-0.966-2.367-1.358-3.676-1.031c-1.321,0.321-2.378,1.309-2.793,2.605L55.697,140.567l-3.942,3.942l2.098,2.098 c-0.211,1.233,0.147,2.506,1.049,3.409c0.742,0.742,1.739,1.142,2.755,1.142c0.396,0,0.795-0.061,1.179-0.183l121.235-38.574 c1.298-0.415,2.283-1.473,2.606-2.793c0.32-1.321-0.069-2.713-1.031-3.676l-11.387-11.386l31.033-41.379 C202.457,51.614,202.301,49.443,200.931,48.072z M171.607,106.913L67.126,140.158l35.916-35.915 c3.502,2.953,7.84,4.64,12.477,4.64c5.205,0,10.099-2.028,13.775-5.708c3.68-3.68,5.708-8.571,5.708-13.775 c0-5.205-2.028-10.097-5.708-13.777c-3.68-3.681-8.569-5.708-13.775-5.708s-10.099,2.028-13.775,5.708 c-3.68,3.68-5.708,8.571-5.708,13.777c0,3.082,0.79,6.017,2.135,8.693L67.692,128.57l30.311-95.261l9.247,9.247 c0.002,0.002,0.002,0.004,0.002,0.004l55.105,55.107c0.005,0.005,0.012,0.006,0.016,0.011L171.607,106.913z M103.829,89.401 c0-3.124,1.218-6.058,3.425-8.267c2.207-2.209,5.141-3.425,8.265-3.425c3.124,0,6.058,1.216,8.265,3.425 c2.207,2.209,3.425,5.143,3.425,8.267c0,3.122-1.218,6.056-3.425,8.265c-4.414,4.418-12.116,4.418-16.53,0 C105.047,95.456,103.829,92.523,103.829,89.401z M164.692,88.977l-48.75-48.749l37.784-28.34l39.305,39.304L164.692,88.977z"
+                      ></path>
+                      <path
+                        d="M194.976,167.903h-19.631v-19.483c0-2.154-1.743-3.897-3.897-3.897s-3.897,1.743-3.897,3.897v19.483h-19.483 c-2.154,0-3.897,1.743-3.897,3.897s1.743,3.897,3.897,3.897h19.483v19.631c0,2.154,1.743,3.897,3.897,3.897 s3.897-1.743,3.897-3.897v-19.631h19.631c2.154,0,3.897-1.743,3.897-3.897S197.13,167.903,194.976,167.903z"
+                      ></path>
+                      <path
+                        d="M38.966,164.005c0-2.154-1.743-3.897-3.897-3.897h-11.69v-23.379h-7.793v23.379H3.897c-2.154,0-3.897,1.743-3.897,3.897 v31.172c0,2.154,1.743,3.897,3.897,3.897h31.172c2.154,0,3.897-1.743,3.897-3.897v-11.69h23.379v-7.793H38.966V164.005z M31.172,191.281H7.793v-23.379h23.379V191.281z"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+            <span>Evolve</span>
+          </div>
+        </div>
+
+        <div class="process-content-panels">
+          <div class="process-content-panel active" id="panel-discover">
+            <h3>Discover</h3>
+            <p class="panel-subtitle">Learn before we leap</p>
+            <p class="panel-description">
+              Research and narrow down your development objectives. We define a
+              solution that can disrupt market dynamics.
+            </p>
+            <div class="process-content-grid">
+              <div class="process-grid-item">
+                <span>01</span>
+                <h4>Collaborative Insights</h4>
+                <p>
+                  We synergize with you for an inside-out breakdown of your
+                  vision – analyzing pain points and gaps that your solution can
+                  fill.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>02</span>
+                <h4>Development Roadmap</h4>
+                <p>
+                  Whether it's fixed bids, retainers, or iterative development
+                  plans. We help you create a strategy that works best for your
+                  business.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>03</span>
+                <h4>Project Scheduling</h4>
+                <p>
+                  From ideation to licensing in on the perfect deployment. We
+                  help you set a timeframe to ideate, build, test, and release
+                  solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-content-panel" id="panel-define">
+            <h3>Define</h3>
+            <p class="panel-subtitle">Blueprint for success</p>
+            <p class="panel-description">
+              See your vision take shape. Review proof of concepts, skeletal
+              wireframes before we migrate ready.
+            </p>
+            <div class="process-content-grid">
+              <div class="process-grid-item">
+                <span>01</span>
+                <h4>Platform Validation</h4>
+                <p>
+                  Uncover the right tech platform that combines framework and
+                  architecture to ensure impeccable performance.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>02</span>
+                <h4>Enterprise Architecture</h4>
+                <p>
+                  Seamlessly adopts to user journeys, tech disruption, and more.
+                  Each interaction, data model, and API is mapped.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>03</span>
+                <h4>Rapid Prototyping</h4>
+                <p>
+                  Simulate the end-product experience with interactive
+                  prototypes, wireframes, and mockups.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-content-panel" id="panel-develop">
+            <h3>Develop</h3>
+            <p class="panel-subtitle">Result-oriented execution</p>
+            <p class="panel-description">
+              Stack-agnostic development. We pick the right set of tools to
+              bring your idea to life.
+            </p>
+            <div class="process-content-grid">
+              <div class="process-grid-item">
+                <span>01</span>
+                <h4>Agile Workflows</h4>
+                <p>
+                  Our team of inter-disciplinary experts works cohesively as a
+                  unit – you’re always in the loop without the hassle of a
+                  complex chain of command.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>02</span>
+                <h4>Meticulous Testing</h4>
+                <p>
+                  Continuously testing solutions with our refined testing
+                  processes. Validate each step and phase out nagging defects.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>03</span>
+                <h4>Product Deployment</h4>
+                <p>
+                  Deliver game-changing outputs that can trump market dynamics
+                  and user-driven expectations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-content-panel" id="panel-evolve">
+            <h3>Evolve</h3>
+            <p class="panel-subtitle">Turn progress into a lifecycle</p>
+            <p class="panel-description">
+              Continuously attain perfection by integrating with the evolving
+              standards of people, processes, and technology.
+            </p>
+            <div class="process-content-grid">
+              <div class="process-grid-item">
+                <span>01</span>
+                <h4>Continuous Integration</h4>
+                <p>
+                  Seize every opportunity to merge innovative data modules
+                  across platforms and services – embracing universal data
+                  distribution.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>02</span>
+                <h4>Continuous Development</h4>
+                <p>
+                  Incrementally feature critical updates without starting from
+                  scratch. Stay ahead amidst an endless sea of innovation.
+                </p>
+              </div>
+              <div class="process-grid-item">
+                <span>03</span>
+                <h4>MVP Releases</h4>
+                <p>
+                  Consistently launch the best version of your product. Bring
+                  versatility and flexibility to create new opportunities and
+                  better solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="design-process-section">
+        <div class="design-process-header">
+          <h2>Website Design Process</h2>
+          <p>
+            Take a peek behind the curtain and explore the custom web design
+            process our team follows. We build custom sites for brands of all
+            sizes that deliver <a href="#">measurable results</a>.
+          </p>
+
+          <div class="process-line-wrapper">
+            <div class="process-line-base"></div>
+            <div
+              class="process-line-progress"
+              id="process-line-progress-bar"
+            ></div>
+            <div class="process-step-indicator active" style="left: 0%"></div>
+            <div class="process-step-indicator" style="left: 20%"></div>
+            <div class="process-step-indicator" style="left: 40%"></div>
+            <div class="process-step-indicator" style="left: 60%"></div>
+            <div class="process-step-indicator" style="left: 80%"></div>
+            <div class="process-step-indicator" style="left: 100%"></div>
+          </div>
+        </div>
+
+        <div class="process-scroller-container" id="process-scroller-js">
+          <div class="process-scroll-track" id="process-track-js">
+            <div class="process-step-item" id="step-item-1">
+              <div class="process-step-icon">
+                <img src="../images/WebStrategy.png" alt="Web Strategy Icon" />
+              </div>
+              <h4 data-target-id="step-item-1">Web Strategy</h4>
+              <p>
+                We use in-depth research and analysis as key pillars to build a
+                step-by-step plan that expands your digital presence and drives
+                online growth.
+              </p>
+              <ul class="process-step-list">
+                <li>Identify your target audiences</li>
+                <li>Analyze user pain-points & define your UVPs</li>
+                <li>Define key performance indicators (KPIs)</li>
+                <li>Create a sitemap to build a robust site architecture</li>
+              </ul>
+              <div class="process-step-number">01</div>
+            </div>
+
+            <div class="process-step-item" id="step-item-2">
+              <div class="process-step-icon">
+                <img
+                  src="../images/Planning&InformationArchitecture.png"
+                  alt="Planning Icon"
+                />
+              </div>
+              <h4 data-target-id="step-item-2">
+                Planning & Information Architecture
+              </h4>
+              <p>
+                We utilize proven techniques to map your content, meet user
+                intentions and create an engaging user experience. By outlining
+                your site's structure, we ensure seamless user journeys to key
+                conversion points.
+              </p>
+              <ul class="process-step-list">
+                <li>Here's how our team does it:</li>
+                <li>We develop a base-level user flow & sitemap</li>
+                <li>
+                  We utilize wireframing to create a seamless conversion funnel
+                </li>
+                <li>
+                  We establish consistent, responsive messaging for your brand
+                </li>
+              </ul>
+              <div class="process-step-number">02</div>
+            </div>
+
+            <div class="process-step-item" id="step-item-3">
+              <div class="process-step-icon">
+                <img
+                  src="../images/web-design.png"
+                  alt="Creative Design Icon"
+                />
+              </div>
+              <h4 data-target-id="step-item-3">Creative Design</h4>
+              <p>
+                This stage is where you will see your site come to life. Our
+                award-winning designers implement your unique branding elements
+                to add your identity to your custom web design in NYC.
+              </p>
+              <ul class="process-step-list">
+                <li>
+                  With just 50 milliseconds to make a good first impression,
+                  your website needs to stand out. To achieve this, we:
+                </li>
+                <li>
+                  Thoughtfully place design features to guide the user journey
+                </li>
+                <li>Utilize interactive videos & animations</li>
+                <li>Create custom-branded illustrations</li>
+                <li>Ensure accessibility & user-centric optimization</li>
+              </ul>
+              <div class="process-step-number">03</div>
+            </div>
+
+            <div class="process-step-item" id="step-item-4">
+              <div class="process-step-icon">
+                <img
+                  src="../images/ResponsiveDevelopment.png"
+                  alt="Responsive Development Icon"
+                />
+              </div>
+              <h4 data-target-id="step-item-4">Responsive Development</h4>
+              <p>
+                A responsive website is fast, accessible and easy to navigate.
+                It automatically scales to various screen sizes and devices,
+                driving user experience and climbing search engine rankings.
+              </p>
+              <ul class="process-step-list">
+                <li>
+                  To ensure your website reaches and satisfies every user, we:
+                </li>
+                <li>Gather touchpoint & user-channel insights</li>
+                <li>Transform your wireframes into a flexible UI</li>
+                <li>Test across devices before approval to launch</li>
+              </ul>
+              <div class="process-step-number">04</div>
+            </div>
+
+            <div class="process-step-item" id="step-item-5">
+              <div class="process-step-icon">
+                <img src="../images/QualityAssurance(QA).png" alt="QA Icon" />
+              </div>
+              <h4 data-target-id="step-item-5">Quality Assurance (QA)</h4>
+              <p>
+                At Digital Silk, we pride ourselves on delivering measurable
+                results and professional outcomes. By following a strict quality
+                assurance (QA) protocol, we guarantee a high-quality digital
+                experience for your brand.
+              </p>
+              <ul class="process-step-list">
+                <li>To achieve this, we:</li>
+                <li>Actively involve our clients throughout every project</li>
+                <li>Meticulously test all designs to each device</li>
+                <li>Use front and backend tests to secure before launch</li>
+              </ul>
+              <div class="process-step-number">05</div>
+            </div>
+
+            <div class="process-step-item" id="step-item-6">
+              <div class="process-step-icon">
+                <img
+                  src="../images/Launch&Optimization.png"
+                  alt="Launch Icon"
+                />
+              </div>
+              <h4 data-target-id="step-item-6">Launch & Optimization</h4>
+              <p>
+                Our end-to-end website design services cover both launch and
+                post-launch support. We meticulously monitor, test and optimize
+                your website elements to ensure every part of your site is
+                functioning optimally.
+              </p>
+              <ul class="process-step-list">
+                <li>Our design specialists make this happen by:</li>
+                <li>Following a strict protocol for every website launch</li>
+                <li>Offering post-launch maintenance & optimization</li>
+                <li>
+                  Creating & implementing a digital marketing plan to drive
+                  awareness across touchpoints
+                </li>
+              </ul>
+              <div class="process-step-number">06</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pricing-section">
+        <div class="pricing-content">
+          <h2>
+            Custom Web Design Pricing For
+            <strong>Each Client's Objectives</strong>
+          </h2>
+          <p>
+            Every website design project comes with unique challenges and
+            specific requirements that influence its final cost. A simple
+            project typically ranges from <strong>$25,000 to $30,000</strong>,
+            while more complex endeavors can reach
+            <strong>$50,000 to $60,000</strong> or more.
+          </p>
+          <p>
+            The technical setup of your website, which directly impacts its
+            performance, is a key factor in determining cost. More complex
+            setups that demand significant time and effort will naturally
+            increase the overall price.
+          </p>
+
+          <a href="#" class="btn-calculate">CALCULATE YOUR WEBSITE &gt;</a>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-grid-item">
+            <h4>Your choice of platform</h4>
+            <p>
+              also plays a role in the cost. Templated solutions are more
+              affordable while developing a fully custom site will increase the
+              project's total expense.
+            </p>
+          </div>
+          <div class="pricing-grid-item">
+            <h4>Custom graphic elements</h4>
+            <p>
+              are essential for enhancing your web presence. However, the more
+              complex the design requirements, the higher the overall cost.
+            </p>
+          </div>
+          <div class="pricing-grid-item">
+            <h4>After launching</h4>
+            <p>
+              your new website, the next step is to outperform competitors in
+              search engine rankings and secure top positions in your industry.
+            </p>
+          </div>
+          <div class="pricing-grid-item">
+            <h4>Our full-service</h4>
+            <p>
+              web design company offers expertise to clients of all sizes. You
+              can use our design cost calculator below for an estimate or
+              schedule a free consultation with one of our experts to discuss
+              your project's specifics.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="content-section tech-stack-section">
+        <div class="tech-stack-header anim-fade-in">
+          <p>
+            We think and speak mainly Kotlin, Node, React, Java. That's
+            everything you need!
+          </p>
+        </div>
+        <div class="tech-logo-grid">
+          <div class="tech-logo">Kotlin</div>
+          <div class="tech-logo icon">K.</div>
+          <div class="tech-logo"><span class="tech-logo-tag">MOBILE</span></div>
+          <div class="tech-logo">Java</div>
+          <div class="tech-logo">node.js</div>
+          <div class="tech-logo icon">&#128196;</div>
+          <div class="tech-logo"><span class="tech-logo-tag">WEB</span></div>
+          <div class="tech-logo">JS</div>
+        </div>
+      </section>
+      <section class="content-section products-section">
+        <div class="section-header">
+          <h2>
+            <div class="anim-line-inner">OUR PRODUCTS</div>
+            <div class="anim-line-inner">PRODUCTS</div>
+          </h2>
+          <a href="products.html">See all our products &rarr;</a>
+        </div>
+        <div class="products-container">
+          <div class="product-list">
+            <a
+              href="products.html"
+              class="product-item"
+              data-image="../images/mobile-software-development-product.jpg"
+            >
+              Mobile Software Development | Restaurant System
+            </a>
+            <a
+              href="products.html"
+              class="product-item"
+              data-image="../images/e-comarce.jpg"
+            >
+              E-Commerce Website | Chal-Dal, Live TV Streaming
+            </a>
+            <a
+              href="products.html"
+              class="product-item active"
+              data-image="../images/payment.jpg"
+            >
+              Flutter Mini OTT | Live TV, Movie, Videos
+            </a>
+            <a
+              href="products.html"
+              class="product-item"
+              data-image="../images/web-besed.png"
+            >
+              Mini OTT | Live TV, Streaming, Movie, Radio
+            </a>
+          </div>
+          <div class="product-image-preview anim-fade-in">
+            <img
+              src="../images/mobile-software-development-product.jpg"
+              alt="Product preview 1"
+              data-id="../images/mobile-software-development-product.jpg"
+            />
+            <img
+              src="../images/e-comarce.jpg"
+              alt="Product preview 2"
+              data-id="../images/e-comarce.jpg"
+            />
+            <img
+              src="../images/payment.jpg"
+              alt="Product preview 3"
+              data-id="../images/payment.jpg"
+              class="visible"
+            />
+            <img
+              src="../images/web-besed.png"
+              alt="Product preview 4"
+              data-id="../images/web-besed.png"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="client-scroller-section">
+        <h2 class="anim-fade-in">FEATURED CLIENTS</h2>
+        <div class="client-scroller-container" id="client-scroller">
+          <div class="scroller-track" id="scroller-track">
+            <img src="../images/download.png" alt="Cisco" />
+            <img src="../images/exon.png" alt="ExxonMobil" />
+            <img src="../images/tencent.png" alt="Tencent" />
+            <img src="../images/amazon.png" alt="Amazon" />
+            <img src="../images/apple.png" alt="Apple" />
+            <img src="../images/google.png" alt="Google" />
+            <img src="../images/meta.png" alt="Meta" />
+
+            <img src="../images/download.png" alt="Cisco" />
+            <img src="../images/exon.png" alt="ExxonMobil" />
+            <img src="../images/tencent.png" alt="Tencent" />
+            <img src="../images/amazon.png" alt="Amazon" />
+            <img src="../images/apple.png" alt="Apple" />
+            <img src="../images/google.png" alt="Google" />
+            <img src="../images/meta.png" alt="Meta" />
+          </div>
+        </div>
+      </section>
+      <section class="content-section faq">
+        <div class="section-header">
+          <h2>
+            <div class="anim-line-inner">FREQUENTLY</div>
+            <div class="anim-line-inner">ASKED QUESTIONS</div>
+          </h2>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>How can your software benefit my business?</span>
+            <span class="accordion-toggle">+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Our software can enhance efficiency, streamline operations, reduce
+              costs, and improve productivity. It’s tailored to address specific
+              needs in your industry.
+            </p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Is your software customizable?</span>
+            <span class="accordion-toggle">+</span>
+          </div>
+          <div class="accordion-content">
+            <p>
+              Yes, our software solutions are highly customizable to meet your
+              unique business needs.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="#" class="logo">KRELYON</a>
+      <div class="footer-links">
+        <div>
+          <a href="#">Instagram</a> <a href="#">Dribbble</a>
+          <a href="#">YouTube</a>
+        </div>
+        <div>
+          <a href="#">Mobile App Development</a>
+          <a href="#">Web Development</a> <a href="#">UI/UX Design</a>
+        </div>
+        <div>
+          <a href="#">Home</a> <a href="#">Work</a> <a href="#">About</a>
+        </div>
+      </div>
     </footer>
     <div id="video-modal" class="video-modal-overlay">
-        <div class="video-modal-content">
-            <button id="video-modal-close" class="video-modal-close">&times;</button>
+      <div class="video-modal-content">
+        <button id="video-modal-close" class="video-modal-close">
+          &times;
+        </button>
 
-            <video id="video-iframe" width="100%" height="100%" controls muted preload="auto">
-
-                <source src="../images/products.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-
-        </div>
+        <video
+          id="video-iframe"
+          width="100%"
+          height="100%"
+          controls
+          muted
+          preload="auto"
+        >
+          <source src="../images/coding.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
     <script src="../js/home.js"></script>
     <script src="../js/dropdown.js"></script>
-    </body>
-
+  </body>
 </html>
