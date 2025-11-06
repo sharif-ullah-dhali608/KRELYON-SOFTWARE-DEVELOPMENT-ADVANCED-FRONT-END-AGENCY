@@ -17,16 +17,12 @@
     <link rel="stylesheet" href="../css/dropdown.css">
 
     <style>
-        /* ============================================= */
-        /* === About Page Specific Styles === */
-        /* ============================================= */
-        
+
         html { scroll-behavior: smooth; }
         body { overflow-x: hidden; }
 
-        /* --- 1. হিরো সেকশন (Ken Burns Effect) --- */
-        .about-hero {
-            height: 80vh; 
+         .about-hero {
+            height: 130vh; 
             position: relative;
             display: flex;
             align-items: center;
@@ -42,7 +38,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://source.unsplash.com/random/1600x900?office,modern,team&1');
+            background-image: url('../images/about-hero0.png');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -81,13 +77,12 @@
             line-height: 1.7;
         }
 
-        /* --- 2. Story / Mission Section (লেআউট ঠিক করা হয়েছে) --- */
-        .about-story {
+         .about-story {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 4rem;
-            padding: 6rem 3rem; /* এটিই প্রথম সেকশন, তাই গ্যাপ ঠিক আছে */
+            padding: 6rem 3rem;  
         }
         .story-image {
             opacity: 0;
@@ -115,15 +110,14 @@
             margin-bottom: 1rem;
         }
 
-        /* --- 3. Values Section (জিগ-জ্যাগ ডিজাইন) --- */
-        .about-values {
+         .about-values {
             padding: 6rem 3rem;
             background-color: var(--bg-color);
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
         }
         .section-header {
-            text-align: center; /* আপনার অনুরোধ মতো সেন্টার করা হলো */
+            text-align: center;  
             max-width: 700px;
             margin: 0 auto 5rem auto;
         }
@@ -131,8 +125,7 @@
             font-size: 3rem;
             margin-bottom: 1rem;
             min-height: 50px; 
-            /* display: inline-block; <-- এই ভুলের কারণেই লেআউট ভেঙেছিল */
-        }
+         }
         .typing-cursor::after {
             content: '_';
             opacity: 1;
@@ -142,17 +135,15 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             line-height: 1.7;
-            opacity: 0; /* অ্যানিমেশনের জন্য প্রাথমিক অবস্থা */
-            /* "lore jacche" (নড়াচড়া) বন্ধ করার জন্য transform বাদ দেয়া হলো */
-        }
+            opacity: 0;  
+         }
         
         @keyframes blink-caret {
             from, to { opacity: 1; }
             50% { opacity: 0; }
         }
 
-        /* জিগ-জ্যাগ লেআউট (আগের মতো) */
-        .principle-row {
+         .principle-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
@@ -188,8 +179,7 @@
             transform: translateX(50px);
         }
 
-        /* --- 4. Team Section --- */
-        .about-team {
+         .about-team {
             padding: 6rem 3rem;
         }
         .team-grid {
@@ -235,8 +225,7 @@
             font-weight: 500;
         }
 
-        /* --- 5. CTA Section (Join Us) --- */
-        .about-cta {
+         .about-cta {
             padding: 6rem 3rem;
             text-align: center;
             background-color: var(--bg-secondary);
@@ -272,8 +261,7 @@
             transform: translateY(-3px);
         }
 
-        /* --- 6. Responsive Design --- */
-        @media (max-width: 1024px) {
+         @media (max-width: 1024px) {
             .about-hero h1 { font-size: 7vw; }
             .team-grid { grid-template-columns: repeat(3, 1fr); }
         }
@@ -303,15 +291,12 @@
     </style>
 </head>
 <body>
-
     <div id="preloader-bg"></div>
     <div id="preloader-circle"></div>
-
     <header id="main-header">
-        <a href="../codifav3.html" class="logo">CODIFIA</a> 
+        <a href="home.html" class="logo">KRELYON</a> 
         <nav class="desktop-nav">
-            <a href="../codifav3.html">Home</a> 
-            
+            <a href="home.html">Home</a> 
             <div class="nav-item-dropdown">
                 <button class="nav-dropdown-toggle" id="services-toggle">
                     Services 
@@ -404,7 +389,7 @@
                 <a href="#">Instagram</a>
             </div>
             <div class="main-links">
-                <a href="../codifav3.html">Home</a>
+                <a href="home.html">Home</a>
                 
                 <div class="mobile-nav-item-with-sub">
                     <button class="mobile-nav-sub-toggle">
@@ -429,15 +414,15 @@
                     </div>
                 </div>
                 
-                <a href="#">Work</a>
-                <a href="#">Insights</a>
+                <a href="products.html">Work</a>
+                <a href="service.html">Insights</a>
                 <a href="products.html">Products</a>
-                <a href="../contact.html">Contact</a> 
+                <a href="contact.html">Contact</a> 
             </div>
         </div>
         <div class="mobile-nav-footer">
             <p>Get in touch</p>
-            <a href="mailto:info@codifia.com">info@codifia.com</a>
+            <a href="mailto:info@krelyon.com">info@krelyon.com</a>
         </div>
     </div>
 
@@ -448,7 +433,7 @@
             <div class="hero-image-bg"></div>
             <div class="hero-image-overlay"></div>
             <div class="about-hero-content">
-                <h1>We are Codifia. A creative partner for digital innovators.</h1>
+                <h1>We are Krelyon. A creative partner for digital innovators.</h1>
                 <p>We solve complex problems with human-centric design and future-proof technology.</p>
             </div>
         </section>
@@ -456,7 +441,7 @@
         <section class="about-story">
             <div class="story-content">
                 <h2>Our Story: From a simple idea to a global partner.</h2>
-                <p>Founded in 2018, Codifia started with a simple mission: to build software that people love to use. We saw a gap between complex technology and the need for simple, human-centric design.</p>
+                <p>Founded in 2025, Krelyon started with a simple mission: to build software that people love to use. We saw a gap between complex technology and the need for simple, human-centric design.</p>
                 <p>Today, we've grown into a full-service digital partner, helping startups and enterprise clients alike navigate their digital transformation journey. Our success is built on a foundation of partnership and a relentless pursuit of quality.</p>
             </div>
             <div class="story-image">
@@ -506,30 +491,30 @@ C                    </div>
             </div>
             <div class="team-grid">
                  <div class="team-card">
-                    <img src="../images/sharif.jpg" alt="Team Member 1">
+                    <img src="../images/noor-sir.jpeg" alt="Team Member 1">
                     <div class="team-info">
-                        <h4>Oli Ahmed</h4>
+                        <h4>Asaduzzaman Noor Don</h4>
                         <p>Founder & MD</p>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="../images/sharif.jpg" alt="Team Member 2">
+                    <img src="../images/about-hero0.png" alt="Team Member 2">
                     <div class="team-info">
-                        <h4>Mredul Kanti</h4>
-                        <p>CTO</p>
+                        <h4>Sharif Ullah</h4>
+                        <p>CEO</p>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="../images/sharif.jpg" alt="Team Member 3">
+                    <img src="../images/takmin.jpeg" alt="Team Member 3">
                     <div class="team-info">
-                        <h4>Rafiul Islam</h4>
+                        <h4>Takmin</h4>
                         <p>Senior Engineer, COO</p>
                     </div>
                 </div>
                 <div class="team-card">
-                    <img src="../images/sharif.jpg" alt="Team Member 4">
+                    <img src="../images/bhai-bhabi.jpeg" alt="Team Member 4">
                     <div class="team-info">
-                        <h4>Pradip Pal</h4>
+                        <h4>Sadia</h4>
                         <p>Senior Engineer, Tech Lead</p>
                     </div>
                 </div>
@@ -549,19 +534,16 @@ C                    </div>
         <div class="footer-links">
             <div><a href="#">Instagram</a> <a href="#">Dribbble</a> <a href="#">YouTube</a></div>
             <div><a href="service.html#section-mobile">Mobile App Development</a> <a href="service.html#section-webdesign">Web Development</a> <a href="#">UI/UX Design</a></div>
-            <div><a href="../codifav3.html">Home</a> <a href="#">Work</a> <a href="about.html">About</a></div>
+            <div><a href="home.html">Home</a> <a href="#">Work</a> <a href="about.html">About</a></div>
         </div>
     </footer>
     
 
     <script>
         
-        // =============================================
-        // === "স্লো মোশন" স্ক্রাব অ্যানিমেশন ===
-        // =============================================
+        
         function runScrubAnimations() {
-            // --- 1. স্টোরি সেকশন: দুই পাশ থেকে স্লাইড ইন ---
-            gsap.to('.story-content', {
+             gsap.to('.story-content', {
                 x: 0, opacity: 1,
                 scrollTrigger: {
                     trigger: '.about-story',
@@ -576,8 +558,7 @@ C                    </div>
                 }
             });
 
-            // --- 2. "Principles" সেকশন (জিগ-জ্যাগ) ---
-            gsap.utils.toArray('.principle-row').forEach(row => {
+             gsap.utils.toArray('.principle-row').forEach(row => {
                 gsap.to(row.querySelector('.principle-icon-wrapper'), {
                     scale: 1, opacity: 1,
                     scrollTrigger: {
@@ -592,69 +573,61 @@ C                    </div>
                 });
             });
 
-            // --- 3. টিম সেকশন: কার্ডগুলো একের পর এক আসবে ---
-            gsap.to('.team-card', {
+             gsap.to('.team-card', {
                 opacity: 1, y: 0, stagger: 0.2,
                 scrollTrigger: {
                     trigger: '.about-team', start: 'top 70%', end: 'bottom 80%', scrub: 1
                 }
             });
 
-            // --- 4. CTA সেকশন: ফেড-ইন ---
-             gsap.to('.about-cta', {
+              gsap.to('.about-cta', {
                 opacity: 1, y: 0,
                 scrollTrigger: {
                     trigger: '.about-cta', start: 'top 85%', end: 'bottom 80%', scrub: 1
                 }
             });
         }
-        
-        // =============================================
-        // === টাইপরাইটার অ্যানিমেশন (আপনার অনুরোধ মতো আপডেটেড) ===
-        // =============================================
+
         function initializeTypewriters() {
             
-            // --- ১. "Our Guiding Principles" লুপ টাইপিং ---
-            const principlesTarget = document.getElementById('principles-title');
+             const principlesTarget = document.getElementById('principles-title');
             if (principlesTarget) {
                 const principlesText = "Our Guiding Principles";
                 
                 const principlesTL = gsap.timeline({
                     scrollTrigger: {
                         trigger: principlesTarget,
-                        start: 'top 80%', // যখন ভিউপোর্টে আসবে
-                        toggleActions: "play pause resume reset" // স্ক্রল করে বাইরে গেলে পজ হবে
+                        start: 'top 80%', 
+                        toggleActions: "play pause resume reset" 
                     },
-                    repeat: -1, // অসীম লুপ
-                    repeatDelay: 3 // ৩ সেকেন্ড পর পর
+                    repeat: -1, 
+                    repeatDelay: 3 
                 });
                 
                 principlesTL.to(principlesTarget, {
                     duration: 1.5,
-                    text: { value: principlesText, newClass: "typing-cursor" }, // কার্সর যোগ করবে
+                    text: { value: principlesText, newClass: "typing-cursor" },
                     ease: 'none'
                 })
-                .to(principlesTarget, { duration: 3, ease: 'none' }) // ৩ সেকেন্ড অপেক্ষা
+                .to(principlesTarget, { duration: 3, ease: 'none' }) 
                 .to(principlesTarget, {
                     duration: 1.5,
-                    text: { value: "", newClass: "typing-cursor" }, // ডিলিট
+                    text: { value: "", newClass: "typing-cursor" }, 
                     ease: 'none'
                 });
 
-                // সাবটাইটেলটি ScrollTrigger দিয়ে fade-in করুন (এটি ফিক্সড থাকবে)
-                gsap.to('#principles-subtitle', {
+                 gsap.to('#principles-subtitle', {
                     opacity: 1,
                     duration: 0.5,
                     scrollTrigger: {
                         trigger: '#principles-subtitle',
-                        start: 'top 90%', // একটু পরে আসবে
+                        start: 'top 90%',
                         once: true
                     }
                 });
             }
             
-            // --- ২. "Meet Our Leadership" লুপ টাইপিং ---
-            const teamTarget = document.getElementById('team-title');
+             const teamTarget = document.getElementById('team-title');
             if (teamTarget) {
                 const teamText = "Meet Our Leadership";
 
@@ -680,8 +653,7 @@ C                    </div>
                     ease: 'none'
                 });
 
-                // সাবটাইটেল fade-in (এটি ফিক্সড থাকবে)
-                gsap.to('#team-subtitle', {
+                 gsap.to('#team-subtitle', {
                     opacity: 1,
                     duration: 0.5,
                     scrollTrigger: {
@@ -693,9 +665,7 @@ C                    </div>
             }
         }
 
-        // =============================================
-        // === অ্যানিমেশন চালু করার প্রধান ফাংশন ===
-        // =============================================
+
         function runPageAnimations() {
             
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof TextPlugin === 'undefined') {
@@ -706,11 +676,9 @@ C                    </div>
                 return;
             }
 
-            // GSAP প্লাগইন রেজিস্টার করুন
-            gsap.registerPlugin(ScrollTrigger, TextPlugin);
+             gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-            // --- 1. প্রি-লোডার ও হেডার অ্যানিমেশন ---
-            const tl = gsap.timeline();
+             const tl = gsap.timeline();
             tl.to(document.getElementById('preloader-circle'), { scale: 1, duration: 0.5, ease: 'power2.out' })
               .to(document.getElementById('preloader-circle'), { scale: 50, duration: 1.5, ease: 'power3.inOut' })
               .to(document.getElementById('preloader-bg'), { opacity: 0, duration: 1, onComplete: () => document.getElementById('preloader-bg').style.display = 'none' }, "-=1.5")
@@ -721,8 +689,7 @@ C                    </div>
               .to(document.getElementById('main-header'), { opacity: 1, duration: 1 }, "-=0.5")
               .to('.about-hero-content', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, "-=0.5");
               
-            // --- 2. স্ক্রলড নেভবার --- 
-            ScrollTrigger.create({
+             ScrollTrigger.create({
                 start: 'top -80',
                 end: 99999,
                 toggleClass: {
@@ -731,20 +698,14 @@ C                    </div>
                 }
             });
             
-            // --- 3. "স্লো মোশন" স্ক্রাব অ্যানিমেশন চালু করুন ---
             runScrubAnimations();
             
-            // --- 4. টাইপরাইটার অ্যানিমেশন চালু করুন ---
-            initializeTypewriters();
+             initializeTypewriters();
 
-        } // <-- runPageAnimations() function ekhane shesh
+        } 
         
         
-        // =============================================
-        // === নেভিগেশন জাভাস্ক্রিপ্ট ===
-        // =============================================
-        
-        // --- 1. GSAP MEGA MENU (Services) ---
+      
         let megaMenuTL; 
         function initializeMegaMenu() {
             if (typeof gsap === 'undefined') return;
@@ -770,8 +731,7 @@ C                    </div>
                     megaMenuTL.reverse();
                 }
             });
-            // বাইরে ক্লিক করলে বন্ধ করার কোড
-            document.addEventListener('click', (e) => {
+             document.addEventListener('click', (e) => {
                 if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
                     toggle.classList.remove('active');
                     menu.classList.remove('open');
@@ -781,8 +741,7 @@ C                    </div>
             });
         }
 
-        // --- 2. SIMPLE DROPDOWN (About Us) ---
-        function initializeAboutDropdown() {
+         function initializeAboutDropdown() {
             const toggle = document.getElementById('about-toggle');
             const menu = document.getElementById('about-menu');
             if (!toggle || !menu) return;
@@ -798,8 +757,7 @@ C                    </div>
                 const isOpen = menu.classList.toggle('open');
                 toggle.classList.toggle('active', isOpen);
             });
-            // বাইরে ক্লিক করলে বন্ধ করার কোড
-            document.addEventListener('click', (e) => {
+             document.addEventListener('click', (e) => {
                 if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
                     menu.classList.remove('open');
                     toggle.classList.remove('active');
@@ -807,8 +765,7 @@ C                    </div>
             });
         }
 
-        // --- 3. MOBILE MENU (Fix for multiple toggles) ---
-        function initializeMobileMenu() {
+         function initializeMobileMenu() {
             const mobileToggle = document.querySelector('.mobile-nav-toggle');
             const mobileNav = document.getElementById('mobile-nav');
             const mobileNavClose = document.getElementById('mobile-nav-close');
@@ -859,8 +816,7 @@ C                    </div>
             });
         }
         
-        // --- 4. সব নেভিগেশন ফাংশন কল করা ---
-        function initializeAllNavigation() {
+         function initializeAllNavigation() {
             initializeMegaMenu();
             initializeAboutDropdown();
             initializeMobileMenu();
@@ -875,7 +831,7 @@ C                    </div>
                             document.getElementById('mobile-nav-close').click();
                         }
                         
-                        const headerOffset = 100; // হেডারের উচ্চতা
+                        const headerOffset = 100;  
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -889,8 +845,7 @@ C                    </div>
         }
 
 
-        // --- Script চালানো ---
-        window.addEventListener('load', () => {
+         window.addEventListener('load', () => {
             runPageAnimations();
             initializeAllNavigation();
         });

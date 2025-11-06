@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Codifia</title>
+    <title>Our Services - KRELYON</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="../css/dropdown.css">
 
     <style>
-        /* ============================================= */
-        /* === পেজ-স্পেসিফিক স্টাইল (Mako Hero) === */
-        /* ============================================= */
+
         
         .mako-hero {
             min-height: 100vh; 
@@ -31,7 +29,6 @@
             border-bottom: 1px solid var(--border-light);
         }
 
-        /* --- Notun Video Background Style --- */
         .hero-video-bg {
             position: absolute;
             top: 0;
@@ -51,18 +48,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(17, 24, 39, 0.65); /* টেক্সট পড়ার জন্য ওভারলে */
+            background-color: rgba(17, 24, 39, 0.65); 
             z-index: 1;
         }
-        /* --- End Notun Video Style --- */
 
-        /* --- Hero Text Style (Notun) --- */
          .hero-bg-text {
             position: absolute;
             font-size: 15vw;
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.1); /* ভিডিওর উপরে হালকা সাদা টেক্সট */
+            color: rgba(255, 255, 255, 0.1); 
             z-index: 2; 
             user-select: none; 
             opacity: 0.3;
@@ -73,7 +68,7 @@
 
         .hero-content-wrapper {
             position: relative; 
-            z-index: 3; /* টেক্সট কন্টেন্ট সবার উপরে */
+            z-index: 3; 
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
@@ -98,21 +93,17 @@
             line-height: 1.6; 
             color: var(--text-muted);
         }
-        .anim-fade { opacity: 0; } /* GSAP এটি fade in করবে */
+        .anim-fade { opacity: 0; } 
         
-        /* --- নতুন: টাইপিং কার্সর স্টাইল --- */
-        .typing-target::after {
+         .typing-target::after {
             content: '_';
             font-weight: 400;
             opacity: 1;
             animation: blink-caret 1s infinite;
         }
-        /* --- শেষ: টাইপিং কার্সর স্টাইল --- */
+ 
 
 
-        /* ============================================= */
-        /* === 3. Scroll Spy সেকশনের স্টাইল === */
-        /* ============================================= */
         .app-dev-section {
             padding: 6rem 3rem;
         }
@@ -167,7 +158,7 @@
             transition: all 0.3s ease;
         }
         .app-dev-sticky-nav a.active {
-            color: var(--accent-color); /* এটি আপনার accent-blue ছিল, আমি সবুজ করেছি */
+            color: var(--accent-color); 
             font-weight: 700;
         }
         .app-dev-sticky-nav a.active::before {
@@ -192,7 +183,7 @@
             justify-content: flex-end; 
             padding: 2.5rem;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            background-color: var(--bg-secondary); /* ফলব্যাক কালার */
+            background-color: var(--bg-secondary); 
         }
 
         .app-dev-panel img {
@@ -208,14 +199,13 @@
         .panel-overlay {
             position: absolute;
             inset: 0;
-            /* হালকা ওভারলে */
             background: linear-gradient(90deg, rgba(17, 24, 39, 0.5) 0%, rgba(17, 24, 39, 0.2) 100%);
             z-index: 2; 
         }
         
         .app-dev-panel .panel-text {
             position: relative;
-            z-index: 3; /* টেক্সট সবার উপরে */
+            z-index: 3;  
         }
 
         .app-dev-panel h2 {
@@ -236,9 +226,7 @@
             transform: scale(1.05);
         }
 
-        /* ============================================= */
-        /* === 4. ফুটার === */
-        /* ============================================= */
+ 
         footer {
             background-color: var(--footer-bg);
             padding: 5rem 3rem;
@@ -262,7 +250,7 @@
         }
         
         /* ============================================= */
-        /* === 5. রেসপন্সিভ === */
+        /* ===  Responsive  === */
         /* ============================================= */
         @media (max-width: 900px) {
             .mako-hero {
@@ -327,8 +315,7 @@
             100% { background-position: 0 4px; }
         }
 
-        /* শুধু Scroll-Spy প্যানেলের টাইটেলের জন্য এই স্টাইল */
-        .app-dev-panel .typewriter-effect h2 {
+         .app-dev-panel .typewriter-effect h2 {
             overflow: hidden; 
             border-right: .15em solid var(--accent-color);
             white-space: nowrap; 
@@ -337,8 +324,7 @@
             width: 0; 
         }
         
-        /* হিরো সেকশনের টাইটেলের জন্য এই স্টাইলটি লাগবে না */
-        .typewriter-loop-multi h1 {
+         .typewriter-loop-multi h1 {
              white-space: nowrap; 
         }
         
@@ -348,8 +334,7 @@
             50% { border-color: var(--accent-color); opacity: 0; }
         }
 
-        /* যখন অ্যানিমেশন শেষ হবে */
-        .typewriter-effect.done h2 {
+         .typewriter-effect.done h2 {
             border-right: none; 
             width: auto; 
             white-space: normal; 
@@ -362,21 +347,14 @@
 
     <div id="preloader-bg"></div>
     <div id="preloader-circle"></div>
-
-
-
-
-
-  <header id="main-header">
-        <a href="home.html" class="logo">CODIFIA</a> <nav class="desktop-nav">
-            <a href="home.html">Home</a> 
-            
+    <header id="main-header">
+        <a href="home.html" class="logo">KRELYON</a> <nav class="desktop-nav">
+            <a href="home.html">Home</a>     
             <div class="nav-item-dropdown">
                 <button class="nav-dropdown-toggle" id="services-toggle">
                     Services 
                     <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                
+                </button>      
                 <div class="mega-menu-dropdown" id="services-menu">
                     <div class="mega-menu-grid">
                         
@@ -490,8 +468,6 @@
                 <a href="#">Our Milestones</a>
                 <a href="#">Our Certifications</a>
             </div>
-
-
             </div>
             <a href="service.html">Insights</a>
             <a href="products.html">Products</a>
@@ -670,35 +646,29 @@
     </main>
     
     <footer>
-        <a href="../codifav3.html" class="logo">CODIFIA</a> <div class="footer-links">
+        <a href="home.html" class="logo">KRELYON</a> <div class="footer-links">
             <div><a href="#">Instagram</a> <a href="#">Dribbble</a> <a href="#">YouTube</a></div>
-            <div><a href="#">Mobile App Development</a> <a href="#">Web Development</a> <a href="#">UI/UX Design</a></div>
-            <div><a href="../codifav3.html">Home</a> <a href="#">Work</a> <a href="#">About</a></div>
+            <div><a href="service.html">Mobile App Development</a> <a href="service.html">Web Development</a> <a href="service.html">UI/UX Design</a></div>
+            <div><a href="home.html">Home</a> <a href="products.html">Work</a> <a href="about.html">About</a></div>
         </div>
     </footer>
     
 
     <script>
         
-        // =============================================
-        // === ৩. কোডিং অ্যানিমেশন চালু করার ফাংশন (আপডেটেড) ===
-        // =============================================
+
         function initializeCodingAnimations() {
-            // GSAP এবং প্লাগইন লোড হয়েছে কিনা চেক করুন
-            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof TextPlugin === 'undefined') {
+             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof TextPlugin === 'undefined') {
                  console.warn("GSAP or its plugins not loaded for typewriter effect.");
                  return;
             }
 
-            // সব টাইপরাইটার এলিমেন্ট সিলেক্ট করুন
-            gsap.utils.toArray('.typewriter-effect').forEach(elem => {
+             gsap.utils.toArray('.typewriter-effect').forEach(elem => {
                 
-                // বিভিন্ন ধরনের টাইপরাইটার চেক করুন
-                const isMultiLoop = elem.classList.contains('typewriter-loop-multi');
+                 const isMultiLoop = elem.classList.contains('typewriter-loop-multi');
                 
                 if (isMultiLoop) {
-                    // === হিরো সেকশনের জন্য: মাল্টি-লুপ অ্যানিমেশন ===
-                    const loopTarget = elem.querySelector('.typing-target');
+                     const loopTarget = elem.querySelector('.typing-target');
                     if (loopTarget) {
                         const services = [
                             "Web Applications.",
@@ -708,41 +678,38 @@
                             "Enterprise Platforms."
                         ];
                         
-                        // GSAP টাইমলাইন তৈরি করুন
-                        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+                         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
                         services.forEach(service => {
                             tl.to(loopTarget, {
-                                duration: 1.2, // টাইপিং স্পিড
+                                duration: 1.2, 
                                 text: service,
                                 ease: "none", 
                             })
-                            .to(loopTarget, { // ২ সেকেন্ড অপেক্ষা
+                            .to(loopTarget, {  
                                 duration: 2,
                                 text: service,
                                 ease: "none",
                             })
-                            .to(loopTarget, { // ডিলিট স্পিড
+                            .to(loopTarget, {  
                                 duration: 1.2,
                                 text: "",
                                 ease: "none",
                             });
                         });
                         
-                        // পেজ লোডের ১ সেকেন্ড পর টাইমলাইন প্লে করুন
-                        setTimeout(() => tl.play(), 1000);
+                         setTimeout(() => tl.play(), 1000);
                     }
 
                 } else {
-                    // === অন্যান্য সেকশনের জন্য: ScrollTrigger-ভিত্তিক অ্যানিমেশন ===
-                    const h2 = elem.querySelector('h2');
-                    if (!h2) return; // শুধু h2 ট্যাগ খুঁজবে
+                     const h2 = elem.querySelector('h2');
+                    if (!h2) return;  
 
                     const typingAnim = gsap.to(h2, {
                         width: '100%', 
                         duration: 1.5, 
-                        ease: 'steps(30)', // টাইপিং ইফেক্ট
-                        paused: true, // শুরুতে পজ থাকবে
+                        ease: 'steps(30)',  
+                        paused: true,  
                         onComplete: () => {
                             setTimeout(() => {
                                 if(elem) elem.classList.add('done');
@@ -761,9 +728,7 @@
         }
 
 
-        // =============================================
-        // === ১. MAIN FUNCTION: runAnimations (আপডেটেড) ===
-        // =============================================
+ 
         function runAnimations() {
             
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
@@ -778,11 +743,9 @@
                 return;
             }
 
-            // === GSAP প্লাগইন রেজিস্টার করুন ===
-            gsap.registerPlugin(ScrollTrigger, TextPlugin);
+             gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-            // --- প্রি-লোডার অ্যানিমেশন ---
-            const preloaderBg = document.getElementById('preloader-bg');
+             const preloaderBg = document.getElementById('preloader-bg');
             const preloaderCircle = document.getElementById('preloader-circle');
             const mainContent = document.getElementById('main-content');
             const header = document.getElementById('main-header');
@@ -797,12 +760,10 @@
                   mainContent.style.visibility = 'visible';
               }}, "-=1")
               .to(header, { opacity: 1, duration: 1 }, "-=0.5")
-              // পুরনো .anim-line-inner অ্যানিমেশন মুছে ফেলা হয়েছে
-              // হিরো সেকশনের <p> ট্যাগটি fade in করুন
+ 
               .to('.mako-hero .anim-fade', { opacity: 1, duration: 1 }, "-=0.3");
               
-            // --- স্ক্রলড নেভবার --- 
-            ScrollTrigger.create({
+             ScrollTrigger.create({
                 start: 'top -80',
                 end: 99999,
                 toggleClass: {
@@ -811,21 +772,16 @@
                 }
             });
             
-            // =============================================
-            // === ২. Scroll Spy JavaScript ===
-            // =============================================
+ 
             initializeScrollSpy();
 
-            // =============================================
-            // === ৩. কোডিং অ্যানিমেশন চালু করুন ===
-            // =============================================
-            initializeCodingAnimations(); // এই আপডেটেড ফাংশনটি কল করুন
+ 
+            initializeCodingAnimations();  
 
-        } // <-- runAnimations() function ekhane shesh
+        }  
 
         
-        // --- Helper Function: Scroll Spy (এটি ঠিক আছে) ---
-        function initializeScrollSpy() {
+         function initializeScrollSpy() {
             const links = document.querySelectorAll(".app-dev-sticky-nav a");
             const panels = document.querySelectorAll(".app-dev-panel");
 
@@ -850,8 +806,7 @@
                     });
                 });
             } else {
-                // GSAP ছাড়া ফলব্যাক
-                window.addEventListener('scroll', () => {
+                 window.addEventListener('scroll', () => {
                     let current = '';
                     panels.forEach(panel => {
                         const panelTop = panel.offsetTop;
@@ -871,8 +826,7 @@
         }
 
         
-        // --- Script Chalano ---
-        window.addEventListener('load', runAnimations);
+         window.addEventListener('load', runAnimations);
         
     </script>
     <script src="../js/dropdown.js"></script>
