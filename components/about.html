@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Company - Codifia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
+
+    <style>
+        /* ============================================= */
+        /* === About Page Specific Styles === */
+        /* ============================================= */
+        
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+
+        /* --- 1. হিরো সেকশন (Ken Burns Effect) --- */
+        .about-hero {
+            height: 80vh; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem;
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+        .hero-image-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/random/1600x900?office,modern,team&1');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            animation: ken-burns 20s ease-in-out infinite alternate;
+        }
+        @keyframes ken-burns {
+            0% { transform: scale(1.1) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.7); 
+            z-index: 2;
+        }
+        .about-hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            opacity: 0; 
+            transform: translateY(30px);
+        }
+        .about-hero h1 {
+            font-size: 4.5vw;
+            line-height: 1.1;
+            color: var(--text-color);
+        }
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 1.5rem auto 0 auto;
+            line-height: 1.7;
+        }
+
+        /* --- 2. Story / Mission Section (লেআউট ঠিক করা হয়েছে) --- */
+        .about-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 6rem 3rem; /* এটিই প্রথম সেকশন, তাই গ্যাপ ঠিক আছে */
+        }
+        .story-image {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        .story-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+        .story-content {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .story-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* --- 3. Values Section (জিগ-জ্যাগ ডিজাইন) --- */
+        .about-values {
+            padding: 6rem 3rem;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .section-header {
+            text-align: center; /* আপনার অনুরোধ মতো সেন্টার করা হলো */
+            max-width: 700px;
+            margin: 0 auto 5rem auto;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            min-height: 50px; 
+            /* display: inline-block; <-- এই ভুলের কারণেই লেআউট ভেঙেছিল */
+        }
+        .typing-cursor::after {
+            content: '_';
+            opacity: 1;
+            animation: blink-caret 1s infinite;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            opacity: 0; /* অ্যানিমেশনের জন্য প্রাথমিক অবস্থা */
+            /* "lore jacche" (নড়াচড়া) বন্ধ করার জন্য transform বাদ দেয়া হলো */
+        }
+        
+        @keyframes blink-caret {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* জিগ-জ্যাগ লেআউট (আগের মতো) */
+        .principle-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+        .principle-icon-wrapper {
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .principle-icon-wrapper svg {
+            width: 90px;
+            height: 90px;
+            color: var(--accent-color);
+        }
+        .principle-content {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        .principle-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .principle-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .principle-row:nth-child(even) .principle-icon-wrapper { order: 2; }
+        .principle-row:nth-child(even) .principle-content {
+            order: 1;
+            transform: translateX(50px);
+        }
+
+        /* --- 4. Team Section --- */
+        .about-team {
+            padding: 6rem 3rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .team-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .team-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1.2;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+        .team-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(0deg, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0) 100%);
+            text-align: center;
+        }
+        .team-info h4 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        .team-info p {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* --- 5. CTA Section (Join Us) --- */
+        .about-cta {
+            padding: 6rem 3rem;
+            text-align: center;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            opacity: 0;
+        }
+        .about-cta h2 {
+            font-size: 2.5rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+        .about-cta p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto 2.5rem auto;
+        }
+        .btn-orange {
+            display: inline-block; 
+            background-color: var(--accent-orange); 
+            color: var(--bg-color); 
+            padding: 1rem 2.5rem; 
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; 
+            border-radius: 5px; 
+            border: 2px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
+        .btn-orange:hover {
+            background-color: transparent;
+            color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        /* --- 6. Responsive Design --- */
+        @media (max-width: 1024px) {
+            .about-hero h1 { font-size: 7vw; }
+            .team-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 { font-size: 10vw; }
+            .about-story { grid-template-columns: 1fr; }
+            .story-image { order: 1; } 
+            .story-content { order: 2; }
+            
+            .principle-row { grid-template-columns: 1fr; text-align: center; }
+            .principle-row:nth-child(even) .principle-icon-wrapper { order: 1; }
+            .principle-row:nth-child(even) .principle-content { order: 2; }
+            .principle-content { transform: translateX(0) !important; }
+
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 600px) {
+            .about-hero h1 { font-size: 12vw; }
+            .about-story, .about-values, .about-team, .about-cta {
+                padding: 4rem 1.5rem;
+            }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="preloader-bg"></div>
+    <div id="preloader-circle"></div>
+
+    <header id="main-header">
+        <a href="../codifav3.html" class="logo">CODIFIA</a> 
+        <nav class="desktop-nav">
+            <a href="../codifav3.html">Home</a> 
+            
+            <div class="nav-item-dropdown">
+                <button class="nav-dropdown-toggle" id="services-toggle">
+                    Services 
+                    <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="mega-menu-dropdown" id="services-menu">
+                    <div class="mega-menu-grid">
+                        
+                        <a href="service.html#section-mobile" class="mega-menu-item">
+                            <div class="mega-menu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12-.3.28-.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                            </div>
+                            <div class="mega-menu-content">
+                                <h4>Mobile App Development</h4>
+                                <p>High-performance, scalable mobile apps for iOS and Android.</p>
+                            </div>
+                        </a>
+                        <a href="service.html#section-webdesign" class="mega-menu-item">
+                             <div class="mega-menu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            </div>
+                            <div class="mega-menu-content">
+                                <h4>Web Development</h4>
+                                <p>Complex enterprise platforms and custom web solutions.</p>
+                            </div>
+                        </a>
+                        <a href="service.html#section-ecommerce" class="mega-menu-item">
+                             <div class="mega-menu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            </div>
+                            <div class="mega-menu-content">
+                                <h4>E-Commerce Sites</h4>
+                                <p>Bespoke e-commerce solutions that drive growth and sales.</p>
+                            </div>
+                        </a>
+                        <a href="#" class="mega-menu-item">
+                             <div class="mega-menu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"/></svg>
+                            </div>
+                            <div class="mega-menu-content">
+                                <h4>AI & ML Solutions</h4>
+                                <p>Integrate intelligent models to automate and optimize processes.</p>
+                            </div>
+                        </a>
+                        <a href="#" class="mega-menu-item">
+                             <div class="mega-menu-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            </div>
+                            <div class="mega-menu-content">
+                                <h4>UI/UX & Branding</h4>
+                                <p>User-centric designs that elevate your brand experience.</p>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item-dropdown">
+                <button class="nav-dropdown-toggle" id="about-toggle">
+                    About
+                    <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="simple-dropdown-menu" id="about-menu">
+                    <a href="about.html">Our Company</a> <a href="#team">Our Team</a>
+                    <a href="#cta">Careers</a>
+                </div>
+            </div>
+
+            <a href="#">Work</a>
+            <a href="#">Insights</a>
+            <a href="products.html">Products</a> 
+        </nav>
+        <a href="contact.html" class="cta-button">START A PROJECT</a> 
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </button>
+    </header>
+
+    <div id="mobile-nav">
+        <div class="mobile-nav-header">
+            <button class="mobile-nav-close" id="mobile-nav-close">Close <span>&times;</span></button>
+        </div>
+        <div class="mobile-nav-body">
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="main-links">
+                <a href="../codifav3.html">Home</a>
+                
+                <div class="mobile-nav-item-with-sub">
+                    <button class="mobile-nav-sub-toggle">
+                        Services
+                        <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="mobile-sub-menu">
+                        <a href="service.html#section-mobile">Mobile Apps</a>
+                        <a href="service.html#section-webdesign">Web Development</a>
+                        <a href="service.html#section-ecommerce">E-Commerce</a>
+                    </div>
+                </div>
+                 <div class="mobile-nav-item-with-sub">
+                    <button class="mobile-nav-sub-toggle">
+                        About
+                        <svg class="nav-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="mobile-sub-menu">
+                        <a href="about.html">Our Company</a>
+                        <a href="#team">Our Team</a>
+                        <a href="#cta">Careers</a>
+                    </div>
+                </div>
+                
+                <a href="#">Work</a>
+                <a href="#">Insights</a>
+                <a href="products.html">Products</a>
+                <a href="../contact.html">Contact</a> 
+            </div>
+        </div>
+        <div class="mobile-nav-footer">
+            <p>Get in touch</p>
+            <a href="mailto:info@codifia.com">info@codifia.com</a>
+        </div>
+    </div>
+
+
+    <main id="main-content">
+
+        <section class="about-hero">
+            <div class="hero-image-bg"></div>
+            <div class="hero-image-overlay"></div>
+            <div class="about-hero-content">
+                <h1>We are Codifia. A creative partner for digital innovators.</h1>
+                <p>We solve complex problems with human-centric design and future-proof technology.</p>
+            </div>
+        </section>
+
+        <section class="about-story">
+            <div class="story-content">
+                <h2>Our Story: From a simple idea to a global partner.</h2>
+                <p>Founded in 2018, Codifia started with a simple mission: to build software that people love to use. We saw a gap between complex technology and the need for simple, human-centric design.</p>
+                <p>Today, we've grown into a full-service digital partner, helping startups and enterprise clients alike navigate their digital transformation journey. Our success is built on a foundation of partnership and a relentless pursuit of quality.</p>
+            </div>
+            <div class="story-image">
+                <img src="../images/team.jpg" alt="Codifia Team Working">
+            </div>
+        </section>
+
+        <section class="about-values" id="principles">
+            <div class="section-header">
+                <h2 id="principles-title"></h2> <p class="section-subtitle" id="principles-subtitle">These principles guide our every decision, our code, and our client relationships.</p>
+            </div>
+            
+            <div class="principles-container">
+                <div class="principle-row">
+                    <div class="principle-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <div class="principle-content">
+                        <h3>Innovation that Matters</h3>
+                        <p>We don't just use new technology for the sake of it. We focus on innovation that solves real-world problems, creates tangible value for your business, and provides a future-proof foundation for growth.</p>
+                    </div>
+                </div>
+                <div class="principle-row">
+                    <div class="principle-icon-wrapper">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <div class="principle-content">
+                        <h3>Radical Collaboration</h3>
+                        <p>We believe the best solutions are built together. We integrate directly with your team, acting as a true partner, not just a vendor. We foster open communication and complete transparency.</p>
+                    </div>
+                </div>
+                <div class="principle-row">
+                    <div class="principle-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="principle-content">
+                        <h3>Uncompromising Quality</h3>
+                        <p>We build robust, scalable, and secure software. From the first line of code to the final deployment, we take ownership of our work and adhere to the highest standards of engineering and integrity.</p>
+C                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-team" id="team">
+            <div class="section-header">
+                <h2 id="team-title"></h2> <p class="section-subtitle" id="team-subtitle">The minds behind our success and the driving force of our innovative spirit.</p>
+            </div>
+            <div class="team-grid">
+                 <div class="team-card">
+                    <img src="../images/sharif.jpg" alt="Team Member 1">
+                    <div class="team-info">
+                        <h4>Oli Ahmed</h4>
+                        <p>Founder & MD</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="../images/sharif.jpg" alt="Team Member 2">
+                    <div class="team-info">
+                        <h4>Mredul Kanti</h4>
+                        <p>CTO</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="../images/sharif.jpg" alt="Team Member 3">
+                    <div class="team-info">
+                        <h4>Rafiul Islam</h4>
+                        <p>Senior Engineer, COO</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="../images/sharif.jpg" alt="Team Member 4">
+                    <div class="team-info">
+                        <h4>Pradip Pal</h4>
+                        <p>Senior Engineer, Tech Lead</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-cta" id="cta">
+            <h2>Join our team of innovators</h2>
+            <p>We are always looking for high-performing talent. We'd love to hear from you if you want to build the future of software.</p>
+            <a href="#" class="btn-orange">SEE OPEN POSITIONS</a>
+        </section>
+
+    </main>
+    
+    <footer>
+        <a href="../codifav3.html" class="logo">CODIFIA</a> 
+        <div class="footer-links">
+            <div><a href="#">Instagram</a> <a href="#">Dribbble</a> <a href="#">YouTube</a></div>
+            <div><a href="service.html#section-mobile">Mobile App Development</a> <a href="service.html#section-webdesign">Web Development</a> <a href="#">UI/UX Design</a></div>
+            <div><a href="../codifav3.html">Home</a> <a href="#">Work</a> <a href="about.html">About</a></div>
+        </div>
+    </footer>
+    
+
+    <script>
+        
+        // =============================================
+        // === "স্লো মোশন" স্ক্রাব অ্যানিমেশন ===
+        // =============================================
+        function runScrubAnimations() {
+            // --- 1. স্টোরি সেকশন: দুই পাশ থেকে স্লাইড ইন ---
+            gsap.to('.story-content', {
+                x: 0, opacity: 1,
+                scrollTrigger: {
+                    trigger: '.about-story',
+                    start: 'top 70%', end: 'bottom 80%', scrub: 1.5
+                }
+            });
+            gsap.to('.story-image', {
+                x: 0, opacity: 1,
+                scrollTrigger: {
+                    trigger: '.about-story',
+                    start: 'top 70%', end: 'bottom 80%', scrub: 1.5
+                }
+            });
+
+            // --- 2. "Principles" সেকশন (জিগ-জ্যাগ) ---
+            gsap.utils.toArray('.principle-row').forEach(row => {
+                gsap.to(row.querySelector('.principle-icon-wrapper'), {
+                    scale: 1, opacity: 1,
+                    scrollTrigger: {
+                        trigger: row, start: 'top 75%', end: 'bottom 80%', scrub: 1.5
+                    }
+                });
+                gsap.to(row.querySelector('.principle-content'), {
+                    x: 0, opacity: 1,
+                    scrollTrigger: {
+                        trigger: row, start: 'top 75%', end: 'bottom 80%', scrub: 1.5
+                    }
+                });
+            });
+
+            // --- 3. টিম সেকশন: কার্ডগুলো একের পর এক আসবে ---
+            gsap.to('.team-card', {
+                opacity: 1, y: 0, stagger: 0.2,
+                scrollTrigger: {
+                    trigger: '.about-team', start: 'top 70%', end: 'bottom 80%', scrub: 1
+                }
+            });
+
+            // --- 4. CTA সেকশন: ফেড-ইন ---
+             gsap.to('.about-cta', {
+                opacity: 1, y: 0,
+                scrollTrigger: {
+                    trigger: '.about-cta', start: 'top 85%', end: 'bottom 80%', scrub: 1
+                }
+            });
+        }
+        
+        // =============================================
+        // === টাইপরাইটার অ্যানিমেশন (আপনার অনুরোধ মতো আপডেটেড) ===
+        // =============================================
+        function initializeTypewriters() {
+            
+            // --- ১. "Our Guiding Principles" লুপ টাইপিং ---
+            const principlesTarget = document.getElementById('principles-title');
+            if (principlesTarget) {
+                const principlesText = "Our Guiding Principles";
+                
+                const principlesTL = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: principlesTarget,
+                        start: 'top 80%', // যখন ভিউপোর্টে আসবে
+                        toggleActions: "play pause resume reset" // স্ক্রল করে বাইরে গেলে পজ হবে
+                    },
+                    repeat: -1, // অসীম লুপ
+                    repeatDelay: 3 // ৩ সেকেন্ড পর পর
+                });
+                
+                principlesTL.to(principlesTarget, {
+                    duration: 1.5,
+                    text: { value: principlesText, newClass: "typing-cursor" }, // কার্সর যোগ করবে
+                    ease: 'none'
+                })
+                .to(principlesTarget, { duration: 3, ease: 'none' }) // ৩ সেকেন্ড অপেক্ষা
+                .to(principlesTarget, {
+                    duration: 1.5,
+                    text: { value: "", newClass: "typing-cursor" }, // ডিলিট
+                    ease: 'none'
+                });
+
+                // সাবটাইটেলটি ScrollTrigger দিয়ে fade-in করুন (এটি ফিক্সড থাকবে)
+                gsap.to('#principles-subtitle', {
+                    opacity: 1,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: '#principles-subtitle',
+                        start: 'top 90%', // একটু পরে আসবে
+                        once: true
+                    }
+                });
+            }
+            
+            // --- ২. "Meet Our Leadership" লুপ টাইপিং ---
+            const teamTarget = document.getElementById('team-title');
+            if (teamTarget) {
+                const teamText = "Meet Our Leadership";
+
+                const teamTL = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: teamTarget,
+                        start: 'top 80%',
+                        toggleActions: "play pause resume reset"
+                    },
+                    repeat: -1,
+                    repeatDelay: 3
+                });
+                
+                teamTL.to(teamTarget, {
+                    duration: 1.5,
+                    text: { value: teamText, newClass: "typing-cursor" },
+                    ease: 'none'
+                })
+                .to(teamTarget, { duration: 3, ease: 'none' })
+                .to(teamTarget, {
+                    duration: 1.5,
+                    text: { value: "", newClass: "typing-cursor" },
+                    ease: 'none'
+                });
+
+                // সাবটাইটেল fade-in (এটি ফিক্সড থাকবে)
+                gsap.to('#team-subtitle', {
+                    opacity: 1,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: '#team-subtitle',
+                        start: 'top 90%',
+                        once: true
+                    }
+                });
+            }
+        }
+
+        // =============================================
+        // === অ্যানিমেশন চালু করার প্রধান ফাংশন ===
+        // =============================================
+        function runPageAnimations() {
+            
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof TextPlugin === 'undefined') {
+                console.error("GSAP or TextPlugin failed to load. Skipping animations.");
+                document.getElementById('main-content').style.visibility = 'visible';
+                document.getElementById('main-header').style.opacity = '1';
+                document.querySelector('.about-hero-content').style.opacity = '1';
+                return;
+            }
+
+            // GSAP প্লাগইন রেজিস্টার করুন
+            gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+            // --- 1. প্রি-লোডার ও হেডার অ্যানিমেশন ---
+            const tl = gsap.timeline();
+            tl.to(document.getElementById('preloader-circle'), { scale: 1, duration: 0.5, ease: 'power2.out' })
+              .to(document.getElementById('preloader-circle'), { scale: 50, duration: 1.5, ease: 'power3.inOut' })
+              .to(document.getElementById('preloader-bg'), { opacity: 0, duration: 1, onComplete: () => document.getElementById('preloader-bg').style.display = 'none' }, "-=1.5")
+              .to(document.getElementById('preloader-circle'), { opacity: 0, duration: 1, onComplete: () => {
+                  document.getElementById('preloader-circle').style.display = 'none';
+                  document.getElementById('main-content').style.visibility = 'visible';
+              }}, "-=1")
+              .to(document.getElementById('main-header'), { opacity: 1, duration: 1 }, "-=0.5")
+              .to('.about-hero-content', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, "-=0.5");
+              
+            // --- 2. স্ক্রলড নেভবার --- 
+            ScrollTrigger.create({
+                start: 'top -80',
+                end: 99999,
+                toggleClass: {
+                    className: 'scrolled-nav',
+                    targets: '#main-header'
+                }
+            });
+            
+            // --- 3. "স্লো মোশন" স্ক্রাব অ্যানিমেশন চালু করুন ---
+            runScrubAnimations();
+            
+            // --- 4. টাইপরাইটার অ্যানিমেশন চালু করুন ---
+            initializeTypewriters();
+
+        } // <-- runPageAnimations() function ekhane shesh
+        
+        
+        // =============================================
+        // === নেভিগেশন জাভাস্ক্রিপ্ট ===
+        // =============================================
+        
+        // --- 1. GSAP MEGA MENU (Services) ---
+        let megaMenuTL; 
+        function initializeMegaMenu() {
+            if (typeof gsap === 'undefined') return;
+            const toggle = document.getElementById('services-toggle');
+            const menu = document.getElementById('services-menu');
+            if (!toggle || !menu) return;
+            const menuItems = gsap.utils.toArray(".mega-menu-item");
+            
+            megaMenuTL = gsap.timeline({ paused: true });
+            megaMenuTL.to(menu, { opacity: 1, transform: 'translateX(-50%) translateY(0)', duration: 0.3, ease: 'power2.out' })
+                      .to(menuItems, { opacity: 1, y: 0, stagger: 0.04, duration: 0.3, ease: 'power2.out' }, "-=0.2");
+
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('about-menu')?.classList.remove('open');
+                document.getElementById('about-toggle')?.classList.remove('active');
+                
+                toggle.classList.toggle('active');
+                menu.classList.toggle('open');
+                if (menu.classList.contains('open')) megaMenuTL.play();
+                else {
+                    gsap.to(menuItems, {opacity: 0, y: 15, duration: 0.01});
+                    megaMenuTL.reverse();
+                }
+            });
+            // বাইরে ক্লিক করলে বন্ধ করার কোড
+            document.addEventListener('click', (e) => {
+                if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                    toggle.classList.remove('active');
+                    menu.classList.remove('open');
+                    gsap.to(menuItems, {opacity: 0, y: 15, duration: 0.01});
+                    megaMenuTL.reverse();
+                }
+            });
+        }
+
+        // --- 2. SIMPLE DROPDOWN (About Us) ---
+        function initializeAboutDropdown() {
+            const toggle = document.getElementById('about-toggle');
+            const menu = document.getElementById('about-menu');
+            if (!toggle || !menu) return;
+
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (megaMenuTL && document.getElementById('services-menu')?.classList.contains('open')) {
+                    document.getElementById('services-menu').classList.remove('open');
+                    document.getElementById('services-toggle').classList.remove('active');
+                    gsap.to(".mega-menu-item", {opacity: 0, y: 15, duration: 0.01});
+                    megaMenuTL.reverse();
+                }
+                const isOpen = menu.classList.toggle('open');
+                toggle.classList.toggle('active', isOpen);
+            });
+            // বাইরে ক্লিক করলে বন্ধ করার কোড
+            document.addEventListener('click', (e) => {
+                if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                    menu.classList.remove('open');
+                    toggle.classList.remove('active');
+                }
+            });
+        }
+
+        // --- 3. MOBILE MENU (Fix for multiple toggles) ---
+        function initializeMobileMenu() {
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            const mobileNavClose = document.getElementById('mobile-nav-close');
+            
+            function openMenu() {
+                document.body.classList.add('nav-open-no-scroll'); 
+                mobileNav.classList.add('open');
+            }
+            function closeMenu() {
+                document.body.classList.remove('nav-open-no-scroll'); 
+                mobileNav.classList.remove('open');
+                document.querySelectorAll('.mobile-nav-item-with-sub.active').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.mobile-sub-menu').style.maxHeight = '0';
+                });
+            }
+            
+            if (mobileToggle && mobileNav && mobileNavClose) {
+                mobileToggle.addEventListener('click', () => {
+                    if (document.body.classList.contains('nav-open-no-scroll')) closeMenu();
+                    else openMenu();
+                });
+                mobileNavClose.addEventListener('click', closeMenu);
+            }
+
+            const allSubToggles = document.querySelectorAll('.mobile-nav-sub-toggle');
+            allSubToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const parent = toggle.parentElement;
+                    const subMenu = parent.querySelector('.mobile-sub-menu');
+                    const isActive = parent.classList.contains('active');
+
+                    document.querySelectorAll('.mobile-nav-item-with-sub.active').forEach(activeParent => {
+                        if (activeParent !== parent) {
+                            activeParent.classList.remove('active');
+                            activeParent.querySelector('.mobile-sub-menu').style.maxHeight = '0';
+                        }
+                    });
+
+                    if (!isActive) {
+                        parent.classList.add('active');
+                        subMenu.style.maxHeight = subMenu.scrollHeight + 'px';
+                    } else {
+                        parent.classList.remove('active');
+                        subMenu.style.maxHeight = '0';
+                    }
+                });
+            });
+        }
+        
+        // --- 4. সব নেভিগেশন ফাংশন কল করা ---
+        function initializeAllNavigation() {
+            initializeMegaMenu();
+            initializeAboutDropdown();
+            initializeMobileMenu();
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        if (document.body.classList.contains('nav-open-no-scroll')) {
+                            document.getElementById('mobile-nav-close').click();
+                        }
+                        
+                        const headerOffset = 100; // হেডারের উচ্চতা
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        }
+
+
+        // --- Script চালানো ---
+        window.addEventListener('load', () => {
+            runPageAnimations();
+            initializeAllNavigation();
+        });
+        
+    </script>
+
+</body>
+</html>
