@@ -1,10 +1,10 @@
-/* --- 1. গ্লোবাল স্টাইল (Notun Dark Mode) --- */
+/* --- 1. Global Styles --- */
 :root {
   --bg-color: #111827; /* Dark Blue/Charcoal */
   --bg-secondary: #1f2937; /* Lighter Dark */
   --text-color: #e5e7eb; /* Soft White */
   --text-muted: #9ca3af; /* Gray */
-  --footer-bg: #0c111d; /* Aro dark */
+  --footer-bg: #0c111d; /* Even darker */
   --border-light: #374151; /* Dark mode border */
   --accent-color: #34d399; /* Electric Green/Teal */
   --accent-orange: #f97316; /* Video-r Orange color */
@@ -31,7 +31,6 @@ body {
 
   color: var(--text-color);
   overflow-x: hidden;
-  /* Push menu-r transition remove kora hoyeche */
 }
 
 @keyframes gradient-bg {
@@ -46,7 +45,6 @@ body {
   }
 }
 
-/* Menu khola obosthay scroll bondho kora */
 body.nav-open-no-scroll {
   overflow: hidden;
 }
@@ -71,8 +69,7 @@ h4,
   font-weight: 700;
 }
 
-/* ফ্লোটিং অ্যানিমেশন কীফ্রেম */
-@keyframes float-animation {
+ @keyframes float-animation {
   0% {
     transform: translateY(0px);
   }
@@ -84,8 +81,7 @@ h4,
   }
 }
 
-/* --- 2. প্রি-লোডার --- */
-#preloader-bg {
+ #preloader-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -108,8 +104,7 @@ h4,
   transition: opacity 0.5s ease;
 }
 
-/* --- 3. হেডার / নেভিগেশন --- */
-header {
+ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -122,16 +117,27 @@ header {
     padding 0.4s ease, border-color 0.4s ease;
   border-bottom: 1px solid transparent;
 }
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: var(--text-color);
-  z-index: 1101;
-  transition: color 0.4s ease;
-}
 
-/* Menu khola obosthay logo-r color */
+/* --- Logo Image CSS --- */
+.logo {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    padding: 0;
+}
+.logo img {
+    width: 160px;
+    height: 50px;
+    display: block;
+    object-fit: contain;
+}
+#main-header .logo {
+    padding: 0; 
+}
+/* --- End Logo CSS --- */
+
+
 body.nav-open-no-scroll .logo {
   color: var(--text-color);
 }
@@ -187,7 +193,7 @@ header.scrolled-nav .cta-button:hover {
   box-shadow: none;
 }
 
-/* --- 3B. মোবাইল টগল বার --- */
+/* --- Mobile Toggle Bar --- */
 .mobile-nav-toggle {
   display: none;
   width: 30px;
@@ -223,22 +229,19 @@ body.nav-open-no-scroll .mobile-nav-toggle .line3 {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* * --- 3C. নতুন: Full Screen মোবাইল নেভিগেশন (Screenshot-er moto) --- 
-         */
+/* --- Full Screen Mobile Nav --- */
 #mobile-nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--bg-color); /* Dark Theme */
+  background-color: var(--bg-color);
   z-index: 1100;
   padding: 2rem 3rem;
   overflow-y: auto;
-
   display: flex;
   flex-direction: column;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
@@ -332,7 +335,7 @@ body.nav-open-no-scroll .mobile-nav-toggle .line3 {
   border-bottom: 2px solid var(--accent-color);
 }
 
-/* --- 4. হিরো সেকশন (Video/Image theke Notun) --- */
+/* --- 4. Hero Section --- */
 main {
   visibility: hidden;
   background-color: var(--bg-color);
@@ -340,29 +343,29 @@ main {
 
 .hero {
   min-height: 100vh;
-  padding: 10rem 3rem 8rem 3rem; /* Top padding for nav, bottom for client bar */
+  padding: 10rem 3rem 8rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   position: relative;
-  overflow: hidden; /* Important for the grid */
+  overflow: hidden;
 }
 .hero-text-left {
   flex: 0 0 45%;
   z-index: 2;
 }
 .hero-subtitle {
-  font-size: 1.5rem; /* <-- আপনার জন্য সাইজ বড় করা হয়েছে */
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-color); /* <-- লেখাটি আরও উজ্জ্বল করা হয়েছে */
-  text-transform: none; /* <-- Uppercase বন্ধ করা হয়েছে */
+  color: var(--text-color);
+  text-transform: none;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
   display: block;
 }
 .hero-text-left h1 {
-  font-size: 5vw; /* Slightly smaller than before */
+  font-size: 5vw;
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
@@ -372,7 +375,7 @@ main {
   transform: translateY(110%);
 }
 .hero-text-left h1 strong {
-  color: var(--text-color); /* Kept default, not green */
+  color: var(--text-color);
 }
 .hero-text-left p {
   font-size: 1.1rem;
@@ -383,14 +386,13 @@ main {
   color: var(--text-muted);
 }
 .btn-about {
-  /* Existing class, just checking */
   display: inline-block;
   background-color: var(--accent-color);
   color: var(--bg-color);
   padding: 1rem 2rem;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px; /* Changed to match image */
+  border-radius: 5px;
   margin-top: 2rem;
   opacity: 0;
   border: 2px solid var(--accent-color);
@@ -437,16 +439,16 @@ main {
 /* --- Hero Grid Animation --- */
 .hero-grid-right {
   position: absolute;
-  top: -10%; /* Start higher */
+  top: -10%;
   left: 40%;
-  right: -10%; /* Go wider */
-  bottom: -10%; /* End lower */
+  right: -10%;
+  bottom: -10%;
   z-index: 1;
   display: flex;
   gap: 1.5rem;
-  transform: rotate(-15deg); /* Slanted look */
-  opacity: 0.2; /* Faded background look */
-  pointer-events: none; /* Can't click it */
+  transform: rotate(-15deg);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 @keyframes hero-scroll {
@@ -455,7 +457,7 @@ main {
   }
   100% {
     transform: translateY(-50%);
-  } /* Loops at 50% */
+  }
 }
 
 .hero-grid-col {
@@ -470,11 +472,11 @@ main {
   animation: hero-scroll 30s linear infinite;
 }
 .hero-grid-col.col-2 .col-content {
-  animation-duration: 40s; /* Slower */
+  animation-duration: 40s;
   animation-direction: reverse;
 }
 .hero-grid-col.col-3 .col-content {
-  animation-duration: 25s; /* Faster */
+  animation-duration: 25s;
 }
 
 .hero-grid-card {
@@ -490,22 +492,22 @@ main {
   display: block;
 }
 
-/* --- Hero Client Scroller (Notun Marquee) --- */
+/* --- Hero Client Scroller --- */
 .hero-client-scroller {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 0; /* No horizontal padding */
+  padding: 1.5rem 0;
   background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.8));
   z-index: 2;
-  overflow: hidden; /* Hide the track overflow */
-  white-space: nowrap; /* Keep items in one line */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .hero-scroller-track {
-  display: inline-block; /* Use inline-block for marquee */
-  padding-left: 100%; /* Start off-screen */
+  display: inline-block;
+  padding-left: 100%;
   animation: hero-client-scroll 40s linear infinite;
 }
 
@@ -516,13 +518,12 @@ main {
   color: var(--text-muted);
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  padding: 0 2rem; /* Spacing between logos */
+  padding: 0 2rem;
 }
 .hero-scroller-track span:hover {
   opacity: 1;
 }
 
-/* Marquee Animation (Right to Left) */
 @keyframes hero-client-scroll {
   0% {
     transform: translateX(0);
@@ -532,7 +533,6 @@ main {
   }
 }
 
-/* Old unused classes */
 .hero-image-container {
   display: none;
 }
@@ -540,11 +540,11 @@ main {
   display: none;
 }
 
-/* --- 4B. "Creative Agency" Section (Notun) --- */
+/* --- "Creative Agency" Section --- */
 .creative-agency-section {
   background-color: var(--bg-color);
   border-top: 1px solid var(--border-light);
-  padding-bottom: 2rem; /* Tighter bottom padding */
+  padding-bottom: 2rem;
 }
 .creative-agency-container {
   display: flex;
@@ -558,7 +558,7 @@ main {
   flex: 1;
 }
 .creative-agency-title {
-  font-size: 3.5rem; /* Smaller than main hero */
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 2rem;
@@ -582,11 +582,11 @@ main {
 .creative-agency-list li svg {
   width: 20px;
   height: 20px;
-  color: var(--accent-color); /* Green checkmark */
+  color: var(--accent-color);
   flex-shrink: 0;
 }
 .creative-agency-list li strong {
-  color: var(--accent-color); /* Green highlight */
+  color: var(--accent-color);
   font-weight: 700;
 }
 
@@ -602,14 +602,14 @@ main {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  background-color: var(--bg-secondary); /* Lighter dark */
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 1rem;
-  max-width: 400px; /* Limit width */
+  max-width: 400px;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none; /* Added this */
+  text-decoration: none;
 }
 .creative-agency-video-box:hover {
   border-color: var(--accent-color);
@@ -632,7 +632,7 @@ main {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding-left: 3px; /* Center play button */
+  padding-left: 3px;
 }
 .video-play-button svg {
   width: 20px;
@@ -653,10 +653,10 @@ main {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  opacity: 0.8; /* Give it a slight fade */
+  opacity: 0.8;
 }
 
-/* --- 4C. Video Modal Popup (Notun) --- */
+/* --- Video Modal Popup --- */
 .video-modal-overlay {
   position: fixed;
   top: 0;
@@ -667,7 +667,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000; /* On top of everything */
+  z-index: 2000;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -679,8 +679,8 @@ main {
 .video-modal-content {
   position: relative;
   width: 90%;
-  max-width: 900px; /* Max video width */
-  aspect-ratio: 16 / 9; /* 16:9 widescreen */
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
   background: #000;
 }
 .video-modal-content iframe {
@@ -693,7 +693,7 @@ main {
 }
 .video-modal-close {
   position: absolute;
-  top: -35px; /* Outside the top right */
+  top: -35px;
   right: 0;
   background: white;
   color: black;
@@ -711,25 +711,24 @@ main {
   transform: scale(1.1);
 }
 
-/* --- 5. Stats সেকশন --- */
+/* --- [UPDATED] Stats Section --- */
 .stats-section {
   padding: 5rem 3rem;
   border-top: 1px solid var(--border-light);
   overflow: hidden;
 }
 .stats-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid; /* Use Grid */
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 2rem; /* Gap between items */
   max-width: 1200px;
   margin: 0 auto;
 }
 .stat-item {
-  flex-basis: 30%;
-  text-align: left;
+  text-align: center;
   opacity: 0;
   transform: translateY(50px);
+  /* flex-basis: 30% is removed */
 }
 .stat-item p {
   font-size: 0.8rem;
@@ -745,11 +744,12 @@ main {
   color: var(--text-color);
   line-height: 1;
 }
+/* --- [END] Stats Section --- */
 
-/* --- 6. Marquee সেকশন --- */
+/* --- Marquee Section --- */
 .marquee {
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* This stays the same */
   white-space: nowrap;
   padding: 1.5rem 0;
   border-top: 1px solid var(--accent-color);
@@ -757,27 +757,43 @@ main {
   background-color: var(--accent-color);
   color: var(--bg-color);
 }
-.marquee-content {
-  display: inline-block;
-  padding-left: 100%;
+
+/* NEW: This is the container that moves */
+.marquee-track {
+  display: flex; /* Lays out the two content blocks side-by-side */
+  width: max-content; /* Makes the track as wide as its content */
   animation: marquee-scroll 25s linear infinite;
 }
+
+/* UPDATED: This no longer needs padding or animation */
+.marquee-content {
+  display: flex; /* Use flex to keep spans in a line */
+  /* REMOVED: padding-left: 100%; */
+  /* REMOVED: animation: ... */
+}
+
 .marquee-content span {
   font-size: 2rem;
   font-weight: 700;
   padding: 0 1.5rem;
   text-transform: uppercase;
 }
+
+/* UPDATED: The keyframe logic is different */
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    /* This moves the track to the left by 50% of its total width.
+      Since the track is 200% wide (two copies), 50% is the exact
+      width of ONE copy. As the first copy scrolls off, the second
+      copy scrolls on perfectly, creating a seamless loop.
+    */
+    transform: translateX(-50%);
   }
 }
-
-/* --- 7. জেনেরিক কন্টেন্ট সেকশন স্টাইল --- */
+/* --- Generic Content Section Style --- */
 .content-section {
   padding: 6rem 3rem;
   overflow: hidden;
@@ -810,14 +826,14 @@ main {
   transform: translateY(50px);
 }
 
-/* --- 8. "Coolest Projects" সেকশন (Glassmorphism) --- */
+/* --- "Coolest Projects" Section --- */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 .project-card {
-  background-color: rgba(31, 41, 55, 0.5); /* Glass BG */
+  background-color: rgba(31, 41, 55, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-light);
@@ -882,7 +898,7 @@ main {
   color: var(--text-muted);
 }
 
-/* --- 9. "Our Services" সেকশন --- */
+/* --- "Our Services" Section --- */
 .services-section {
   border-top: 1px solid var(--border-light);
 }
@@ -923,7 +939,7 @@ main {
   color: var(--text-muted);
 }
 
-/* --- 9B. "Our Process" সেকশন (Video theke) --- */
+/* --- "Our Process" Section --- */
 .process-section {
   border-top: 1px solid var(--border-light);
 }
@@ -1040,7 +1056,10 @@ main {
   color: var(--text-muted);
 }
 
-/* --- 10. Tech Stack সেকশন --- */
+
+
+
+/* --- Tech Stack Section --- */
 .tech-stack-section {
   border-top: 1px solid var(--border-light);
   padding: 4rem 3rem;
@@ -1064,18 +1083,44 @@ main {
   max-width: 1000px;
   margin: 0 auto;
   align-items: center;
-  justify-items: center;
-}
-.tech-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  opacity: 0;
-  animation: float-animation 6s ease-in-out infinite;
-}
-.tech-logo.icon {
-  font-size: 3rem;
 }
 
+/* This is the main logo container */
+.tech-logo {
+  /* Removed font-size and font-weight, not needed for images */
+  opacity: 0; /* This is for the GSAP animation */
+  animation: float-animation 6s ease-in-out infinite;
+
+  /* --- ALIGNMENT FIX --- */
+  justify-self: center; /* This centers the item in its grid cell */
+  text-align: center;   /* This centers the content (the image) */
+}
+
+/* --- NEW: Image Logo Styles --- */
+.tech-logo img {
+  height: 60px; /* You can change this height */
+  width: auto;
+  border-radius: 20%;
+  
+  /* This keeps the logos looking sharp, not blurry */
+  filter: grayscale(100%) brightness(1.5);
+  opacity: 3.6;
+  transition: all 0.3s ease;
+}
+
+/* This makes them full color on hover */
+.tech-logo img:hover {
+  filter: none;
+  opacity: 6;
+}
+
+/* Removed old icon font-size */
+.tech-logo.icon {
+  font-size: inherit; 
+}
+
+
+/* Animation Delays (These are fine) */
 .tech-logo-grid .tech-logo:nth-child(2) {
   animation-delay: -1.5s;
 }
@@ -1098,6 +1143,7 @@ main {
   animation-delay: -1s;
 }
 
+/* --- Tag (This is separate from the image logos) --- */
 .tech-logo-tag {
   background-color: var(--accent-color);
   color: var(--bg-color);
@@ -1105,9 +1151,15 @@ main {
   font-size: 0.9rem;
   font-weight: 700;
   border-radius: 5px;
+
+  /* --- ALIGNMENT FIX --- */
+  justify-self: center; /* This centers the tag in its grid cell */
 }
 
-/* --- 11. "Our Products" সেকশন --- */
+
+
+
+/* --- "Our Products" Section --- */
 .products-section {
   border-top: 1px solid var(--border-light);
 }
@@ -1157,7 +1209,7 @@ main {
   opacity: 1;
 }
 
-/* --- 12. Client Scroller (Logo Update) --- */
+/* --- Client Scroller (Logo Update) --- */
 .client-scroller-section {
   padding: 4rem 0;
   border-top: 1px solid var(--border-light);
@@ -1199,14 +1251,15 @@ main {
 }
 
 .scroller-track img {
-  height: 40px;
+  height: 50px;
   margin: 0 3rem;
   filter: grayscale(100%) brightness(1.5);
-  opacity: 0.6;
+  opacity: 3.6;
   transition: all 0.3s ease;
+  border-radius: 20%;
 }
 .scroller-track img:hover {
-  opacity: 1;
+  opacity: 8;
   filter: none;
 }
 
@@ -1219,7 +1272,7 @@ main {
   }
 }
 
-/* --- 13. FAQ সেকশন --- */
+/* --- FAQ Section --- */
 .faq {
   max-width: 900px;
   margin: 0 auto;
@@ -1257,40 +1310,120 @@ main {
   color: var(--text-muted);
 }
 
-/* --- 14. ফুটার --- */
+/* --- [NEW] Global Footer Styles --- */
 footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
-  padding: 5rem 3rem;
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-between;
-}
-footer .logo {
-  color: var(--footer-text);
-}
-.footer-links {
-  display: flex;
-  gap: 4rem;
-}
-.footer-links div {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.footer-links a {
-  color: var(--footer-text);
-  text-decoration: none;
-  font-family: "Sora", sans-serif;
-  text-transform: none;
-  font-weight: 400;
-  transition: color 0.3s ease;
-}
-.footer-links a:hover {
-  color: var(--accent-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-muted);
+    padding: 5rem 3rem 0 3rem;
+    border-top: 1px solid var(--border-light);
+    margin-top: 5rem; /* Added margin-top to separate from content */
 }
 
-/* --- 15. মোবাইল রেসপন্সিভ (টগল বার সহ) --- */
+.footer-primary {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr; 
+    gap: 1rem;
+    padding-bottom: 5rem;
+    align-items: start;
+}
+
+.footer-logo-area .logo {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.8rem; /* Fallback for text */
+    color: var(--text-color); /* Fallback for text */
+    height: auto; /* Allow footer logo to be natural height */
+}
+.footer-logo-area p {
+    max-width: 300px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.footer-cta-area {
+     margin-top: 2rem;
+}
+.footer-cta-area .footer-email {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.footer-cta-area .footer-email:hover {
+    color: var(--accent-color);
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25rem; /* Reduced gap from 20rem */
+    text-align: center;
+}
+
+.footer-column h5 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-family: 'Sora', sans-serif;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li {
+    margin-bottom: 0.75rem;
+}
+.footer-column ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+.footer-column ul li a:hover {
+    color: var(--accent-color);
+}
+
+.footer-secondary {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Centered socials and copyright */
+    gap: 1.25rem; 
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+.footer-socials a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-socials a:hover {
+    color: var(--text-color);
+}
+.footer-socials a svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.footer-copyright {
+    margin: 0;
+}
+/* --- [END] Global Footer Styles --- */
+
+
+/* --- Mobile Responsive --- */
 @media (max-width: 768px) {
   header {
     padding: 1.5rem;
@@ -1305,7 +1438,6 @@ footer .logo {
     display: block;
   }
 
-  /* Full-screen menu te push animation bondho */
   body.nav-open main,
   body.nav-open header {
     transform: none;
@@ -1323,7 +1455,7 @@ footer .logo {
     padding: 6rem 1.5rem 2rem 1.5rem;
     min-height: auto;
     align-items: flex-start;
-    overflow: hidden; /* Still hide overflow */
+    overflow: hidden;
   }
   .hero-text-left {
     flex-basis: auto;
@@ -1335,11 +1467,11 @@ footer .logo {
   }
 
   .hero-grid-right {
-    display: none; /* Hide complex animation on mobile */
+    display: none;
   }
   .hero-client-scroller {
-    position: static; /* No longer absolute */
-    background: var(--bg-color); /* Solid background */
+    position: static;
+    background: var(--bg-color);
     padding: 2rem 0;
     margin-top: 3rem;
   }
@@ -1350,12 +1482,11 @@ footer .logo {
 
   .hero-image-container {
     display: none;
-  } /* Old rule, still valid */
+  }
   .hero-spinning-logo {
     display: none;
-  } /* Old rule, still valid */
+  }
 
-  /* Creative Agency Mobile */
   .creative-agency-container {
     flex-direction: column;
   }
@@ -1369,14 +1500,15 @@ footer .logo {
   .stats-section {
     padding: 3rem 1.5rem;
   }
+  /* [UPDATED] Stats Responsive */
   .stats-container {
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on mobile */
     gap: 2.5rem;
+    text-align: center;
   }
   .stat-item h3 {
     font-size: 3.5rem;
   }
-
   .content-section {
     padding: 4rem 1.5rem;
   }
@@ -1402,7 +1534,6 @@ footer .logo {
     animation: none;
   }
 
-  /* Process Section Mobile */
   .process-tabs {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1433,7 +1564,7 @@ footer .logo {
   }
   .process-grid-item {
     text-align: center;
-  } /* Center text on mobile */
+  }
 
   .tech-stack-header p {
     font-size: 1.2rem;
@@ -1445,7 +1576,6 @@ footer .logo {
     font-size: 1.5rem;
   }
 
-  /* Full-screen menu layout */
   #mobile-nav {
     padding: 1.5rem;
   }
@@ -1507,18 +1637,61 @@ footer .logo {
     font-size: 1.2rem;
   }
 
+  /* --- [NEW] Footer Responsive --- */
   footer {
-    flex-direction: column;
-    gap: 2rem;
+    margin-top: 3rem !important;
+    text-align: center;
   }
-  .footer-links {
-    flex-direction: column;
-    gap: 2rem;
+  @media (max-width: 1024px) {
+    .footer-primary {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .footer-links-grid {
+
+         grid-template-columns: 1fr 1fr !important; 
+         text-align: center !important;
+    }
   }
+  @media (max-width: 768px) {
+    /* footer {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    } */
+    /* .footer-links {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    } */
+    
+    .footer-primary {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+    .footer-links-grid {
+         margin-top: 1rem !important;
+         text-align: center !important;
+    }
+    .footer-secondary {
+        align-items: center !important; 
+        gap: 1.5rem !important;
+    }
+  }
+  @media (max-width: 600px) {
+    footer { padding: 4rem 1.5rem 0 1.5rem !important; }
+    
+     .footer-primary {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2.5rem !important;
+    }
+    .footer-links-grid { 
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    } 
+  }
+  /* --- [END] Footer Responsive --- */
 }
 
 /* ============================================= */
-/* === 1. WEBSITE DESIGN PROCESS (Click to Scroll Version) === */
+/* === 1. WEBSITE DESIGN PROCESS (Corrected) === */
 /* ============================================= */
 .design-process-section {
   padding-top: 6rem;
@@ -1545,18 +1718,13 @@ footer .logo {
   color: var(--text-muted);
   line-height: 1.6;
 }
-.design-process-header p a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
-}
 
-/* --- The Animating Line (Header er niche) --- */
+/* --- The Animating Line --- */
 .process-line-wrapper {
   position: relative;
   width: 100%;
   height: 3px;
-  margin-top: 3rem; /* Header theke niche */
+  margin-top: 3rem;
 }
 .process-line-base {
   position: absolute;
@@ -1564,7 +1732,7 @@ footer .logo {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--border-light); /* Base gray line */
+  background-color: var(--border-light);
 }
 .process-line-progress {
   position: absolute;
@@ -1572,92 +1740,118 @@ footer .logo {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #007bff; /* Active blue line */
-  transform: scaleX(0); /* Shurute kono width thakbe na */
-  transform-origin: left center; /* Bam dik theke animation shuru hobe */
-  transition: transform 0.2s ease-out; /* Line scroll er shomoy smooth transition */
-  z-index: 3; /* Circle er niche */
+  background-color: #007bff;
+  transform: scaleX(0);
+  transform-origin: left center;
+  z-index: 3;
 }
 .process-step-indicator {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%); /* Center it on the line */
+  transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
-  background-color: var(--bg-color); /* Background color */
-  border: 3px solid var(--border-light); /* Grey border first */
+  background-color: var(--bg-color);
+  border: 3px solid var(--border-light);
   border-radius: 50%;
-  z-index: 4; /* On top of everything */
+  z-index: 4;
   transition: border-color 0.3s ease;
 }
-/* JS ei class ti add korbe */
 .process-step-indicator.active {
-  border-color: #007bff; /* Blue border */
+  border-color: #007bff;
 }
 
 /* --- Horizontal Scroller --- */
 .process-scroller-container {
   width: 100%;
-  overflow-x: auto; /* Shobcheye important line */
+  overflow-x: auto;
   overflow-y: hidden;
-  padding: 2.5rem 0 4rem 0; /* Upor niche padding */
+  padding: 2.5rem 0 4rem 0;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth; /* Click korle smooth hobe */
+  scroll-behavior: smooth;
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Scroll Track (the long div) */
+/* Scroll Track */
 .process-scroll-track {
   display: flex;
-  flex-wrap: nowrap; /* No wrapping */
-  width: max-content; /* Shob item ek line e */
-  padding: 0 3rem; /* Dui pashe padding */
-  gap: 2rem; /* Item gulor moddhe gap */
+  flex-wrap: nowrap;
+  width: max-content;
+  padding: 0 3rem;
+  gap: 2rem;
 }
 
 /* Each Process Step Item */
 .process-step-item {
-  flex: 0 0 380px; /* Prottek item er fixed width */
+  flex: 0 0 380px;
   width: 380px;
   padding-top: 0;
   position: relative;
-  padding-bottom: 4rem; /* Nicher number er jonno jayga */
+  padding-bottom: 4rem;
 }
+
+/* ============================================= */
+/* === 2. THE FINAL ALIGNMENT FIX (IMPORTANT) === */
+/* ============================================= */
+
+/* 1. This hides the '01', '02' numbers */
+.process-step-number {
+  display: none !important; 
+}
+
+/* 2. This is the NEW FIX for icon alignment */
 .process-step-icon {
-  width: 100px;
-  height: auto;
+  /* This sets a fixed height container for all icons */
+  height: 120px; 
+  display: flex;
+  
+  /* This aligns all icons to the BOTTOM of the container,
+     so all titles below them will be perfectly aligned. */
+  align-items: flex-end; 
+  
+  /* This centers the icon horizontally */
+  justify-content: flex-start; /* Aligns to left by default */
+  padding-left: 0; /* Was 'padding-left: 0' before, let's keep it */
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  padding-left: 0;
-  position: relative;
-  z-index: 3;
-  transition: transform 0.3s ease-out; /* Parallax er jonno transition */
 }
 .process-step-icon img {
-  width: 100%;
+  /* This makes the image fit inside the container
+     without stretching */
+  width: auto;
+  max-width: 100px; /* Was 100px before */
+  max-height: 100%; /* Fits inside the 120px container */
 }
+
+/* 3. This aligns all titles */
 .process-step-item h4 {
   font-size: 1.5rem;
   color: var(--text-color);
   margin-bottom: 1rem;
-  cursor: pointer; /* Click kora jabe */
+  cursor: pointer;
   transition: color 0.3s ease;
+  
+  /* This ensures 1-line and 2-line titles are aligned */
+  min-height: 4rem; 
 }
 .process-step-item h4:hover {
   color: var(--accent-color);
 }
+
+/* 4. This aligns all paragraphs */
 .process-step-item p {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 1rem;
+
+  /* This ensures all paragraphs are aligned */
+  min-height: 6.5rem;
 }
+
+/* 5. This styles the bullet points */
 .process-step-list {
   list-style: none;
   padding-left: 0;
@@ -1670,14 +1864,14 @@ footer .logo {
   align-items: flex-start;
   gap: 0.5rem;
 }
-/* The arrow '►' */
 .process-step-list li::before {
   content: "►";
-  color: var(--accent-color); /* Green arrow */
+  color: var(--accent-color);
   font-size: 0.7rem;
   margin-top: 5px;
   flex-shrink: 0;
 }
+
 
 /* Faded background number */
 .process-step-number {
@@ -1692,6 +1886,49 @@ footer .logo {
   line-height: 1;
 }
 
+/* ============================================= */
+/* === 3. MOBILE RESPONSIVE (Notun) === */
+/* ============================================= */
+@media (max-width: 768px) {
+  .design-process-header {
+    padding: 0 1.5rem;
+  }
+  .design-process-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .process-scroller-container {
+    padding: 1.5rem 0 3rem 0;
+  }
+  .process-scroll-track {
+    padding: 0 1.5rem; /* Mobile e padding kom */
+  }
+  .process-step-item {
+    flex: 0 0 320px; /* Mobile e item ektu choto */
+    width: 320px;
+  }
+}
+
+/* ============================================= */
+/* === 4. FINAL FIXES (Your new requests) === */
+/* ============================================= */
+
+/* 1. This removes the faded '01', '02' numbers */
+.process-step-number {
+  display: none !important; 
+}
+
+/* 2. This fixes the "up and down" alignment issue */
+
+/* Forces title area to be tall enough for 2 lines */
+.process-step-item h4 {
+  min-height: 4rem; 
+}
+
+/* Forces paragraph area to be tall enough for 4 lines */
+.process-step-item p {
+  min-height: 6.5rem; 
+}
 /* ============================================= */
 /* === 2. WEB PRICING SECTION (Notun) === */
 /* ============================================= */

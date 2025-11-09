@@ -22,8 +22,12 @@
   <body>
     <div id="preloader-bg"></div>
     <div id="preloader-circle"></div>
+
+
     <header id="main-header">
-      <a href="home.html" class="logo">KRELYON</a>
+      <a href="home.html" class="logo">
+        <img src="../images/logo-krelyon.png" alt="KRELYON">
+      </a>
 
       <nav class="desktop-nav">
         <a href="home.html">Home</a>
@@ -303,9 +307,6 @@
             </div>
           </div>
         </div>
-
-        <a href="products.html">Work</a>
-
         <div class="nav-item-dropdown">
           <button class="nav-dropdown-toggle" id="about-toggle">
             About us
@@ -331,8 +332,7 @@
           </div>
         </div>
 
-        <a href="service.html">Insights</a>
-        <a href="products.html">Products</a>
+         <a href="products.html">Products</a>
       </nav>
       <a href="contact.html" class="cta-button">START A PROJECT</a>
 
@@ -392,9 +392,6 @@
               <a href="service.html">Apple Ecosystem</a>
             </div>
           </div>
-
-          <a href="service.html">Work</a>
-
           <div class="mobile-nav-item-with-sub">
             <button class="mobile-nav-sub-toggle">
               About us
@@ -420,9 +417,7 @@
             </div>
           </div>
 
-          <a href="service.html">Insights</a>
-          <a href="products.html">Products</a>
-          <a href="contact.html">Contact</a>
+           <a href="products.html">Products</a>
         </div>
       </div>
       <div class="mobile-nav-footer">
@@ -430,6 +425,7 @@
         <a href="mailto:info@codifia.com">info@Krelyon.com</a>
       </div>
     </div>
+    
     <main id="main-content">
       <section class="hero">
         <div class="hero-text-left">
@@ -444,7 +440,7 @@
             helping local & international companies & agencies. We are providing
             development support since 2025.
           </p>
-          <a href="#" class="btn-about anim-fade">REQUEST A QUOTE &gt;</a>
+          <a href="contact.html" class="btn-about anim-fade">REQUEST A QUOTE &gt;</a>
         </div>
 
         <div class="hero-grid-right">
@@ -462,7 +458,6 @@
               <div class="hero-grid-card">
                 <img src="../images/mysql.png" alt="Project 1" />
               </div>
-              <!-- <div class="hero-grid-card"><img src="../images/download.png" alt="Project 2"></div> -->
               <div class="hero-grid-card">
                 <img src="../images/aws.webp" alt="Project 3" />
               </div>
@@ -632,6 +627,7 @@
           </div>
         </div>
       </section>
+      <!-- [UPDATED] Stats Section HTML -->
       <section class="stats-section">
         <div class="stats-container">
           <div class="stat-item">
@@ -646,12 +642,26 @@
             <p>Projects completed</p>
             <h3 data-count="160">0+</h3>
           </div>
+          <!-- [NEW] Added 4th stat -->
+          <div class="stat-item">
+            <p>Team Members</p>
+            <h3 data-count="40">0+</h3>
+          </div>
         </div>
       </section>
       <section class="marquee">
-        <div class="marquee-content">
-          <span>KRELYON</span> <span>KRELYON</span> <span>KRELYON</span>
-          <span>KRELYON</span> <span>KRELYON</span> <span>KRELYON</span>
+        <div class="marquee-track">
+          
+          <div class="marquee-content">
+            <span>WEB DESIGN</span> <span>DEVELOPMENT</span> <span>SEO</span>
+            <span>BRANDING</span> <span>MARKETING</span> <span>UI/UX</span>
+          </div>
+          
+          <div class="marquee-content" aria-hidden="true">
+            <span>WEB DESIGN</span> <span>DEVELOPMENT</span> <span>SEO</span>
+            <span>BRANDING</span> <span>MARKETING</span> <span>UI/UX</span>
+          </div>
+
         </div>
       </section>
       <section class="content-section projects">
@@ -1067,11 +1077,10 @@
       </section>
       <section class="design-process-section">
         <div class="design-process-header">
-          <h2>Website Design Process</h2>
+          <h2>Our Blueprint for Digital Success</h2>
           <p>
-            Take a peek behind the curtain and explore the custom web design
-            process our team follows. We build custom sites for brands of all
-            sizes that deliver <a href="#">measurable results</a>.
+            Discover the methodology that powers our custom web solutions. We
+            craft unique, results-driven websites for brands of all scales.
           </p>
 
           <div class="process-line-wrapper">
@@ -1095,17 +1104,21 @@
               <div class="process-step-icon">
                 <img src="../images/WebStrategy.png" alt="Web Strategy Icon" />
               </div>
-              <h4 data-target-id="step-item-1">Web Strategy</h4>
+              <h4 data-target-id="step-item-1">Discovery & Strategy</h4>
               <p>
-                We use in-depth research and analysis as key pillars to build a
-                step-by-step plan that expands your digital presence and drives
-                online growth.
+                Every project begins with deep research and analysis. This forms a
+                step-by-step blueprint to expand your digital footprint and
+                ignite online growth.
               </p>
               <ul class="process-step-list">
-                <li>Identify your target audiences</li>
-                <li>Analyze user pain-points & define your UVPs</li>
-                <li>Define key performance indicators (KPIs)</li>
-                <li>Create a sitemap to build a robust site architecture</li>
+                <li>Defining your target audience personas</li>
+                <li>
+                  Pinpointing user challenges & defining your unique value
+                </li>
+                <li>Setting clear Key Performance Indicators (KPIs)</li>
+                <li>
+                  Architecting a logical sitemap for a robust foundation
+                </li>
               </ul>
               <div class="process-step-number">01</div>
             </div>
@@ -1118,22 +1131,21 @@
                 />
               </div>
               <h4 data-target-id="step-item-2">
-                Planning & Information Architecture
+                Architecture & UX Planning
               </h4>
               <p>
-                We utilize proven techniques to map your content, meet user
-                intentions and create an engaging user experience. By outlining
-                your site's structure, we ensure seamless user journeys to key
-                conversion points.
+                We apply proven techniques to map content, satisfy user intent,
+                and build an engaging journey. By structuring your site
+                logically, we create seamless paths to conversion.
               </p>
               <ul class="process-step-list">
-                <li>Here's how our team does it:</li>
-                <li>We develop a base-level user flow & sitemap</li>
+                <li>Our process includes:</li>
+                <li>Developing foundational user flows & sitemaps</li>
                 <li>
-                  We utilize wireframing to create a seamless conversion funnel
+                  Using wireframes to design a high-conversion funnel
                 </li>
                 <li>
-                  We establish consistent, responsive messaging for your brand
+                  Ensuring brand messaging is consistent and responsive
                 </li>
               </ul>
               <div class="process-step-number">02</div>
@@ -1146,23 +1158,22 @@
                   alt="Creative Design Icon"
                 />
               </div>
-              <h4 data-target-id="step-item-3">Creative Design</h4>
+              <h4 data-target-id="step-item-3">Visual & UI Design</h4>
               <p>
-                This stage is where you will see your site come to life. Our
-                award-winning designers implement your unique branding elements
-                to add your identity to your custom web design in NYC.
+                This is where your brand's vision comes to life. Our creative
+                team implements your unique identity into a stunning custom
+                design.
               </p>
               <ul class="process-step-list">
                 <li>
-                  With just 50 milliseconds to make a good first impression,
-                  your website needs to stand out. To achieve this, we:
+                  A powerful first impression is vital. To achieve this, we:
                 </li>
                 <li>
-                  Thoughtfully place design features to guide the user journey
+                  Strategically place design elements to guide user flow
                 </li>
-                <li>Utilize interactive videos & animations</li>
-                <li>Create custom-branded illustrations</li>
-                <li>Ensure accessibility & user-centric optimization</li>
+                <li>Integrate modern interactive media and animations</li>
+                <li>Produce custom-branded illustrations and graphics</li>
+                <li>Prioritize accessibility and user-centric principles</li>
               </ul>
               <div class="process-step-number">03</div>
             </div>
@@ -1174,19 +1185,21 @@
                   alt="Responsive Development Icon"
                 />
               </div>
-              <h4 data-target-id="step-item-4">Responsive Development</h4>
+              <h4 data-target-id="step-item-4">
+                Front-End & Back-End Build
+              </h4>
               <p>
-                A responsive website is fast, accessible and easy to navigate.
-                It automatically scales to various screen sizes and devices,
-                driving user experience and climbing search engine rankings.
+                A high-performance site is fast, accessible, and simple to
+                navigate. It adapts flawlessly to all screen sizes, improving
+                user experience and search rankings.
               </p>
               <ul class="process-step-list">
                 <li>
-                  To ensure your website reaches and satisfies every user, we:
+                  To guarantee a perfect experience for every user, we:
                 </li>
-                <li>Gather touchpoint & user-channel insights</li>
-                <li>Transform your wireframes into a flexible UI</li>
-                <li>Test across devices before approval to launch</li>
+                <li>Leverage data on touchpoints & user channels</li>
+                <li>Converting static wireframes into a flexible UI</li>
+                <li>Perform cross-device testing before launch approval</li>
               </ul>
               <div class="process-step-number">04</div>
             </div>
@@ -1195,18 +1208,23 @@
               <div class="process-step-icon">
                 <img src="../images/QualityAssurance(QA).png" alt="QA Icon" />
               </div>
-              <h4 data-target-id="step-item-5">Quality Assurance (QA)</h4>
+              <h4 data-target-id="step-item-5">Testing & Quality Assurance</h4>
               <p>
-                At Digital Silk, we pride ourselves on delivering measurable
-                results and professional outcomes. By following a strict quality
-                assurance (QA) protocol, we guarantee a high-quality digital
-                experience for your brand.
+                We are committed to delivering measurable results and a
+                professional final product. Our strict QA protocol ensures a
+                high-quality digital experience.
               </p>
               <ul class="process-step-list">
-                <li>To achieve this, we:</li>
-                <li>Actively involve our clients throughout every project</li>
-                <li>Meticulously test all designs to each device</li>
-                <li>Use front and backend tests to secure before launch</li>
+                <li>To accomplish this, we:</li>
+                <li>
+                  Involve our clients for feedback throughout the project
+                </li>
+                <li>
+                  Rigorously test all designs on every conceivable device
+                </li>
+                <li>
+                  Run comprehensive front-end and back-end tests pre-launch
+                </li>
               </ul>
               <div class="process-step-number">05</div>
             </div>
@@ -1218,20 +1236,20 @@
                   alt="Launch Icon"
                 />
               </div>
-              <h4 data-target-id="step-item-6">Launch & Optimization</h4>
+              <h4 data-target-id="step-item-6">Deployment & Optimization</h4>
               <p>
-                Our end-to-end website design services cover both launch and
-                post-launch support. We meticulously monitor, test and optimize
-                your website elements to ensure every part of your site is
-                functioning optimally.
+                Our comprehensive services cover the full lifecycle, from
+                deployment to post-launch support. We constantly monitor and
+                optimize to ensure peak performance.
               </p>
               <ul class="process-step-list">
-                <li>Our design specialists make this happen by:</li>
-                <li>Following a strict protocol for every website launch</li>
-                <li>Offering post-launch maintenance & optimization</li>
+                <li>Our specialists ensure success by:</li>
                 <li>
-                  Creating & implementing a digital marketing plan to drive
-                  awareness across touchpoints
+                  Adhering to a strict protocol for every site deployment
+                </li>
+                <li>Providing post-launch maintenance and optimization</li>
+                <li>
+                  Implementing a marketing plan to drive post-launch awareness
                 </li>
               </ul>
               <div class="process-step-number">06</div>
@@ -1304,15 +1322,32 @@
           </p>
         </div>
         <div class="tech-logo-grid">
-          <div class="tech-logo">Kotlin</div>
-          <div class="tech-logo icon">K.</div>
-          <div class="tech-logo"><span class="tech-logo-tag">MOBILE</span></div>
-          <div class="tech-logo">Java</div>
-          <div class="tech-logo">node.js</div>
-          <div class="tech-logo icon">&#128196;</div>
-          <div class="tech-logo"><span class="tech-logo-tag">WEB</span></div>
-          <div class="tech-logo">JS</div>
+        <div class="tech-logo">
+          <img src="../images/kotlin.png" alt="Kotlin Logo">
         </div>
+        <div class="tech-logo">
+          <img src="../images/k-logo.webp" alt="K Logo">
+        </div>
+        <div class="tech-logo">
+          <img src="path/to/your/mobile-icon.png" alt="Mobile Icon">
+        </div>
+        <div class="tech-logo">
+          <img src="path/to/your/java-logo.png" alt="Java Logo">
+        </div>
+        
+        <div class="tech-logo">
+          <img src="path/to/your/nodejs-logo.png" alt="Node.js Logo">
+        </div>
+        <div class="tech-logo">
+          <img src="path/to/your/file-icon.png" alt="File Icon">
+        </div>
+        <div class="tech-logo">
+          <img src="path/to/your/web-icon.png" alt="Web Icon">
+        </div>
+        <div class="tech-logo">
+          <img src="path/to/your/js-logo.png" alt="JavaScript Logo">
+        </div>
+      </div>
       </section>
       <section class="content-section products-section">
         <div class="section-header">
@@ -1435,21 +1470,61 @@
         </div>
       </section>
     </main>
-    <footer>
-      <a href="#" class="logo">KRELYON</a>
-      <div class="footer-links">
-        <div>
-          <a href="#">Instagram</a> <a href="#">Dribbble</a>
-          <a href="#">YouTube</a>
+<footer>
+        <div class="footer-primary">
+            
+            <div class="footer-logo-area">
+                <a href="home.html" class="logo">
+                    <img src="../images/logo-krelyon.png" alt="Krelyon Home">
+                </a>
+                <p>A creative partner for digital innovators. We solve complex problems with human-centric design.</p>
+                
+                <div class="footer-cta-area">
+                     <a href="mailto:info@krelyon.com" class="footer-email">info@krelyon.com</a>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="service.html#section-mobile">Mobile Apps</a></li>
+                        <li><a href="service.html#section-webdesign">Web Development</a></li>
+                        <li><a href="service.html#section-ecommerce">E-Commerce</a></li>
+                        <li><a href="#">AI & ML Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Work</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="products.html">Insights</a></li>
+                    </ul>
+                </div>
+            </div>
+          
         </div>
-        <div>
-          <a href="#">Mobile App Development</a>
-          <a href="#">Web Development</a> <a href="#">UI/UX Design</a>
+        
+        <div class="footer-secondary">
+            <div class="footer-socials">
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.438-3.077h2.562v3z"/></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Dribbble">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.822 18.44c-3.34-1.121-5.69-4.439-5.69-8.179 0-.621.071-1.226.206-1.809l11.066 11.066c-.699.16-1.423.255-2.176.255-1.13 0-2.197-.246-3.167-.668zm.89-1.61c1.232.714 2.651 1.141 4.157 1.141 4.213 0 7.73-3.003 8.356-6.953l-11.365 11.365c-.073-.623-.148-1.253-.148-1.895 0-1.23.273-2.388.755-3.435.033-.075.066-.149.1-.223zm6.61-9.229c-1.222-.709-2.62-1.129-4.111-1.129-4.212 0-7.729 3.003-8.355 6.952l11.364-11.364c.073.623.148 1.254.148 1.895 0 1.23-.273 2.388-.754 3.435-.033.075-.066.149-.1.223zm-5.46-3.832c.699-.16 1.423-.255 2.176-.255 1.13 0 2.197.246 3.167.668 3.34 1.121 5.69 4.439 5.69 8.179 0 .621-.071 1.226-.206 1.809l-11.066-11.066z"/></svg>
+                </a>
+            </div>
+            <p class="footer-copyright">&copy; 2019 Krelyon. All rights reserved.</p>
         </div>
-        <div>
-          <a href="#">Home</a> <a href="#">Work</a> <a href="#">About</a>
-        </div>
-      </div>
     </footer>
     <div id="video-modal" class="video-modal-overlay">
       <div class="video-modal-content">
