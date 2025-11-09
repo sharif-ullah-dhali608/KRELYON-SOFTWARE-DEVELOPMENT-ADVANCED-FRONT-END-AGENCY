@@ -311,78 +311,87 @@
 
 
 function initializeHorizontalScroller() {
-            const scroller = document.getElementById('process-scroller-js');
-            const track = document.getElementById('process-track-js');
-            const line = document.getElementById('process-line-progress-bar');
-            const tabs = document.querySelectorAll('.process-step-item h4[data-target-id]');
-            const icons = document.querySelectorAll('.process-step-icon');
-            const indicators = document.querySelectorAll('.process-step-indicator');
+    // First, check if GSAP is loaded
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.error("GSAP or ScrollTrigger is not loaded. Scrolling animation will not work.");
+        return;
+    }
+    
+    gsap.registerPlugin(ScrollTrigger); // Register the plugin
 
-            if (!scroller || !track || !line || !tabs.length || !icons.length) {
-                console.warn("Horizontal scroller elements not found.");
-                return;
-            }
+    const scroller = document.getElementById('process-scroller-js');
+    const track = document.getElementById('process-track-js');
+    const line = document.getElementById('process-line-progress-bar');
+    const tabs = document.querySelectorAll('.process-step-item h4[data-target-id]');
+    const indicators = document.querySelectorAll('.process-step-indicator');
+    const section = document.querySelector('.design-process-section');
 
-            // --- 1. Line Animation & Parallax on Scroll ---
-            scroller.addEventListener('scroll', () => {
-                const scrollableWidth = scroller.scrollWidth - scroller.clientWidth;
-                const scrollLeft = scroller.scrollLeft;
-                
-                let scrollPercent = 0;
-                if (scrollableWidth > 0) {
-                    // Koto scroll kora hoyeche (0 theke 1)
-                    scrollPercent = scrollLeft / scrollableWidth;
-                }
-                
-                // 1a. Update Line
-                line.style.transform = `scaleX(${scrollPercent})`;
-                
-                // 1b. Update Icon Parallax (Video er moto)
-                // Icon gulo scroll er olpo biporit dike jabe
-                icons.forEach(icon => {
-                    icon.style.transform = `translateX(${scrollLeft * -0.1}px)`;
-                });
+    if (!scroller || !track || !line || !tabs.length || !indicators.length || !section) {
+        console.warn("Horizontal scroller elements not found.");
+        return;
+    }
 
-                // 1c. Update Indicator Colors
-                // Koto % scroll hoyeche
-                const percentScrolled = scrollPercent * 100;
+    // --- 1. GSAP Pinned Scrolling ---
+    // THIS CODE MAKES THE CARDS AND LINE MOVE WITH THE SCROLLBAR
+    gsap.to(scroller, {
+        scrollTo: { x: "max" }, 
+        ease: "none",
+        scrollTrigger: {
+            trigger: section, 
+            pin: true,        
+            start: "top top", 
+            end: () => "+=" + (scroller.scrollWidth - scroller.clientWidth),
+            scrub: true,      
+            invalidateOnRefresh: true,
+            
+            onUpdate: (self) => {
+                // Update the progress line
+                line.style.transform = `scaleX(${self.progress})`;
+
+                // Update Indicator Colors
+                const percentScrolled = self.progress * 100;
                 indicators.forEach(indicator => {
-                    // Indicator er position (%)
-                    const indicatorPosition = parseFloat(indicator.style.left); 
+                    const indicatorPosition = parseFloat(indicator.style.left);
                     
-                    if (percentScrolled >= indicatorPosition - 1) { // -1 ekta buffer
+                    if (percentScrolled >= indicatorPosition - 1) {
                         indicator.classList.add('active');
                     } else {
                         indicator.classList.remove('active');
                     }
                 });
-            });
-
-            // --- 2. Click to Scroll ---
-            // Prottek heading e click listener add korun
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const targetId = tab.dataset.targetId;
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        // Container er বাম পাশ a target element er position
-                        const targetLeft = targetElement.offsetLeft;
-                        
-                        // Container er padding
-                        const scrollerPaddingLeft = parseInt(window.getComputedStyle(track).paddingLeft);
-                        
-                        // Smoothly scroll korun
-                        scroller.scrollTo({
-                            left: targetLeft - scrollerPaddingLeft,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+            }
         }
+    });
 
 
+    // --- 2. Click to Scroll ---
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.dataset.targetId;
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const targetLeft = targetElement.offsetLeft;
+                const scrollerPaddingLeft = parseInt(window.getComputedStyle(track).paddingLeft);
+                
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const targetScroll = targetLeft - scrollerPaddingLeft;
+                const progress = targetScroll / maxScroll;
+
+                const st = ScrollTrigger.getByTrigger(section);
+                if (st) {
+                    // This is the corrected scroll calculation
+                    const newScrollPos = st.start + (progress * (st.end - st.start));
+                    gsap.to(window, {
+                        scrollTo: newScrollPos,
+                        duration: 1, 
+                        ease: "power2.inOut"
+                    });
+                }
+            }
+        });
+    });
+}
 
 
 
