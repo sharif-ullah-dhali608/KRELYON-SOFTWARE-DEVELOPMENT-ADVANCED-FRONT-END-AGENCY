@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - KRELYON</title>
+    <title>Apply Now - KRELYON</title>
     
-    <link rel="icon" href="images/logo-krelyon.png" type="image/png">
+    <!-- Favicon Link -->
+    <link rel="icon" href="/images/logo-krelyon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +16,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
     
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/dropdown.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/dropdown.css">
+    <link rel="stylesheet" href="/css/footer.css">
 
     <style>
         /* --- BASIC STYLES --- */
@@ -50,10 +51,9 @@
         }
         /* --- End Logo CSS --- */
 
-
-        /* --- CAREERS HERO SECTION --- */
-         .careers-hero {
-            height: 90vh; /* Shorter than about page hero */
+        /* --- APPLY HERO SECTION --- */
+         .apply-hero {
+            height: 130vh;
             position: relative;
             display: flex;
             align-items: center;
@@ -69,15 +69,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/team.jpg'); /* Using team image */
+            background-image: url('../images/about-hero0.png'); 
             background-size: cover;
             background-position: center;
             z-index: 1;
-            animation: ken-burns 20s ease-in-out infinite alternate;
-        }
-        @keyframes ken-burns {
-            0% { transform: scale(1.1) rotate(1deg); }
-            100% { transform: scale(1) rotate(0deg); }
         }
         .hero-image-overlay {
             position: absolute;
@@ -85,27 +80,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(17, 24, 39, 0.7); 
+            background-color: rgba(17, 24, 39, 0.8); 
             z-index: 2;
         }
-        .careers-hero-content {
+        .apply-hero-content {
             position: relative;
             z-index: 3;
             max-width: 900px;
             opacity: 0; 
             transform: translateY(30px);
         }
-        .careers-hero h1 {
-            font-size: 4.5vw;
+        .apply-hero h1 {
+            font-size: 4vw;
             line-height: 1.1;
             color: var(--text-color);
-        }
-        .careers-hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 1.5rem auto 0 auto;
-            line-height: 1.7;
         }
         
         /* --- Section Header --- */
@@ -115,7 +103,7 @@
             align-items: center;
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 5rem auto;
+            margin: 0 auto 4rem auto;
         }
         .section-header h2 {
             font-size: 3rem;
@@ -127,97 +115,233 @@
             line-height: 1.7;
          }
          
-        /* --- CAREERS LIST SECTION --- */
-        .careers-list {
+        /* --- APPLY FORM SECTION --- */
+        .apply-form-section {
             padding: 6rem 3rem;
-            max-width: 900px;
-            margin: 0 auto; /* Center the list */
         }
-        
-        .job-card {
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-light);
             border-radius: 12px;
-            padding: 2rem 2.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0; /* For animation */
-            transform: translateY(30px); /* For animation */
-            transition: all 0.3s ease;
+            padding: 3rem;
         }
-        .job-card:hover {
-            transform: translateY(-5px);
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1; 
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-light);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: 'Sora', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="url"]:focus,
+        .form-group textarea:focus {
+            outline: none;
             border-color: var(--accent-color);
         }
         
-        .job-info h3 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
+        /* [NEW] CSS to highlight error fields */
+        .form-group input.invalid,
+        .form-group textarea.invalid,
+        .file-upload-wrapper.invalid {
+            border-color: #E53E3E; /* Red border for errors */
         }
-        .job-info p {
-            font-size: 1rem;
+
+
+        .form-group input[type="text"]:disabled {
+            background-color: var(--bg-secondary);
+            color: var(--text-color);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 1rem 1rem;
+            background-color: var(--bg-color);
+            border: 1px dashed var(--border-light);
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+        .file-upload-wrapper:hover {
+            border-color: var(--accent-color);
+        }
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-upload-wrapper span {
             color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .file-upload-wrapper span strong {
+            color: var(--accent-color);
+            font-weight: 500;
         }
         
-        .btn-apply {
+        .btn-submit {
             display: inline-block; 
-            background-color: var(--accent-color); 
+            background-color: var(--accent-orange); 
             color: var(--bg-color); 
-            padding: 0.8rem 1.8rem; 
+            padding: 1rem 2.5rem; 
             text-decoration: none;
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700; 
             border-radius: 5px; 
-            border: 2px solid var(--accent-color);
+            border: 2px solid var(--accent-orange);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .btn-submit:hover {
+            background-color: transparent;
+            color: var(--accent-orange);
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.open .modal-content {
+            transform: scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem auto;
+            background-color: var(--accent-color); /* Green for success */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* [NEW] Error Modal Icon */
+        .modal-icon.error {
+            background-color: #E53E3E; /* Red for error */
+        }
+        
+        .modal-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--bg-color);
+            stroke-width: 4;
+        }
+        
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .modal-content p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .btn-orange-modal {
+            display: inline-block; 
+            background-color: var(--accent-orange); 
+            color: var(--bg-color); 
+            padding: 0.8rem 2rem; 
+            text-decoration: none;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; 
+            border-radius: 5px; 
+            border: 2px solid var(--accent-orange);
             transition: all 0.3s ease;
         }
-        .btn-apply:hover {
+        .btn-orange-modal:hover {
             background-color: transparent;
-            color: var(--accent-color);
+            color: var(--accent-orange);
         }
-        
-        .no-openings {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            padding: 4rem 0;
-            border: 1px dashed var(--border-light);
-            border-radius: 12px;
-        }
-
-
-        /* --- RESPONSIVE STYLES --- */
-         @media (max-width: 1024px) {
-            .careers-hero h1 { font-size: 7vw; }
-
-
-        }
-        
-        @media (max-width: 768px) {
-            .careers-hero h1 { font-size: 10vw; }
-            .careers-list { padding: 4rem 1.5rem; }
-            .job-card {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .footer-secondary {
-                align-items: center; 
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .careers-hero h1 { font-size: 12vw; }
-            .footer-links-grid { 
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            } 
-        }
+        /* --- [END] MODAL STYLES --- */
 
     </style>
 </head>
@@ -225,13 +349,13 @@
     <div id="preloader-bg"></div>
     <div id="preloader-circle"></div>
     
-   <header id="main-header">
-      <a href="home.html" class="logo">
-        <img src="images/logo-krelyon.png" alt="KRELYON">
+    <header id="main-header">
+      <a href="/" class="logo">
+        <img src="/images/logo-krelyon.png" alt="KRELYON">
       </a>
 
       <nav class="desktop-nav">
-        <a href="home.html">Home</a>
+        <a href="/">Home</a>
 
         <div class="nav-item-dropdown">
           <button class="nav-dropdown-toggle" id="services-toggle">
@@ -254,7 +378,7 @@
 
           <div class="mega-menu-dropdown" id="services-menu">
             <div class="mega-menu-grid">
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -279,7 +403,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -303,11 +427,11 @@
                   <h4>Web Development</h4>
                   <p>
                     In addition to our front-end design and development
-                    expertise, our web development services.
+                    expertise, our web development s.
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +455,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -350,12 +474,12 @@
                 <div class="mega-menu-content">
                   <h4>Consulting</h4>
                   <p>
-                    Furthermore, our software industry consulting services
+                    Furthermore, our software industry consulting /s
                     extend beyond just technical expertise.
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -380,7 +504,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -404,7 +528,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -429,7 +553,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -453,11 +577,11 @@
                   <h4>Web Development</h4>
                   <p>
                     In addition to our front-end design and development
-                    expertise, our web development services.
+                    expertise, our web development s.
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -481,7 +605,7 @@
                   </p>
                 </div>
               </a>
-              <a href="service.html" class="mega-menu-item">
+              <a href="/service" class="mega-menu-item">
                 <div class="mega-menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -500,7 +624,7 @@
                 <div class="mega-menu-content">
                   <h4>Consulting</h4>
                   <p>
-                    Furthermore, our software industry consulting services
+                    Furthermore, our software industry consulting s
                     extend beyond just technical expertise.
                   </p>
                 </div>
@@ -527,15 +651,15 @@
             </svg>
           </button>
           <div class="simple-dropdown-menu" id="about-menu">
-            <a href="about.html">Our Company</a>
-            <a href="about.html">Our Milestones</a>
-            <a href="about.html">Our Certifications</a>
+            <a href="/about">Our Company</a>
+            <a href="/about">Our Milestones</a>
+            <a href="/about">Our Certifications</a>
           </div>
         </div>
 
-         <a href="products.html">Products</a>
+         <a href="/products">Products</a>
       </nav>
-      <a href="contact.html" class="cta-button">START A PROJECT</a>
+      <a href="/contact" class="cta-button">START A PROJECT</a>
 
       <button class="mobile-nav-toggle" aria-label="Toggle navigation">
         <span class="line line1"></span>
@@ -546,7 +670,7 @@
     <div id="mobile-nav">
       <div class="mobile-nav-header">
         <button class="mobile-nav-close" id="mobile-nav-close">
-          Close <span>&times;</span>
+          Close <span>×</span>
         </button>
       </div>
       <div class="mobile-nav-body">
@@ -560,7 +684,7 @@
           <a href="#">Twitter</a>
         </div>
         <div class="main-links">
-          <a href="home.html">Home</a>
+          <a href="/">Home</a>
 
           <div class="mobile-nav-item-with-sub">
             <button class="mobile-nav-sub-toggle">
@@ -581,16 +705,16 @@
               </svg>
             </button>
             <div class="mobile-sub-menu">
-              <a href="service.html">Integration As A Service</a>
-              <a href="service.html">Implementation As A Service</a>
-              <a href="service.html">3D Design and Illustration</a>
-              <a href="service.html">Xtended Reality</a>
-              <a href="service.html">UI/UX & Branding</a>
-              <a href="service.html">Migration as a Service</a>
-              <a href="service.html">AI and Machine Learning</a>
-              <a href="service.html">Omnichannel Digitalization</a>
-              <a href="service.html">DevOps</a>
-              <a href="service.html">Apple Ecosystem</a>
+              <a href="/service">Integration As A Service</a>
+              <a href="/service">Implementation As A Service</a>
+              <a href="/service">3D Design and Illustration</a>
+              <a href="/service">Xtended Reality</a>
+              <a href="/service">UI/UX & Branding</a>
+              <a href="/service">Migration as a Service</a>
+              <a href="/service">AI and Machine Learning</a>
+              <a href="/service">Omnichannel Digitalization</a>
+              <a href="/service">DevOps</a>
+              <a href="/service">Apple Ecosystem</a>
             </div>
           </div>
           <div class="mobile-nav-item-with-sub">
@@ -612,13 +736,13 @@
               </svg>
             </button>
             <div class="mobile-sub-menu">
-              <a href="about.html">Our Company</a>
-              <a href="about.html">Our Milestones</a>
-              <a href="about.html">Our Certifications</a>
+              <a href="/about">Our Company</a>
+              <a href="/about">Our Milestones</a>
+              <a href="/about">Our Certifications</a>
             </div>
           </div>
 
-           <a href="products.html">Products</a>
+           <a href="/products">Products</a>
         </div>
       </div>
       <div class="mobile-nav-footer">
@@ -627,61 +751,117 @@
       </div>
     </div>
 
-
     <main id="main-content">
 
-        <section class="careers-hero">
+        <!-- APPLY HERO SECTION -->
+        <section class="apply-hero">
             <div class="hero-image-bg"></div>
             <div class="hero-image-overlay"></div>
-            <div class="careers-hero-content">
-                <h1>Join Our Team</h1>
-                <p>We are building the future of digital experience. We’re looking for talented people to join us on our mission.</p>
+            <div class="apply-hero-content">
+                <h1>Apply Now</h1>
             </div>
         </section>
 
-        <section class="careers-list">
-            <div class="section-header">
-                <h2>Open Positions</h2>
-                <p class="section-subtitle">Find your next opportunity and build something amazing with us.</p>
+        <!-- APPLY FORM SECTION -->
+        <section class="apply-form-section">
+            <div class="form-container">
+                <div class="section-header">
+                    <h2>Submit Your Application</h2>
+                    <p class="section-subtitle">We're excited to learn more about you. Please fill out the form below.</p>
+                </div>
+
+                <form id="application-form" action="#" method="POST" enctype="multipart/form-data" novalidate> <!-- novalidate prevents browser default popups -->
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+                            <label for="job-title-display">Applying for</label>
+                            <input type="text" id="job-title-display" name="job_title_display" placeholder="Loading job..." disabled>
+                            <input type="hidden" id="job-title-hidden" name="job_title">
+                        </div>
+
+                        <!-- Full Name Field (with validation) -->
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full_name" required 
+                                   pattern="^[a-zA-Z\s]+$" 
+                                   title="Please enter a valid name (letters and spaces only).">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <!-- Portfolio Field (with validation) -->
+                        <div class="form-group">
+                            <label for="portfolio">Portfolio/Website URL</label>
+                            <input type="url" id="portfolio" name="portfolio" placeholder="https://..." title="Please enter a valid URL (e.g., https://yoursite.com)">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="resume">Upload Resume (PDF, DOCX)</label>
+                            <div class="file-upload-wrapper" id="resume-wrapper">
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                                <span>Drag & Drop or <strong>Browse File</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="cover-letter">Cover Letter (Optional)</label>
+                            <textarea id="cover-letter" name="cover_letter" placeholder="Tell us why you're a great fit..."></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn-submit">Submit Application</button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
-            
-            <div class="job-openings-container">
-                
-                <div class="job-card">
-                    <div class="job-info">
-                        <h3>Senior Frontend Developer</h3>
-                        <p>Remote (Global) / Full-Time</p>
-                    </div>
-                    <a href="job-frontend-developer.html" class="btn-apply">Apply Now</a>
-                </div>
-                
-                <div class="job-card">
-                    <div class="job-info">
-                        <h3>UI/UX Designer</h3>
-                        <p>Dhaka, Bangladesh / Full-Time</p>
-                    </div>
-                    <a href="job-ui-ux.html" class="btn-apply">Apply Now</a>
-                </div>
-
-                <div class="job-card">
-                    <div class="job-info">
-                        <h3>Project Manager (Fintech)</h3>
-                        <p>Remote (Global) / Contract</p>
-                    </div>
-                    <a href="job-pm.html" class="btn-apply">Apply Now</a>
-                </div>
-
-                </div>
         </section>
 
     </main>
-    
+    <!-- Success Modal HTML -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-success-modal" class="modal-close">&times;</button>
+            <div class="modal-icon">
+                <!-- Checkmark Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3>Application Sent!</h3>
+            <p>Thank you for applying. We have received your application and will review it shortly.</p>
+            <a href="/" class="btn-orange-modal">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- [NEW] Error Modal HTML -->
+    <div id="error-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-error-modal" class="modal-close">&times;</button>
+            <div class="modal-icon error">
+                <!-- Error Icon (X) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+            <h3>Submission Failed</h3>
+            <!-- This message will be set by JavaScript -->
+            <p id="error-message">Please check the form for errors.</p>
+            <button id="close-error-modal-btn" class="btn-orange-modal">Try Again</button>
+        </div>
+    </div>
+
+
     <footer>
     <div class="footer-primary">
 
         <div class="footer-column" id="footer-about">
-        <a href="#" class="logo">
-            <img src="images/logo-krelyon.png" alt="Krelyon Logo">
+        <a href="/" class="logo">
+            <img src="/images/logo-krelyon.png" alt="Krelyon Logo">
         </a>
         <p>A creative partner for digital innovators. We solve complex problems with human-centric design.</p>
 
@@ -690,21 +870,19 @@
         <div class="footer-column">
         <h5>Services</h5>
         <ul>
-            <li><a href="#">Mobile Apps</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">E-Commerce</a></li>
-            <li><a href="#">AI & ML Solutions</a></li>
+            <li><a href="/service">Mobile Apps</a></li>
+            <li><a href="/service">Web Development</a></li>
+            <li><a href="/service">E-Commerce</a></li>
+            <li><a href="/service">AI & ML Solutions</a></li>
         </ul>
         </div>
 
         <div class="footer-column">
         <h5>Company</h5>
         <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Insights</a></li>
-        </ul>
+            <li><a href="/about">About Us</a></li>
+             <li><a href="/careers">Careers</a></li>
+         </ul>
         </div>
 
         <div class="footer-column">
@@ -757,33 +935,199 @@
         <p class="footer-copyright">© 2025 Krelyon. All rights reserved.</p>
     </div>
     </footer>
-    
+
+    <script src="/js/dropdown.js"></script>
+    <script src="/js/home.js"></script>
+
+
     <script>
         
         /* --- JAVASCRIPT --- */
-        
-        function runScrollAnimations() {
-            // Animate job cards
-             gsap.to('.job-card', {
-                opacity: 1, y: 0, stagger: 0.15,
-                scrollTrigger: {
-                    trigger: '.job-openings-container',
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
+
+        /* Reads the job title from the URL */
+        function populateJobTitle() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const jobSlug = urlParams.get('job');
+                const jobFieldDisplay = document.getElementById('job-title-display');
+                const jobFieldHidden = document.getElementById('job-title-hidden');
+
+                if (!jobFieldDisplay || !jobFieldHidden) return;
+
+                let displayTitle = "General Application"; 
+                
+                if (jobSlug === 'frontend') {
+                    displayTitle = 'Senior Frontend Developer';
+                } else if (jobSlug === 'ui-ux') {
+                    displayTitle = 'UI/UX Designer';
+                } else if (jobSlug === 'project-manager') {
+                    displayTitle = 'Project Manager (Fintech)';
                 }
-            });
+
+                jobFieldDisplay.value = displayTitle;
+                jobFieldHidden.value = displayTitle;
+
+            } catch (e) {
+                console.error("Error populating job title:", e);
+            }
+        }
+        
+        /* Updates the file input text */
+        function setupFileInput() {
+            try {
+                const fileInput = document.getElementById('resume');
+                if (!fileInput) return;
+                
+                const fileText = document.querySelector('.file-upload-wrapper span');
+                
+                fileInput.addEventListener('change', () => {
+                    if (fileInput.files.length > 0) {
+                        fileText.innerHTML = `<strong>${fileInput.files[0].name}</strong>`;
+                    } else {
+                        fileText.innerHTML = `Drag & Drop or <strong>Browse File</strong>`;
+                    }
+                });
+            } catch (e) {
+                console.error("Error setting up file input:", e);
+            }
         }
 
+        /* --- [UPDATED] MODAL & FORM SCRIPT --- */
+        function setupApplicationForm() {
+            const form = document.getElementById('application-form');
+            
+            // Get Modals
+            const successModal = document.getElementById('success-modal');
+            const errorModal = document.getElementById('error-modal');
+            
+            // Get Modal Close Buttons
+            const closeSuccessModalBtn = document.getElementById('close-success-modal');
+            const closeErrorModalBtn = document.getElementById('close-error-modal');
+            const closeErrorModalBtn2 = document.getElementById('close-error-modal-btn'); // The orange one
+            
+            // Get Error Message Paragraph
+            const errorMessageP = document.getElementById('error-message');
+
+            // Get Form Inputs
+            const fullNameInput = document.getElementById('full-name');
+            const emailInput = document.getElementById('email');
+            const portfolioInput = document.getElementById('portfolio');
+            const resumeInput = document.getElementById('resume');
+            const resumeWrapper = document.getElementById('resume-wrapper');
+
+            if (!form || !successModal || !errorModal) {
+                console.error("Form or modal elements not found!");
+                return;
+            }
+
+            function showSuccessModal() {
+                successModal.classList.add('open');
+            }
+            function hideSuccessModal() {
+                successModal.classList.remove('open');
+            }
+
+            function showErrorModal(message) {
+                errorMessageP.textContent = message; // Set the specific error message
+                errorModal.classList.add('open');
+            }
+            function hideErrorModal() {
+                errorModal.classList.remove('open');
+            }
+            
+            // Function to remove all error highlights
+            function clearErrors() {
+                form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+            }
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Always stop the form submission
+                clearErrors(); // Clear old errors
+                
+                // --- 1. VALIDATION CHECK ---
+                
+                // Check Full Name
+                if (!fullNameInput.checkValidity()) {
+                    fullNameInput.classList.add('invalid'); // Highlight field
+                    showErrorModal(fullNameInput.title || "Please enter a valid name.");
+                    return;
+                }
+                
+                // Check Email
+                if (!emailInput.checkValidity()) {
+                    emailInput.classList.add('invalid');
+                    showErrorModal("Please enter a valid email address.");
+                    return;
+                }
+                
+                // Check Portfolio
+                if (portfolioInput.value && !portfolioInput.checkValidity()) {
+                    portfolioInput.classList.add('invalid');
+                    showErrorModal(portfolioInput.title || "Please enter a valid URL.");
+                    return;
+                }
+                
+                // Check Resume
+                if (resumeInput.files.length === 0) {
+                    resumeWrapper.classList.add('invalid');
+                    showErrorModal("Please upload your resume.");
+                    return;
+                }
+
+                // --- 2. IF VALID, PROCEED ---
+                
+                // Get Form Data
+                const formData = new FormData(form);
+                const jsonData = {};
+                
+                formData.forEach((value, key) => {
+                    if (key !== 'job_title_display' && key !== 'resume') {
+                        jsonData[key] = value;
+                    }
+                });
+                
+                const resumeFile = resumeInput.files[0];
+                if (resumeFile) {
+                    jsonData['resume_filename'] = resumeFile.name;
+                }
+
+                // Show JSON data in the console
+                console.log("--- Form Data (JSON Format) ---");
+                console.log(JSON.stringify(jsonData, null, 2));
+                
+                // Show the success modal
+                showSuccessModal();
+                
+                // Reset the form
+                form.reset();
+                const fileText = document.querySelector('.file-upload-wrapper span');
+                if (fileText) {
+                    fileText.innerHTML = `Drag & Drop or <strong>Browse File</strong>`;
+                }
+            });
+
+            // Add listeners to close the modals
+            closeSuccessModalBtn.addEventListener('click', hideSuccessModal);
+            closeErrorModalBtn.addEventListener('click', hideErrorModal);
+            closeErrorModalBtn2.addEventListener('click', hideErrorModal);
+
+            successModal.addEventListener('click', (e) => (e.target === successModal) && hideSuccessModal());
+            errorModal.addEventListener('click', (e) => (e.target === errorModal) && hideErrorModal());
+        }
+        /* --- [END] MODAL & FORM SCRIPT --- */
+
+
+        /* --- Page Load Animations --- */
         function runPageAnimations() {
             if (typeof gsap === 'undefined') {
                 console.error("GSAP failed to load. Skipping animations.");
                 document.getElementById('main-content').style.visibility = 'visible';
                 document.getElementById('main-header').style.opacity = '1';
-                document.querySelector('.careers-hero-content').style.opacity = '1';
+                document.querySelector('.apply-hero-content').style.opacity = '1';
                 return;
             }
 
-             gsap.registerPlugin(ScrollTrigger); // No TextPlugin needed here
+             gsap.registerPlugin(ScrollTrigger);
 
              const tl = gsap.timeline();
             tl.to(document.getElementById('preloader-circle'), { scale: 1, duration: 0.5, ease: 'power2.out' })
@@ -794,7 +1138,8 @@
                   document.getElementById('main-content').style.visibility = 'visible';
               }}, "-=1")
               .to(document.getElementById('main-header'), { opacity: 1, duration: 1 }, "-=0.5")
-              .to('.careers-hero-content', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, "-=0.5");
+              .to('.apply-hero-content', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, "-=0.5")
+              .from('.form-container', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out'}, "-=0.5");
               
              ScrollTrigger.create({
                 start: 'top -80',
@@ -804,158 +1149,15 @@
                     targets: '#main-header'
                 }
             });
-            
-            runScrollAnimations(); // Run the animations for the job cards
         } 
         
         
-        /* --- NAVIGATION FUNCTIONS (Copied from about.html) --- */
-      
-        let megaMenuTL; 
-        function initializeMegaMenu() {
-            if (typeof gsap === 'undefined') return;
-            const toggle = document.getElementById('services-toggle');
-            const menu = document.getElementById('services-menu');
-            if (!toggle || !menu) return;
-            const menuItems = gsap.utils.toArray(".mega-menu-item");
-            
-            megaMenuTL = gsap.timeline({ paused: true });
-            megaMenuTL.to(menu, { opacity: 1, transform: 'translateX(-50%) translateY(0)', duration: 0.3, ease: 'power2.out' })
-                      .to(menuItems, { opacity: 1, y: 0, stagger: 0.04, duration: 0.3, ease: 'power2.out' }, "-=0.2");
-
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.getElementById('about-menu')?.classList.remove('open');
-                document.getElementById('about-toggle')?.classList.remove('active');
-                
-                toggle.classList.toggle('active');
-                menu.classList.toggle('open');
-                if (menu.classList.contains('open')) megaMenuTL.play();
-                else {
-                    gsap.to(menuItems, {opacity: 0, y: 15, duration: 0.01});
-                    megaMenuTL.reverse();
-                }
-            });
-             document.addEventListener('click', (e) => {
-                if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-                    toggle.classList.remove('active');
-                    menu.classList.remove('open');
-                    gsap.to(menuItems, {opacity: 0, y: 15, duration: 0.01});
-                    megaMenuTL.reverse();
-                }
-            });
-        }
-
-         function initializeAboutDropdown() {
-            const toggle = document.getElementById('about-toggle');
-            const menu = document.getElementById('about-menu');
-            if (!toggle || !menu) return;
-
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (megaMenuTL && document.getElementById('services-menu')?.classList.contains('open')) {
-                    document.getElementById('services-menu').classList.remove('open');
-                    document.getElementById('services-toggle').classList.remove('active');
-                    gsap.to(".mega-menu-item", {opacity: 0, y: 15, duration: 0.01});
-                    megaMenuTL.reverse();
-                }
-                const isOpen = menu.classList.toggle('open');
-                toggle.classList.toggle('active', isOpen);
-            });
-             document.addEventListener('click', (e) => {
-                if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-                    menu.classList.remove('open');
-                    toggle.classList.remove('active');
-                }
-            });
-        }
-
-         function initializeMobileMenu() {
-            const mobileToggle = document.querySelector('.mobile-nav-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
-            const mobileNavClose = document.getElementById('mobile-nav-close');
-            
-            function openMenu() {
-                document.body.classList.add('nav-open-no-scroll'); 
-                mobileNav.classList.add('open');
-            }
-            function closeMenu() {
-                document.body.classList.remove('nav-open-no-scroll'); 
-                mobileNav.classList.remove('open');
-                document.querySelectorAll('.mobile-nav-item-with-sub.active').forEach(item => {
-                    item.classList.remove('active');
-                    item.querySelector('.mobile-sub-menu').style.maxHeight = '0';
-                });
-            }
-            
-            if (mobileToggle && mobileNav && mobileNavClose) {
-                mobileToggle.addEventListener('click', () => {
-                    if (document.body.classList.contains('nav-open-no-scroll')) closeMenu();
-                    else openMenu();
-                });
-                mobileNavClose.addEventListener('click', closeMenu);
-            }
-
-            const allSubToggles = document.querySelectorAll('.mobile-nav-sub-toggle');
-            allSubToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const parent = toggle.parentElement;
-                    const subMenu = parent.querySelector('.mobile-sub-menu');
-                    const isActive = parent.classList.contains('active');
-
-                    document.querySelectorAll('.mobile-nav-item-with-sub.active').forEach(activeParent => {
-                        if (activeParent !== parent) {
-                            activeParent.classList.remove('active');
-                            activeParent.querySelector('.mobile-sub-menu').style.maxHeight = '0';
-                        }
-                    });
-
-                    if (!isActive) {
-                        parent.classList.add('active');
-                        subMenu.style.maxHeight = subMenu.scrollHeight + 'px';
-                    } else {
-                        parent.classList.remove('active');
-                        subMenu.style.maxHeight = '0';
-                    }
-                });
-            });
-        }
-        
-         function initializeAllNavigation() {
-            initializeMegaMenu();
-            initializeAboutDropdown();
-            initializeMobileMenu();
-            
-            /* This code for smooth scrolling to sections (like #team)
-               is not needed on this page, but it doesn't hurt to keep it.
-            */
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        if (document.body.classList.contains('nav-open-no-scroll')) {
-                            document.getElementById('mobile-nav-close').click();
-                        }
-                        
-                        const headerOffset = 100;  
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                             top: offsetPosition,
-                             behavior: "smooth"
-                        });
-                    }
-                });
-            });
-        }
-
 
          window.addEventListener('load', () => {
             runPageAnimations();
-            initializeAllNavigation();
+            populateJobTitle();
+            setupFileInput();
+            setupApplicationForm();
         });
         
     </script>

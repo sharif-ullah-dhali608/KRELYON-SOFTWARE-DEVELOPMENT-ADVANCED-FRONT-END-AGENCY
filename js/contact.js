@@ -1,5 +1,5 @@
 // ==========================================================
-// === RUN ALL ANIMATIONS ONCE THE PAGE LOADS
+// ===         FULL CONTACT.JS CODE (FINAL)
 // ==========================================================
 
 // 1. Run the canvas particle animation
@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", initializeContactCanvasAnimation);
 // 2. Run the "Framer Motion" style scroll-in animation
 document.addEventListener("DOMContentLoaded", initializeContactScrollAnimation);
 
-// 3. Add basic logic to the contact form
+// 3. Add ADVANCED logic (with validation) to the contact form
 document.addEventListener("DOMContentLoaded", initializeContactForm);
 
 /*
  * ==================================
  * 1. CONTACT CANVAS "STRING" ANIMATION
- * (Copied from products.js)
+ * (Apnar code)
  * ==================================
  */
 function initializeContactCanvasAnimation() {
@@ -106,7 +106,7 @@ function initializeContactCanvasAnimation() {
 /*
  * ==================================
  * 2. CONTACT SECTION "FADE IN" ANIMATION
- * (Updated for two-column layout)
+ * (Apnar code)
  * ==================================
  */
 function initializeContactScrollAnimation() {
@@ -143,27 +143,161 @@ function initializeContactScrollAnimation() {
 
 /*
  * ==================================
- * 3. BASIC CONTACT FORM LOGIC
+ * 3. ADVANCED CONTACT FORM LOGIC (Validation o Modal shoho)
+ * (Updated with Name Validation)
  * ==================================
  */
 function initializeContactForm() {
+  // === 1. Shob proyojoniyo element select kora ===
   const form = document.getElementById("contact-form");
-  if (!form) return;
+  if (!form) return; // Form na thakle kichu korbe na
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Stop the page from reloading
+  const successModal = document.getElementById("success-modal");
+  const errorModal = document.getElementById("error-modal");
+  const modalCloseButtons = document.querySelectorAll(".modal-close");
+  
+  // Form Inputs
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const budgetInput = document.getElementById("budget");
+  const timelineInput = document.getElementById("timeline");
+  const messageInput = document.getElementById("message");
 
-    // You can add your form submission logic here
-    // (e.g., send data to Netlify, Formspree, or your backend)
+  // Shobgulo required field-er ekti list
+  const requiredFields = [nameInput, emailInput, budgetInput, timelineInput, messageInput];
 
-    // For now, just log the data and show an alert
-    const formData = new FormData(form);
-    console.log("Form submitted!");
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+  // === 2. Modal Kholar ebong Bondho Korar Function ===
+  function openModal(modal) {
+    if (modal) {
+      modal.classList.add("is-visible");
+    }
+  }
+
+  function closeModal(modal) {
+    if (modal) {
+      modal.classList.remove("is-visible");
+    }
+  }
+
+  // Shob close button-e click event add kora
+  modalCloseButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      const modalId = this.getAttribute("data-target");
+      closeModal(document.querySelector(modalId));
+    });
+  });
+
+  // Modal-er bahire (overlay) click korle bondho howar logic
+  document.querySelectorAll(".modal-overlay").forEach(overlay => {
+    overlay.addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeModal(this);
+      }
+    });
+  });
+
+  // === 3. Helper Functions (Validation-er jonno) ===
+  
+  // Email format check korar helper function
+  function isValidEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  }
+  
+  // Name format check korar helper function (Shudhu letter o space allowed)
+  function isValidName(name) {
+    const regex = /^[a-zA-Z\s]+$/;
+    return regex.test(name);
+  }
+
+  // === 4. Form Validation Function ===
+  function validateForm() {
+    let isValid = true; // Prothome dhore newa hocche form-ti valid
+    
+    // Ag'er shob error remove kora
+    requiredFields.forEach(input => {
+      if (input) {
+        input.closest('.form-group').classList.remove('is-invalid');
+      }
+    });
+
+    // --- Name Check (UPDATED) ---
+    if (nameInput) {
+      const nameValue = nameInput.value.trim();
+      if (nameValue === "") {
+        // 1. Check korche khali kina
+        isValid = false;
+        nameInput.closest('.form-group').classList.add('is-invalid');
+      } else if (!isValidName(nameValue)) {
+        // 2. Check korche shudhu letter ache kina (e.g., "+++" ba "123" dhorbe)
+        isValid = false;
+        nameInput.closest('.form-group').classList.add('is-invalid');
+      }
+    }
+    
+    // --- Email Check ---
+    if (emailInput) {
+      if (emailInput.value.trim() === "") {
+        isValid = false;
+        emailInput.closest('.form-group').classList.add('is-invalid');
+      } else if (!isValidEmail(emailInput.value)) { // Email format check
+        isValid = false;
+        emailInput.closest('.form-group').classList.add('is-invalid');
+      }
     }
 
-    alert("Thank you for your message! We'll be in touch soon.");
-    form.reset(); // Clear the form
+    // --- Budget Check ---
+    if (budgetInput && budgetInput.value === "") {
+      isValid = false;
+      budgetInput.closest('.form-group').classList.add('is-invalid');
+    }
+
+    // --- Timeline Check ---
+    if (timelineInput && timelineInput.value === "") {
+      isValid = false;
+      timelineInput.closest('.form-group').classList.add('is-invalid');
+    }
+
+    // --- Message Check ---
+    if (messageInput && messageInput.value.trim() === "") {
+      isValid = false;
+      messageInput.closest('.form-group').classList.add('is-invalid');
+    }
+
+    return isValid;
+  }
+
+  // === 5. Form Submit Event Listener ===
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Browser-er default submission bondho kora
+    
+    const isFormValid = validateForm();
+    
+    if (isFormValid) {
+      // --- JODI VALID HOY: Success Modal Dekhano ---
+      console.log("Form valid. Submit kora hocche...");
+      
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.textContent = "Submitting...";
+      submitButton.disabled = true;
+
+      // 1 second por success modal dekhano (simulation)
+      setTimeout(() => {
+        openModal(successModal);
+        form.reset(); // Form clear kora
+        requiredFields.forEach(input => {
+          if (input) {
+            input.closest('.form-group').classList.remove('is-invalid');
+          }
+        });
+        submitButton.textContent = "Submit";
+        submitButton.disabled = false;
+      }, 1000);
+      
+    } else {
+      // --- JODI INVALID HOY: Error Modal Dekhano ---
+      console.log("Form invalid.");
+      openModal(errorModal);
+    }
   });
 }
