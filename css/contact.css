@@ -1,5 +1,5 @@
 /* ============================================= */
-/* === 1. CONTACT SECTION === */
+/* === 1. CONTACT SECTION (Apnar Notun CSS) === */
 /* ============================================= */
 .contact-section {
   position: relative;
@@ -45,7 +45,7 @@
 }
 
 /* ============================================= */
-/* === 2. FADE EFFECT (Copied from products.css) === */
+/* === 2. FADE EFFECT (Apnar Notun CSS) === */
 /* ============================================= */
 .section-fade-top,
 .section-fade-bottom {
@@ -74,7 +74,7 @@
 }
 
 /* ============================================= */
-/* === 3. NEW TWO-COLUMN GRID LAYOUT === */
+/* === 3. NEW TWO-COLUMN GRID (Apnar Notun CSS) === */
 /* ============================================= */
 .contact-grid {
   position: relative;
@@ -176,6 +176,7 @@
   font-weight: 500;
   color: var(--text-muted);
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .form-group input,
@@ -224,7 +225,7 @@
 }
 
 /* ============================================= */
-/* === 4. GRADIENT BUTTON (FIXED) === */
+/* === 4. GRADIENT BUTTON (Apnar Notun CSS) === */
 /* ============================================= */
 
 .cta-button-gradient {
@@ -234,39 +235,26 @@
   color: var(--text-color);
   text-decoration: none;
   padding: 1rem 2rem;
-  border: none; /* ✅ FIX: Removed border */
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   z-index: 1;
   width: 100%;
-
-  /*
-      ✅ FIX: This is the new solid gradient fill
-      that matches your image.
-    */
   background: linear-gradient(
     90deg,
     rgba(168, 85, 247, 1),
     rgba(59, 130, 246, 1)
   );
-
-  /* ✅ FIX: Moved transition here */
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-/*
-    ✅ FIX: Removed the ::before pseudo-element
-    as it's no longer needed for the fill.
-  */
-
 .cta-button-gradient:hover {
-  /* ✅ FIX: New hover effect */
   filter: brightness(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
   transform: translateY(-2px);
 }
 
 /* ============================================= */
-/* === 5. RESPONSIVE & ANIMATION === */
+/* === 5. RESPONSIVE (Apnar Notun CSS) === */
 /* ============================================= */
 
 @media (max-width: 900px) {
@@ -304,4 +292,136 @@
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+/* ============================================= */
+/* === 6. VALIDATION & MODAL (Jog Kora CSS) === */
+/* ============================================= */
+
+/* Ei style-ti invalid field-guloke red kore dekhabe */
+.form-group.is-invalid input,
+.form-group.is-invalid select,
+.form-group.is-invalid textarea {
+  border-color: #e74c3c !important; /* Red border */
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3) !important; /* Red glow */
+}
+
+.form-group.is-invalid label {
+  color: #e74c3c; /* Red label */
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 24, 39, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 2001;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.is-visible .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: var(--text-color);
+}
+
+.modal-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.modal-icon.success {
+  background-color: rgba(52, 211, 153, 0.2);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.modal-icon.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+}
+
+.modal-content h4 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+
+/* --- Style for Modal Button --- */
+.modal-button {
+  display: inline-block;
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1.5rem; /* Space above the button */
+  
+  /* Using your accent color */
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.modal-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
