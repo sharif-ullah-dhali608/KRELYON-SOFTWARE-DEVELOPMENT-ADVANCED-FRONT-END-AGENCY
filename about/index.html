@@ -252,23 +252,25 @@
             max-width: 550px;
             margin: 0 auto 2.5rem auto;
         }
-        .btn-orange {
-            display: inline-block; 
-            background-color: var(--accent-orange); 
-            color: var(--bg-color); 
-            padding: 1rem 2.5rem; 
-            text-decoration: none;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700; 
-            border-radius: 5px; 
-            border: 2px solid var(--accent-orange);
-            transition: all 0.3s ease;
-        }
-        .btn-orange:hover {
-            background-color: transparent;
-            color: var(--accent-orange);
-            transform: translateY(-3px);
-        }
+.btn-orange {
+    display: inline-block;
+    background-color: var(--accent-color) !important;
+    color: var(--bg-color) !important;
+    border: 2px solid var(--accent-color) !important;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+    background-color: transparent !important;
+    color: var(--accent-color) !important;
+    box-shadow: 0 10px 20px rgba(52, 211, 153, 0.2);
+    transform: translateY(-3px);
+}
 
         /* --- [UPDATED] Logo Image CSS --- */
         #main-header .logo {
