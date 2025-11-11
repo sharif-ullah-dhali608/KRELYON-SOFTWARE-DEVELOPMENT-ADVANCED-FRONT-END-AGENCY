@@ -20,7 +20,7 @@ footer {
   text-align: left; /* Default left-align for all columns */
 }
 
-/* --- Column 1: About (Logo Centered, Text Left) --- */
+/* --- Column 1: About --- */
 #footer-about {
   max-width: 350px; /* Constrains the width of the whole column */
   text-align: left; 
@@ -29,10 +29,12 @@ footer {
 #footer-about .logo {
   display: block; 
   margin-bottom: 1.5rem; 
+  /* আপনার লোগো সেন্টারে রাখতে চাইলে নিচের ৩ লাইন রাখুন */
+  /* margin-left: auto;
+  margin-right: auto; */
   
-  /* Centers the logo block inside the 350px column */
-  margin-left: auto;
-  margin-right: auto;
+  /* লোগো বামে রাখতে চাইলে শুধু নিচের লাইনটি রাখুন */
+  margin-left: 0; 
   
   width: 160px; /* The width of the logo block */
 }
@@ -51,23 +53,21 @@ footer {
   margin-right: 0; 
 }
 
-.footer-address {
-  font-style: normal; 
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  margin-top: 1rem; 
-}
-
-/* --- Columns 2 & 3: Link Lists --- */
+/* --- Columns 2, 3 & 4: Link Lists --- */
 .footer-column h5 {
-  font-size: 1.1rem;
+  font-size: 1rem; /* পরিবর্তিত */
   color: var(--text-color);
   margin-bottom: 1.5rem;
   font-family: 'Sora', sans-serif;
-  font-weight: 500;
-  opacity: 0.8;
+  font-weight: 700; /* পরিবর্তিত (Bold) */
+  text-transform: uppercase; /* পরিবর্তিত (Qwik IT স্টাইল) */
 }
+
+/* "FOLLOW US" হেডিং এর জন্য অতিরিক্ত স্পেস */
+#footer-about h5 {
+    margin-top: 2rem;
+}
+
 .footer-column ul {
   list-style: none;
   padding: 0;
@@ -87,15 +87,12 @@ footer {
 }
 
 /* --- Column 4: Get in Touch --- */
-
-/* This styles the list (Email, Phone, Address) */
 .footer-contact-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0; /* Space below list, before social icons */
+  margin: 0;
 }
 
-/* This styles each list item */
 .contact-item {
   display: flex;
   align-items: flex-start; /* Aligns icon to the top of the text */
@@ -103,7 +100,6 @@ footer {
   margin-bottom: 1rem; /* Space between each contact item */
 }
 
-/* This styles the icon's container */
 .contact-icon {
   flex-shrink: 0; /* Stops icon from shrinking */
   width: 20px;
@@ -111,14 +107,12 @@ footer {
   margin-top: 3px; /* Small alignment adjustment */
 }
 
-/* This styles the SVG icon itself */
 .contact-icon svg {
   width: 100%;
   height: 100%;
   fill: var(--text-muted); /* Icon color */
 }
 
-/* This styles the text (links and address) */
 .contact-link {
   color: var(--text-muted);
   text-decoration: none;
@@ -132,22 +126,31 @@ footer {
   color: var(--accent-color);
 }
 
-/* --- Social Icons --- */
+/* --- Social Icons ( পরিবর্তিত Qwik IT স্টাইল ) --- */
 .footer-socials {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between icons */
+  gap: 0.75rem; /* Space between icons */
 }
 .footer-socials a {
   color: var(--text-muted);
-  transition: color 0.3s ease;
+  border: 1px solid var(--border-light); /* Qwik IT বর্ডার */
+  border-radius: 4px; /* হালকা গোলাকার */
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 .footer-socials a:hover {
   color: var(--text-color); /* or var(--accent-color) */
+  border-color: var(--text-muted); /* হোভারে বর্ডার কালার পরিবর্তন */
 }
 .footer-socials a svg {
-  width: 22px;
-  height: 22px;
+  width: 18px; /* আইকন সাইজ */
+  height: 18px;
   fill: currentColor; /* Inherits the color from the <a> tag */
 }
 
@@ -156,8 +159,6 @@ footer {
   padding: 2rem 0; /* Vertical padding */
   border-top: 1px solid var(--border-light);
   font-size: 0.9rem;
-  
-  /* This centers the copyright text as requested */
   text-align: center; 
 }
 
@@ -188,6 +189,10 @@ footer {
   #footer-about p {
     margin-left: auto;
     margin-right: auto;
+  }
+  
+  .footer-socials {
+    justify-content: center; /* সোশ্যাল আইকন সেন্টারে আসবে */
   }
 }
 
