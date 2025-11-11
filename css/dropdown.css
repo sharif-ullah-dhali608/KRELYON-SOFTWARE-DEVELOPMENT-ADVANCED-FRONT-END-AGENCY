@@ -35,9 +35,9 @@
 /* GSAP er jonno initial state */
 .mega-menu-dropdown {
     position: absolute;
-    top: calc(100% + 1.5rem); /* Position below the nav */
-    left: 10vw; /* <--- পরিবর্তন করা হয়েছে (vw মানে Viewport Width) */
-    transform: translateX(-50%) translateY(10px); /* Shurute 10px niche */
+    top: calc(100% + 1.5rem); 
+    left: 10vw; 
+    transform: translateX(-50%) translateY(10px); 
     width: 90vw;
     max-width: 1200px; /* Limit max width */
     background-color: var(--bg-secondary);
