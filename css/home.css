@@ -69,7 +69,7 @@ h4,
   font-weight: 700;
 }
 
- @keyframes float-animation {
+@keyframes float-animation {
   0% {
     transform: translateY(0px);
   }
@@ -81,7 +81,7 @@ h4,
   }
 }
 
- #preloader-bg {
+#preloader-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -104,7 +104,7 @@ h4,
   transition: opacity 0.5s ease;
 }
 
- header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,23 +120,22 @@ h4,
 
 /* --- Logo Image CSS --- */
 .logo {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    height: 50px;
-    padding: 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding: 0;
 }
 .logo img {
-    width: 160px;
-    height: 50px;
-    display: block;
-    object-fit: contain;
+  width: 160px;
+  height: 50px;
+  display: block;
+  object-fit: contain;
 }
 #main-header .logo {
-    padding: 0; 
+  padding: 0;
 }
 /* --- End Logo CSS --- */
-
 
 body.nav-open-no-scroll .logo {
   color: var(--text-color);
@@ -1056,9 +1055,6 @@ main {
   color: var(--text-muted);
 }
 
-
-
-
 /* --- Tech Stack Section --- */
 .tech-stack-section {
   border-top: 1px solid var(--border-light);
@@ -1093,7 +1089,7 @@ main {
 
   /* --- ALIGNMENT FIX --- */
   justify-self: center; /* This centers the item in its grid cell */
-  text-align: center;   /* This centers the content (the image) */
+  text-align: center; /* This centers the content (the image) */
 }
 
 /* --- NEW: Image Logo Styles --- */
@@ -1101,7 +1097,7 @@ main {
   height: 60px; /* You can change this height */
   width: auto;
   border-radius: 20%;
-  
+
   /* This keeps the logos looking sharp, not blurry */
   filter: grayscale(100%) brightness(1.5);
   opacity: 3.6;
@@ -1116,9 +1112,8 @@ main {
 
 /* Removed old icon font-size */
 .tech-logo.icon {
-  font-size: inherit; 
+  font-size: inherit;
 }
-
 
 /* Animation Delays (These are fine) */
 .tech-logo-grid .tech-logo:nth-child(2) {
@@ -1155,9 +1150,6 @@ main {
   /* --- ALIGNMENT FIX --- */
   justify-self: center; /* This centers the tag in its grid cell */
 }
-
-
-
 
 /* --- "Our Products" Section --- */
 .products-section {
@@ -1309,9 +1301,6 @@ main {
   line-height: 1.6;
   color: var(--text-muted);
 }
-
-
-
 
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
@@ -1526,8 +1515,7 @@ main {
   .accordion-header {
     font-size: 1.2rem;
   }
-
- }
+}
 
 /* ============================================= */
 /* === 1. WEBSITE DESIGN PROCESS (Corrected) === */
@@ -1601,36 +1589,51 @@ main {
 }
 
 /* --- Horizontal Scroller --- */
-.process-scroller-container {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 2.5rem 0 4rem 0;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+/* ============================================= */
+/* === 2. DESIGN PROCESS (Horizontal Scroll) === */
+/* ============================================= */
 
-  &::-webkit-scrollbar { display: none; }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* (Your existing .design-process-header styles are fine) */
+
+/* * This is the "viewport" for your cards. 
+ * It MUST have overflow-x: hidden.
+*/
+.process-scroller-container {
+  overflow-x: hidden;
+  width: 100%;
+
+  /* Adds space on the left side of the first card */
+  padding-left: 3rem;
+  /* Ensures the last card can scroll to the left edge */
+  padding-right: 3rem;
 }
 
-/* Scroll Track */
+/* * This is the long, flexible track that holds all the cards.
+ * It MUST be a flex container and wider than the screen.
+*/
 .process-scroll-track {
   display: flex;
-  flex-wrap: nowrap;
-  width: max-content;
-  padding: 0 3rem;
-  gap: 2rem;
+  flex-wrap: nowrap; /* Prevents cards from wrapping to a new line */
+  width: max-content; /* Makes the track as wide as all its content */
+  gap: 2rem; /* Space between each card */
 }
 
-/* Each Process Step Item */
+/* * This is each individual card.
+ * Give it a fixed width.
+*/
 .process-step-item {
-  flex: 0 0 380px;
-  width: 380px;
-  padding-top: 0;
+  width: 350px; /* Example width - adjust as needed */
+  flex-shrink: 0; /* Prevents cards from being squished */
+
+  /* Your existing card styles (border, padding, etc.) go here */
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 2rem;
   position: relative;
-  padding-bottom: 4rem;
 }
+
+/* (All your other .process-step-* styles are fine) */
 
 /* ============================================= */
 /* === 2. THE FINAL ALIGNMENT FIX (IMPORTANT) === */
@@ -1638,19 +1641,19 @@ main {
 
 /* 1. This hides the '01', '02' numbers */
 .process-step-number {
-  display: none !important; 
+  display: none !important;
 }
 
 /* 2. This is the NEW FIX for icon alignment */
 .process-step-icon {
   /* This sets a fixed height container for all icons */
-  height: 120px; 
+  height: 120px;
   display: flex;
-  
+
   /* This aligns all icons to the BOTTOM of the container,
      so all titles below them will be perfectly aligned. */
-  align-items: flex-end; 
-  
+  align-items: flex-end;
+
   /* This centers the icon horizontally */
   justify-content: flex-start; /* Aligns to left by default */
   padding-left: 0; /* Was 'padding-left: 0' before, let's keep it */
@@ -1671,9 +1674,9 @@ main {
   margin-bottom: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
-  
+
   /* This ensures 1-line and 2-line titles are aligned */
-  min-height: 4rem; 
+  min-height: 4rem;
 }
 .process-step-item h4:hover {
   color: var(--accent-color);
@@ -1710,7 +1713,6 @@ main {
   margin-top: 5px;
   flex-shrink: 0;
 }
-
 
 /* Faded background number */
 .process-step-number {
@@ -1754,19 +1756,19 @@ main {
 
 /* 1. This removes the faded '01', '02' numbers */
 .process-step-number {
-  display: none !important; 
+  display: none !important;
 }
 
 /* 2. This fixes the "up and down" alignment issue */
 
 /* Forces title area to be tall enough for 2 lines */
 .process-step-item h4 {
-  min-height: 4rem; 
+  min-height: 4rem;
 }
 
 /* Forces paragraph area to be tall enough for 4 lines */
 .process-step-item p {
-  min-height: 6.5rem; 
+  min-height: 6.5rem;
 }
 /* ============================================= */
 /* === 2. WEB PRICING SECTION (Notun) === */
@@ -1820,8 +1822,9 @@ main {
 }
 
 .pricing-grid {
+  padding-top: 60px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   text-align: left;
   max-width: 1200px;
