@@ -1598,177 +1598,158 @@ main {
 /* * This is the "viewport" for your cards. 
  * It MUST have overflow-x: hidden.
 */
-.process-scroller-container {
-  overflow-x: hidden;
-  width: 100%;
+/* ============================================= */
+/* === 1. WEBSITE DESIGN PROCESS (CSS Grid Fix) === */
+/* ============================================= */
 
-  /* Adds space on the left side of the first card */
-  padding-left: 3rem;
-  /* Ensures the last card can scroll to the left edge */
-  padding-right: 3rem;
+/* Main section container */
+/* ============================================= */
+/* === 1. WEBSITE DESIGN PROCESS (CSS Grid Fix) === */
+/* ============================================= */
+
+/* Main section container */
+.design-process-section {
+  padding: 6rem 1.5rem; /* Standard padding */
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-light);
+  overflow: hidden;
 }
 
-/* * This is the long, flexible track that holds all the cards.
- * It MUST be a flex container and wider than the screen.
-*/
-.process-scroll-track {
-  display: flex;
-  flex-wrap: nowrap; /* Prevents cards from wrapping to a new line */
-  width: max-content; /* Makes the track as wide as all its content */
-  gap: 2rem; /* Space between each card */
-}
-
-/* * This is each individual card.
- * Give it a fixed width.
-*/
-.process-step-item {
-  width: 350px; /* Example width - adjust as needed */
-  flex-shrink: 0; /* Prevents cards from being squished */
-
-  /* Your existing card styles (border, padding, etc.) go here */
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  padding: 2rem;
+/* Header: "Our Blueprint..." */
+.design-process-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 4rem auto; /* Bottom margin */
   position: relative;
 }
+.design-process-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.design-process-header p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
 
-/* (All your other .process-step-* styles are fine) */
+/* Hide the progress bar (since there's no scroll) */
+.process-line-wrapper {
+  display: none;
+}
 
-/* ============================================= */
-/* === 2. THE FINAL ALIGNMENT FIX (IMPORTANT) === */
-/* ============================================= */
+/* --- THIS IS THE NEW GRID LAYOUT --- */
 
-/* 1. This hides the '01', '02' numbers */
+/* 1. The Container (replaces .process-scroller-container) */
+.process-scroller-container {
+  width: 100%;
+}
+
+/* 2. The "Grid" (replaces .process-scroll-track) */
+.process-scroll-track {
+  display: grid;
+  /* This creates a 2-column grid. 
+     For a 3-column grid, use: repeat(3, 1fr) */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem; /* Modern spacing */
+
+  max-width: 1200px; /* Keeps it from getting too wide */
+  margin: 0 auto; /* Centers the grid */
+}
+
+/* 3. The "Cards" (Each step) */
+.process-step-item {
+  width: 100%; /* Card will fill the grid column */
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  text-align: left;
+  transition: border-color 0.3s ease;
+
+  /* This makes all cards the same height */
+  display: flex;
+  flex-direction: column;
+}
+.process-step-item:hover {
+  border-color: var(--accent-color);
+}
+
+/* This hides the '01', '02' numbers */
 .process-step-number {
   display: none !important;
 }
 
-/* 2. This is the NEW FIX for icon alignment */
+/* Icon */
 .process-step-icon {
-  /* This sets a fixed height container for all icons */
-  height: 120px;
-  display: flex;
-
-  /* This aligns all icons to the BOTTOM of the container,
-     so all titles below them will be perfectly aligned. */
-  align-items: flex-end;
-
-  /* This centers the icon horizontally */
-  justify-content: flex-start; /* Aligns to left by default */
-  padding-left: 0; /* Was 'padding-left: 0' before, let's keep it */
+  height: 80px; /* Fixed height for icon area */
   margin-bottom: 1.5rem;
+  animation: float-animation 6s ease-in-out infinite;
 }
 .process-step-icon img {
-  /* This makes the image fit inside the container
-     without stretching */
   width: auto;
-  max-width: 100px; /* Was 100px before */
-  max-height: 100%; /* Fits inside the 120px container */
+  max-width: 80px;
+  max-height: 80px;
 }
 
-/* 3. This aligns all titles */
+/* Title */
 .process-step-item h4 {
   font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-color);
   margin-bottom: 1rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-
-  /* This ensures 1-line and 2-line titles are aligned */
-  min-height: 4rem;
-}
-.process-step-item h4:hover {
-  color: var(--accent-color);
+  min-height: 3.2rem; /* Aligns 1-line and 2-line titles */
 }
 
-/* 4. This aligns all paragraphs */
+/* Paragraph */
 .process-step-item p {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1rem;
-
-  /* This ensures all paragraphs are aligned */
-  min-height: 6.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 5. This styles the bullet points */
+/* List / Bullets */
 .process-step-list {
   list-style: none;
   padding-left: 0;
+  /* This pushes the list to the bottom, 
+     making all cards appear aligned */
+  margin-top: auto;
 }
 .process-step-list li {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-color);
   margin-bottom: 0.75rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
 }
 .process-step-list li::before {
-  content: "►";
-  color: var(--accent-color);
-  font-size: 0.7rem;
-  margin-top: 5px;
-  flex-shrink: 0;
-}
-
-/* Faded background number */
-.process-step-number {
+  content: "✓";
   position: absolute;
-  bottom: -1rem;
   left: 0;
-  font-size: 10rem;
+  top: 2px;
+  color: var(--accent-color);
   font-weight: 700;
-  font-family: "Space Grotesk", sans-serif;
-  color: rgba(55, 65, 81, 0.3); /* Faded dark gray */
-  z-index: -1;
-  line-height: 1;
 }
 
-/* ============================================= */
-/* === 3. MOBILE RESPONSIVE (Notun) === */
-/* ============================================= */
+/* --- 4. MOBILE RESPONSIVE (Stacking) --- */
 @media (max-width: 768px) {
-  .design-process-header {
-    padding: 0 1.5rem;
-  }
   .design-process-header h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem; /* Smaller header */
   }
 
-  .process-scroller-container {
-    padding: 1.5rem 0 3rem 0;
-  }
+  /* This stacks the grid to 1-column */
   .process-scroll-track {
-    padding: 0 1.5rem; /* Mobile e padding kom */
+    grid-template-columns: 1fr;
   }
-  .process-step-item {
-    flex: 0 0 320px; /* Mobile e item ektu choto */
-    width: 320px;
+
+  /* Reset min-heights on mobile */
+  .process-step-item h4 {
+    min-height: 0;
   }
-}
-
-/* ============================================= */
-/* === 4. FINAL FIXES (Your new requests) === */
-/* ============================================= */
-
-/* 1. This removes the faded '01', '02' numbers */
-.process-step-number {
-  display: none !important;
-}
-
-/* 2. This fixes the "up and down" alignment issue */
-
-/* Forces title area to be tall enough for 2 lines */
-.process-step-item h4 {
-  min-height: 4rem;
-}
-
-/* Forces paragraph area to be tall enough for 4 lines */
-.process-step-item p {
-  min-height: 6.5rem;
 }
 /* ============================================= */
 /* === 2. WEB PRICING SECTION (Notun) === */
