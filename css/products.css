@@ -21,6 +21,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative; 
+  z-index: 0;       
 }
 .product-hero-content {
   position: absolute;
@@ -39,15 +41,10 @@
   line-height: 1.1;
   margin: 0;
   overflow: hidden;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Add this line */
 }
-.product-hero-content p {
-  font-size: 1.1rem;
-  max-width: 500px;
-  margin: 1.5rem auto 0 auto;
-  line-height: 1.6;
-  opacity: 0;
-  color: var(--text-muted);
-}
+
+
 
 /* ============================================= */
 /* === 2. NEW FAQ SECTION (as per faq.mp4) === */
@@ -342,6 +339,20 @@
   overflow: hidden; /* Hides parts of the image that don't fit */
   background-color: var(--bg-secondary); /* Placeholder color */
   flex-shrink: 0; /* Prevents image container from shrinking */
+}
+
+/* This adds the dark overlay */
+.product-hero-video-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This is the 50% black overlay. 
+     Increase 0.5 to 0.6 or 0.7 if you need it darker. */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; /* Sits on top of the video */
 }
 
 /* 3. Make the Image fill the container without stretching */
