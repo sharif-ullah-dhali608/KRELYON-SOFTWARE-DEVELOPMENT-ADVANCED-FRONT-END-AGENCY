@@ -1,0 +1,424 @@
+/* ============================================= */
+/* === 1. PRODUCT PAGE HERO (Pinned) === */
+/* ============================================= */
+
+/* (All your .product-hero... styles are unchanged) */
+.product-hero-container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.product-hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+.product-hero-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative; 
+  z-index: 0;       
+}
+.product-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: var(--text-color);
+  width: 90%;
+}
+.product-hero-content h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 5vw;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  overflow: hidden;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Add this line */
+}
+
+
+
+/* ============================================= */
+/* === 2. NEW FAQ SECTION (as per faq.mp4) === */
+/* ============================================= */
+ /* .content-section {
+  position: relative; 
+  z-index: 2; 
+  background-color: var(--bg-color);
+  padding: 6rem 3rem;
+  overflow: hidden; 
+  clip-path: inset(0 0 0 0);  
+/* 
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 100px,
+     black calc(100% - 100px),
+     transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 100px,
+     black calc(100% - 100px),
+    transparent 100%
+  ); */
+  
+} */
+
+/* --- The animated background glow --- */
+.content-section::before {
+  content: "";
+  position: absolute;
+  z-index: 1; /* Layer 1: Bottom */
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background-image: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.3),
+    /* Blueish glow */ rgba(168, 85, 247, 0.2),
+    /* Purple glow */ rgba(0, 0, 0, 0) 60% /* Fades to transparent */
+  );
+  filter: blur(100px);
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+  animation: bg-spin 25s linear infinite;
+}
+
+/* --- The Canvas for "String" Animation --- */
+/* clicks যেন ক্যানভাসে আটকে না যায় */
+
+.content-section #hero-canvas {
+  /* ID matches HTML */
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Layer 2: On top of glow */
+}
+
+/* --- Content for the new section --- */
+.content-section {
+  position: relative;
+  z-index: 3; /* Layer 3: On top of canvas */
+  max-width: 900px;
+  margin: 0 auto;
+}
+.content-section .slide-title {
+  text-align: center;
+}
+
+.faq-accordion {
+  margin-top: 3rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question span {
+  font-family: "Sora", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.faq-question .faq-icon {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.faq-answer p {
+  padding: 0 1rem 1.5rem 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+/* Active state for accordion - THIS IS THE FIX */
+.faq-item.active .faq-answer {
+  /*
+      ✅ FAQ FIX: The "max-height: 300px;" line is removed.
+      The 'products.js' file now has full control.
+    */
+}
+.faq-item.active .faq-question .faq-icon {
+  transform: rotate(45deg);
+  color: var(--accent-color);
+}
+
+/* ============================================= */
+/* === 2.5 NEW PROJECT SUITE SECTION === */
+/* ============================================= */
+
+.suite-section {
+  position: relative;
+  z-index: 2; /* Sits on top of the hero */
+  background-color: #101014; /* Dark background from image */
+  padding: 8rem 3rem;
+  overflow: hidden; /* Contain the glow */
+  text-align: center;
+  /* Fix for mask-image */
+  clip-path: inset(0 0 0 0);
+
+  /*
+      ✅ FIX: Switched from percentage (20%/80%) to a
+      fixed 100px fade for consistency.
+    */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 100px,
+    /* 100px fade-in */ black calc(100% - 100px),
+    /* 100px fade-out */ transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 100px,
+    /* 100px fade-in */ black calc(100% - 100px),
+    /* 100px fade-out */ transparent 100%
+  );
+}
+
+/* --- The animated background glow (from user video) --- */
+.suite-section::before {
+  content: "";
+  position: absolute;
+  z-index: 1; /* Layer 1: Bottom */
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  /* Purple gradient based on user's video */
+  background-image: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.4),
+    /* Purple glow */ rgba(109, 40, 217, 0.3),
+    /* Deeper purple */ rgba(0, 0, 0, 0) 60% /* Fades to transparent */
+  );
+  filter: blur(120px);
+  opacity: 0.8;
+  transform: translate(-50%, -50%);
+  /* Reuse the existing animation from this file! */
+  animation: bg-spin 20s linear infinite;
+}
+
+/*
+   * --- New styles for the Suite Canvas Animation ---
+   */
+
+/* This positions the canvas in the background */
+.suite-section #suite-canvas {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Sits on top of glow (1), behind content (3) */
+}
+
+/* We also need to make sure the content is on top */
+.suite-content {
+  position: relative;
+  z-index: 3; /* Was 2, now 3 to be on top of the canvas */
+}
+
+/* Style for H1 from the image */
+.suite-content h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--text-color, #ffffff);
+  margin: 0;
+}
+
+/* Style for P from the image */
+.suite-content p {
+  font-size: 1.5rem;
+  color: var(--text-muted, #a0a0a0);
+  margin: 1rem auto 2.5rem auto;
+}
+
+/*
+    The custom ".suite-button" styles are not needed
+    because we are using ".cta-button" from your main stylesheet.
+  */
+
+/* ============================================= */
+/* === 3. PRODUCT HORIZONTAL SCROLLER (FIXED) === */
+/* ============================================= */
+
+/* This container scrolls OVER the hero */
+.product-slider-container {
+  position: relative;
+  z-index: 2; /* Sits on top of the hero */
+  background-color: var(--bg-color); /* CRITICAL: Must have a background */
+  padding-top: 3rem;
+
+  /* --- Native Horizontal Scroll --- */
+  overflow-x: auto; /* Makes it scrollable horizontally */
+  overflow-y: hidden; /* Hides vertical scroll */
+
+  /* Hide the scrollbar itself (optional) */
+  scrollbar-width: none; /* For Firefox */
+}
+.product-slider-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.product-slides-wrapper {
+  display: flex;
+  width: max-content; /* Lets wrapper be as wide as all slides */
+  flex-wrap: nowrap; /* This prevents the stacking bug */
+  padding: 0 3rem; /* Padding on wrapper */
+  gap: 3rem; /* Gap between slides */
+}
+
+.product-slide {
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevents slides from shrinking */
+  width: 90vw;
+  min-height: 80vh;
+
+  /* --- PADDING BUG FIX --- */
+  padding: 0; /* Remove padding from slide */
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+/* ============================================= */
+/* === 4. PROJECT CARD & IMAGE FIX === */
+/* ============================================= */
+
+/* 1. Make the Card a flex container */
+.project-card {
+  height: 100%; /* Allows card to fill the grid row height */
+  display: flex;
+  flex-direction: column; /* Stacks image and content vertically */
+}
+
+/* 2. Make the Image Container have a fixed ratio */
+.project-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Forces a 16:9 widescreen ratio */
+  overflow: hidden; /* Hides parts of the image that don't fit */
+  background-color: var(--bg-secondary); /* Placeholder color */
+  flex-shrink: 0; /* Prevents image container from shrinking */
+}
+
+/* This adds the dark overlay */
+.product-hero-video-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This is the 50% black overlay. 
+     Increase 0.5 to 0.6 or 0.7 if you need it darker. */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; /* Sits on top of the video */
+}
+
+/* 3. Make the Image fill the container without stretching */
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the container, crops excess */
+}
+
+/* 4. Make the Content area fill the remaining space */
+.project-content {
+  flex-grow: 1; /* Makes this area expand to fill the space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 5. Truncate the text to a fixed number of lines */
+.project-content p {
+  flex-grow: 1; /* Helps push content to the bottom (if needed) */
+  
+  /* This adds "..." after 6 lines */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; /* You can change 6 to 5 or 7 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* --- REMOVED: .product-slide::before glow is gone from here --- */
+
+.slide-title {
+  /* (Unchanged) */
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1.5rem;
+  color: var(--text-color);
+  position: relative;
+  z-index: 2;
+
+  /* --- PADDING BUG FIX --- */
+  /* Add padding here to fix peeking bug */
+  padding-top: 60px;
+}
+
+.product-grid {
+  /* (Unchanged) */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+
+  /* --- PADDING BUG FIX --- */
+  /* Add padding here to fix peeking bug */
+  padding-bottom: 60px;
+}
+
+/* --- Background Glow Animation (Unchanged) --- */
+@keyframes bg-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Now - KRELYON</title>
+
+    <!-- Favicon Link -->
+    <link rel="icon" href="/images/logo-krelyon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/dropdown.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+
+    <style>
+      /* --- BASIC STYLES --- */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+      }
+
+      /* --- Logo Image CSS --- */
+      #main-header .logo {
+        padding: 0 !important;
+        height: auto !important;
+        width: auto !important;
+      }
+      #main-header .logo img {
+        width: 160px !important;
+        height: 50px !important;
+        min-width: 160px !important;
+        min-height: 50px !important;
+        object-fit: contain;
+        display: block;
+      }
+      .logo {
+        text-decoration: none;
+        display: inline-block;
+      }
+      .logo img {
+        width: 160px;
+        height: 50px;
+        display: block;
+        object-fit: contain;
+      }
+      /* --- End Logo CSS --- */
+
+      /* --- APPLY HERO SECTION --- */
+      .apply-hero {
+        height: 80vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 3rem;
+        border-bottom: 1px solid var(--border-light);
+        overflow: hidden;
+      }
+      .hero-image-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/images/sharif.png");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+      }
+      .hero-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(17, 24, 39, 0.8);
+        z-index: 2;
+      }
+      .apply-hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 900px;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      .apply-hero h1 {
+        font-size: 4vw;
+        line-height: 1.1;
+        color: var(--text-color);
+      }
+
+      /* --- Section Header --- */
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem auto;
+      }
+      .section-header h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* --- APPLY FORM SECTION --- */
+      .apply-form-section {
+        padding: 6rem 3rem;
+      }
+      .form-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        padding: 3rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="tel"],
+      .form-group input[type="url"],
+      .form-group textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-light);
+        border-radius: 5px;
+        color: var(--text-color);
+        font-size: 1rem;
+        font-family: "Sora", sans-serif;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input[type="text"]:focus,
+      .form-group input[type="email"]:focus,
+      .form-group input[type="tel"]:focus,
+      .form-group input[type="url"]:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+      }
+
+      /* [NEW] CSS to highlight error fields */
+      .form-group input.invalid,
+      .form-group textarea.invalid,
+      .file-upload-wrapper.invalid {
+        border-color: #e53e3e; /* Red border for errors */
+      }
+
+      .form-group input[type="text"]:disabled {
+        background-color: var(--bg-secondary);
+        color: var(--text-color);
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .file-upload-wrapper {
+        position: relative;
+        width: 100%;
+        padding: 1rem 1rem;
+        background-color: var(--bg-color);
+        border: 1px dashed var(--border-light);
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+      }
+      .file-upload-wrapper:hover {
+        border-color: var(--accent-color);
+      }
+      .file-upload-wrapper input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .file-upload-wrapper span {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+      .file-upload-wrapper span strong {
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      .btn-submit {
+        display: inline-block;
+        background-color: var(--accent-orange);
+        color: var(--bg-color);
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        border-radius: 5px;
+        border: 2px solid var(--accent-orange);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1rem;
+      }
+      .btn-submit:hover {
+        background-color: transparent;
+        color: var(--accent-orange);
+      }
+
+      /* --- MODAL STYLES --- */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(17, 24, 39, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-content {
+        background-color: var(--bg-secondary);
+        padding: 3rem;
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+        text-align: center;
+        max-width: 450px;
+        width: 90%;
+        position: relative;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+      .modal-overlay.open .modal-content {
+        transform: scale(1);
+      }
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+      }
+      .modal-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem auto;
+        background-color: var(--accent-color); /* Green for success */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* [NEW] Error Modal Icon */
+      .modal-icon.error {
+        background-color: #e53e3e; /* Red for error */
+      }
+
+      .modal-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: var(--bg-color);
+        stroke-width: 4;
+      }
+
+      .modal-content h3 {
+        font-size: 1.8rem;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+      .modal-content p {
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      .btn-orange-modal {
+        display: inline-block;
+        background-color: var(--accent-orange);
+        color: var(--bg-color);
+        padding: 0.8rem 2rem;
+        text-decoration: none;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        border-radius: 5px;
+        border: 2px solid var(--accent-orange);
+        transition: all 0.3s ease;
+      }
+      .btn-orange-modal:hover {
+        background-color: transparent;
+        color: var(--accent-orange);
+      }
+      /* --- [END] MODAL STYLES --- */
+    </style>
+  </head>
+  <body>
+    <div id="preloader-bg"></div>
+    <div id="preloader-circle"></div>
+
+    <header id="main-header">
+      <a href="/" class="logo">
+        <img src="/images/logo-krelyon.png" alt="KRELYON" />
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+
+        <div class="nav-item-dropdown">
+          <button class="nav-dropdown-toggle" id="services-toggle">
+            Services
+            <svg
+              class="nav-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="mega-menu-dropdown" id="services-menu">
+            <div class="mega-menu-grid">
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Mobile App Development</h4>
+                  <p>
+                    Building high-performance, cross-platform apps focused on an
+                    engaging user experience.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Web Development</h4>
+                  <p>
+                    In addition to our front-end design and development
+                    expertise, our web development s.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>UI/UX Design</h4>
+                  <p>
+                    We focus on understanding user motivations, pain points, and
+                    goals, ensuring that.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"
+                    />
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Consulting</h4>
+                  <p>
+                    Furthermore, our software industry consulting s extend
+                    beyond just technical expertise.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>UI/UX & Branding</h4>
+                  <p>
+                    Leverage overall user-experience with our innovative visual
+                    styles and architectures.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Migration as a Service</h4>
+                  <p>
+                    Unify your tech infrastructure, accelerate data processing,
+                    and launch solutions anywhere.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21.73 18.23c-.26-1.57-1.03-3.03-2.1-4.23-1.08-1.2-2.45-2.14-3.95-2.63-.3-.1-.5-.26-.5-.42v-2.02c0-.16-.12-.3-.28-.32-1.63-.2-3.2-.2-4.84 0-.16.02-.28.16-.28.32v2.02c0 .16-.2.32-.5.42-1.5.5-2.87 1.43-3.95 2.63-1.07 1.2-1.84 2.66-2.1 4.23-.05.3-.05.6 0 .9.26 1.57 1.03 3.03 2.1 4.23 1.08 1.2 2.45 2.14 3.95 2.63.3.1.5.26.5.42v2.02c0 .16.12.3.28.32 1.63.2 3.2.2 4.84 0 .16-.02.28-.16-.28-.32v-2.02c0-.16.2.32.5.42 1.5.5 2.87 1.43 3.95 2.63 1.07 1.2 1.84 2.66 2.1 4.23.05.3.05.6 0 .9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>AI & ML Integration</h4>
+                  <p>
+                    Integrate intelligent models to automate processes and gain
+                    powerful business insights.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>DevOps Solutions</h4>
+                  <p>
+                    Streamline your development lifecycle with our CI/CD and
+                    automation expertise.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Cloud Infrastructure</h4>
+                  <p>
+                    Build scalable and secure cloud-native applications on AWS,
+                    Azure, or GCP.
+                  </p>
+                </div>
+              </a>
+
+              <a href="/service" class="mega-menu-item">
+                <div class="mega-menu-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M1 1l22 22M8 1v5h5M16 1v5h-5M8 23v-5h5M16 23v-5h-5M1 8h5v5M1 16h5v-5M23 8h-5v5M23 16h-5v-5"
+                    />
+                  </svg>
+                </div>
+                <div class="mega-menu-content">
+                  <h4>Data Analytics & BI</h4>
+                  <p>
+                    Turn your raw data into actionable business intelligence and
+                    clear visualizations.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item-dropdown">
+          <button class="nav-dropdown-toggle" id="about-toggle">
+            About us
+            <svg
+              class="nav-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="simple-dropdown-menu" id="about-menu">
+            <a href="/about/">Our Company</a>
+            <a href="/milestone/">Our Milestones</a>
+          </div>
+        </div>
+
+        <a href="/products">Products</a>
+      </nav>
+      <a href="/contact" class="cta-button">START A PROJECT</a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+        <span class="line line1"></span>
+        <span class="line line2"></span>
+        <span class="line line3"></span>
+      </button>
+    </header>
+    <div id="mobile-nav">
+      <div class="mobile-nav-header">
+        <button class="mobile-nav-close" id="mobile-nav-close">
+          Close <span>×</span>
+        </button>
+      </div>
+      <div class="mobile-nav-body">
+        <div class="social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Youtube</a>
+          <a href="#">Dribbble</a>
+          <a href="#">Behance</a>
+          <a href="#">Twitter</a>
+        </div>
+        <div class="main-links">
+          <a href="/">Home</a>
+
+          <div class="mobile-nav-item-with-sub">
+            <button class="mobile-nav-sub-toggle">
+              Services
+              <svg
+                class="nav-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-sub-menu">
+              <a href="/service">Integration As A Service</a>
+              <a href="/service">Implementation As A Service</a>
+              <a href="/service">3D Design and Illustration</a>
+              <a href="/service">Xtended Reality</a>
+              <a href="/service">UI/UX & Branding</a>
+              <a href="/service">Migration as a Service</a>
+              <a href="/service">AI and Machine Learning</a>
+              <a href="/service">Omnichannel Digitalization</a>
+              <a href="/service">DevOps</a>
+              <a href="/service">Apple Ecosystem</a>
+            </div>
+          </div>
+          <div class="mobile-nav-item-with-sub">
+            <button class="mobile-nav-sub-toggle">
+              About us
+              <svg
+                class="nav-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-sub-menu">
+              <a href="/about">Our Company</a>
+              <a href="/about">Our Milestones</a>
+              <a href="/about">Our Certifications</a>
+            </div>
+          </div>
+
+          <a href="/products">Products</a>
+        </div>
+      </div>
+      <div class="mobile-nav-footer">
+        <p>Get in touch</p>
+        <a href="mailto:info@codifia.com">info@Krelyon.com</a>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <!-- APPLY HERO SECTION -->
+      <section class="apply-hero">
+        <div class="hero-image-bg"></div>
+        <div class="hero-image-overlay"></div>
+        <div class="apply-hero-content">
+          <h1>Apply Now</h1>
+        </div>
+      </section>
+
+      <!-- APPLY FORM SECTION -->
+      <section class="apply-form-section">
+        <div class="form-container">
+          <div class="section-header">
+            <h2>Submit Your Application</h2>
+            <p class="section-subtitle">
+              We're excited to learn more about you. Please fill out the form
+              below.
+            </p>
+          </div>
+
+          <form
+            id="application-form"
+            action="#"
+            method="POST"
+            enctype="multipart/form-data"
+            novalidate
+          >
+            <!-- novalidate prevents browser default popups -->
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="job-title-display">Applying for</label>
+                <input
+                  type="text"
+                  id="job-title-display"
+                  name="job_title_display"
+                  placeholder="Loading job..."
+                  disabled
+                />
+                <input type="hidden" id="job-title-hidden" name="job_title" />
+              </div>
+
+              <!-- Full Name Field (with validation) -->
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full_name"
+                  required
+                  pattern="^[a-zA-Z\s]+$"
+                  title="Please enter a valid name (letters and spaces only)."
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone (Optional)</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+
+              <!-- Portfolio Field (with validation) -->
+              <div class="form-group">
+                <label for="portfolio">Portfolio/Website URL</label>
+                <input
+                  type="url"
+                  id="portfolio"
+                  name="portfolio"
+                  placeholder="https://..."
+                  title="Please enter a valid URL (e.g., https://yoursite.com)"
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="resume">Upload Resume (PDF, DOCX)</label>
+                <div class="file-upload-wrapper" id="resume-wrapper">
+                  <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf,.doc,.docx"
+                    required
+                  />
+                  <span>Drag & Drop or <strong>Browse File</strong></span>
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="cover-letter">Cover Letter (Optional)</label>
+                <textarea
+                  id="cover-letter"
+                  name="cover_letter"
+                  placeholder="Tell us why you're a great fit..."
+                ></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <button type="submit" class="btn-submit">
+                  Submit Application
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Success Modal HTML -->
+    <div id="success-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="close-success-modal" class="modal-close">&times;</button>
+        <div class="modal-icon">
+          <!-- Checkmark Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3>Application Sent!</h3>
+        <p>
+          Thank you for applying. We have received your application and will
+          review it shortly.
+        </p>
+        <a href="/" class="btn-orange-modal">Back to Home</a>
+      </div>
+    </div>
+
+    <!-- [NEW] Error Modal HTML -->
+    <div id="error-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="close-error-modal" class="modal-close">&times;</button>
+        <div class="modal-icon error">
+          <!-- Error Icon (X) -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+        <h3>Submission Failed</h3>
+        <!-- This message will be set by JavaScript -->
+        <p id="error-message">Please check the form for errors.</p>
+        <button id="close-error-modal-btn" class="btn-orange-modal">
+          Try Again
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-primary">
+        <div class="footer-column" id="footer-about">
+          <a href="#" class="logo">
+            <img src="/images/logo-krelyon.png" alt="Krelyon Logo" />
+          </a>
+          <p>
+            A creative partner for digital innovators. We solve complex problems
+            with human-centric design.
+          </p>
+
+          <h5>FOLLOW US</h5>
+          <div class="footer-socials">
+            <a href="#" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.438-3.077h2.562v3z"
+                />
+              </svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919 4.919 1.266-.057 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a href="#" target="_blank" aria-label="Dribbble">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.822 18.44c-3.34-1.121-5.69-4.439-5.69-8.179 0-.621.071-1.226.206-1.809l11.066 11.066c-.699.16-1.423.255-2.176.255-1.13 0-2.197-.246-3.167-.668zm.89-1.61c1.232.714 2.651 1.141 4.157 1.141 4.213 0 7.73-3.003 8.356-6.953l-11.365 11.365c-.073-.623-.148-1.253-.148-1.895 0-1.23.273-2.388.755-3.435.033-.075.066-.149.1-.223zm6.61-9.229c-1.222-.709-2.62-1.129-4.111-1.129-4.212 0-7.729 3.003-8.355 6.952l11.364-11.364c.073.623.148 1.254.148 1.895 0 1.23-.273 2.388-.754 3.435-.033.075-.066.149-.1.223zm-5.46-3.832c.699-.16 1.423-.255 2.176-.255 1.13 0 2.197.246 3.167.668 3.34 1.121 5.69 4.439 5.69 8.179 0 .621-.071 1.226-.206 1.809l-11.066-11.066z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/service">Mobile Apps</a></li>
+            <li><a href="/service">Web Development</a></li>
+            <li><a href="/service">E-Commerce</a></li>
+            <li><a href="/service">AI & ML Solutions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/service">Services</a></li>
+            <li><a href="/milestone">Milestones</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Get in Touch</h5>
+
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </span>
+              <a href="mailto:info@krelyon.com" class="contact-link"
+                >info@krelyon.com</a
+              >
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+              </span>
+              <a href="tel:+8801748291608" class="contact-link"
+                >+880 1748291608</a
+              >
+            </li>
+
+            <li class="contact-item">
+              <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+              </span>
+              <a
+                href="https://www.google.com/maps?q=23.7692668,90.4049922"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+              >
+                251/A & 252, Tejgaon I/A<br />
+                Dhaka, 1208, Bangladesh
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-secondary">
+        <p class="footer-copyright">© 2016 Krelyon. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/js/dropdown.js"></script>
+    <script src="/js/home.js"></script>
+
+    <script>
+      /* --- JAVASCRIPT --- */
+
+      /* Reads the job title from the URL */
+      function populateJobTitle() {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const jobSlug = urlParams.get("job");
+          const jobFieldDisplay = document.getElementById("job-title-display");
+          const jobFieldHidden = document.getElementById("job-title-hidden");
+
+          if (!jobFieldDisplay || !jobFieldHidden) return;
+
+          let displayTitle = "General Application";
+
+          if (jobSlug === "frontend") {
+            displayTitle = "Senior Frontend Developer";
+          } else if (jobSlug === "ui-ux") {
+            displayTitle = "UI/UX Designer";
+          } else if (jobSlug === "project-manager") {
+            displayTitle = "Project Manager (Fintech)";
+          }
+
+          jobFieldDisplay.value = displayTitle;
+          jobFieldHidden.value = displayTitle;
+        } catch (e) {
+          console.error("Error populating job title:", e);
+        }
+      }
+
+      /* Updates the file input text */
+      function setupFileInput() {
+        try {
+          const fileInput = document.getElementById("resume");
+          if (!fileInput) return;
+
+          const fileText = document.querySelector(".file-upload-wrapper span");
+
+          fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+              fileText.innerHTML = `<strong>${fileInput.files[0].name}</strong>`;
+            } else {
+              fileText.innerHTML = `Drag & Drop or <strong>Browse File</strong>`;
+            }
+          });
+        } catch (e) {
+          console.error("Error setting up file input:", e);
+        }
+      }
+
+      /* --- [UPDATED] MODAL & FORM SCRIPT --- */
+      function setupApplicationForm() {
+        const form = document.getElementById("application-form");
+
+        // Get Modals
+        const successModal = document.getElementById("success-modal");
+        const errorModal = document.getElementById("error-modal");
+
+        // Get Modal Close Buttons
+        const closeSuccessModalBtn = document.getElementById(
+          "close-success-modal"
+        );
+        const closeErrorModalBtn = document.getElementById("close-error-modal");
+        const closeErrorModalBtn2 = document.getElementById(
+          "close-error-modal-btn"
+        ); // The orange one
+
+        // Get Error Message Paragraph
+        const errorMessageP = document.getElementById("error-message");
+
+        // Get Form Inputs
+        const fullNameInput = document.getElementById("full-name");
+        const emailInput = document.getElementById("email");
+        const portfolioInput = document.getElementById("portfolio");
+        const resumeInput = document.getElementById("resume");
+        const resumeWrapper = document.getElementById("resume-wrapper");
+
+        if (!form || !successModal || !errorModal) {
+          console.error("Form or modal elements not found!");
+          return;
+        }
+
+        function showSuccessModal() {
+          successModal.classList.add("open");
+        }
+        function hideSuccessModal() {
+          successModal.classList.remove("open");
+        }
+
+        function showErrorModal(message) {
+          errorMessageP.textContent = message; // Set the specific error message
+          errorModal.classList.add("open");
+        }
+        function hideErrorModal() {
+          errorModal.classList.remove("open");
+        }
+
+        // Function to remove all error highlights
+        function clearErrors() {
+          form
+            .querySelectorAll(".invalid")
+            .forEach((el) => el.classList.remove("invalid"));
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Always stop the form submission
+          clearErrors(); // Clear old errors
+
+          // --- 1. VALIDATION CHECK ---
+
+          // Check Full Name
+          if (!fullNameInput.checkValidity()) {
+            fullNameInput.classList.add("invalid"); // Highlight field
+            showErrorModal(fullNameInput.title || "Please enter a valid name.");
+            return;
+          }
+
+          // Check Email
+          if (!emailInput.checkValidity()) {
+            emailInput.classList.add("invalid");
+            showErrorModal("Please enter a valid email address.");
+            return;
+          }
+
+          // Check Portfolio
+          if (portfolioInput.value && !portfolioInput.checkValidity()) {
+            portfolioInput.classList.add("invalid");
+            showErrorModal(portfolioInput.title || "Please enter a valid URL.");
+            return;
+          }
+
+          // Check Resume
+          if (resumeInput.files.length === 0) {
+            resumeWrapper.classList.add("invalid");
+            showErrorModal("Please upload your resume.");
+            return;
+          }
+
+          // --- 2. IF VALID, PROCEED ---
+
+          // Get Form Data
+          const formData = new FormData(form);
+          const jsonData = {};
+
+          formData.forEach((value, key) => {
+            if (key !== "job_title_display" && key !== "resume") {
+              jsonData[key] = value;
+            }
+          });
+
+          const resumeFile = resumeInput.files[0];
+          if (resumeFile) {
+            jsonData["resume_filename"] = resumeFile.name;
+          }
+
+          // Show JSON data in the console
+          console.log("--- Form Data (JSON Format) ---");
+          console.log(JSON.stringify(jsonData, null, 2));
+
+          // Show the success modal
+          showSuccessModal();
+
+          // Reset the form
+          form.reset();
+          const fileText = document.querySelector(".file-upload-wrapper span");
+          if (fileText) {
+            fileText.innerHTML = `Drag & Drop or <strong>Browse File</strong>`;
+          }
+        });
+
+        // Add listeners to close the modals
+        closeSuccessModalBtn.addEventListener("click", hideSuccessModal);
+        closeErrorModalBtn.addEventListener("click", hideErrorModal);
+        closeErrorModalBtn2.addEventListener("click", hideErrorModal);
+
+        successModal.addEventListener(
+          "click",
+          (e) => e.target === successModal && hideSuccessModal()
+        );
+        errorModal.addEventListener(
+          "click",
+          (e) => e.target === errorModal && hideErrorModal()
+        );
+      }
+      /* --- [END] MODAL & FORM SCRIPT --- */
+
+      /* --- Page Load Animations --- */
+      function runPageAnimations() {
+        if (typeof gsap === "undefined") {
+          console.error("GSAP failed to load. Skipping animations.");
+          document.getElementById("main-content").style.visibility = "visible";
+          document.getElementById("main-header").style.opacity = "1";
+          document.querySelector(".apply-hero-content").style.opacity = "1";
+          return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline();
+        tl.to(document.getElementById("preloader-circle"), {
+          scale: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        })
+          .to(document.getElementById("preloader-circle"), {
+            scale: 50,
+            duration: 1.5,
+            ease: "power3.inOut",
+          })
+          .to(
+            document.getElementById("preloader-bg"),
+            {
+              opacity: 0,
+              duration: 1,
+              onComplete: () =>
+                (document.getElementById("preloader-bg").style.display =
+                  "none"),
+            },
+            "-=1.5"
+          )
+          .to(
+            document.getElementById("preloader-circle"),
+            {
+              opacity: 0,
+              duration: 1,
+              onComplete: () => {
+                document.getElementById("preloader-circle").style.display =
+                  "none";
+                document.getElementById("main-content").style.visibility =
+                  "visible";
+              },
+            },
+            "-=1"
+          )
+          .to(
+            document.getElementById("main-header"),
+            { opacity: 1, duration: 1 },
+            "-=0.5"
+          )
+          .to(
+            ".apply-hero-content",
+            { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
+            "-=0.5"
+          )
+          .from(
+            ".form-container",
+            { opacity: 0, y: 30, duration: 0.8, ease: "power3.out" },
+            "-=0.5"
+          );
+
+        ScrollTrigger.create({
+          start: "top -80",
+          end: 99999,
+          toggleClass: {
+            className: "scrolled-nav",
+            targets: "#main-header",
+          },
+        });
+      }
+
+      window.addEventListener("load", () => {
+        runPageAnimations();
+        populateJobTitle();
+        setupFileInput();
+        setupApplicationForm();
+      });
+    </script>
+  </body>
+</html>

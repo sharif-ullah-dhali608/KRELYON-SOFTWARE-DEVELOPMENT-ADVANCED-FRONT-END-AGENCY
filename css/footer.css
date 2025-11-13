@@ -1,0 +1,240 @@
+/* ============================================= */
+/* ===         [NEW] GLOBAL FOOTER STYLES      === */
+/* ============================================= */
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  padding: 5rem 3rem 0 3rem; /* 0 padding-bottom here, it's on the secondary footer */
+  border-top: 1px solid var(--border-light);
+}
+
+.footer-primary {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1.5fr; /* 4-column layout */
+  gap: 3rem; /* Gap between columns */
+  padding-bottom: 4rem;
+  align-items: start;
+}
+
+.footer-column {
+  text-align: left; /* Default left-align for all columns */
+}
+
+/* --- Column 1: About --- */
+#footer-about {
+  max-width: 350px; /* Constrains the width of the whole column */
+  text-align: left; 
+}
+
+#footer-about .logo {
+  display: block; 
+  margin-bottom: 1.5rem; 
+  /* আপনার লোগো সেন্টারে রাখতে চাইলে নিচের ৩ লাইন রাখুন */
+  /* margin-left: auto;
+  margin-right: auto; */
+  
+  /* লোগো বামে রাখতে চাইলে শুধু নিচের লাইনটি রাখুন */
+  margin-left: 0; 
+  
+  width: 160px; /* The width of the logo block */
+}
+
+#footer-about .logo img {
+  width: 160px;
+  height: 50px;
+  object-fit: contain;
+  display: block; 
+}
+
+#footer-about p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin-left: 0; 
+  margin-right: 0; 
+}
+
+/* --- Columns 2, 3 & 4: Link Lists --- */
+.footer-column h5 {
+  font-size: 1rem; /* পরিবর্তিত */
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; /* পরিবর্তিত (Bold) */
+  text-transform: uppercase; /* পরিবর্তিত (Qwik IT স্টাইল) */
+}
+
+/* "FOLLOW US" হেডিং এর জন্য অতিরিক্ত স্পেস */
+#footer-about h5 {
+    margin-top: 2rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-column ul li {
+  margin-bottom: 0.75rem;
+}
+.footer-column ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+.footer-column ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* --- Column 4: Get in Touch --- */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start; /* Aligns icon to the top of the text */
+  gap: 0.75rem; /* Space between icon and text */
+  margin-bottom: 1rem; /* Space between each contact item */
+}
+
+.contact-icon {
+  flex-shrink: 0; /* Stops icon from shrinking */
+  width: 20px;
+  height: 20px;
+  margin-top: 3px; /* Small alignment adjustment */
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--text-muted); /* Icon color */
+}
+
+.contact-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-style: normal; /* Removes italics from address */
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--accent-color);
+}
+
+/* --- Social Icons ( পরিবর্তিত Qwik IT স্টাইল ) --- */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between icons */
+}
+.footer-socials a {
+  color: var(--text-muted);
+  border: 1px solid var(--border-light); /* Qwik IT বর্ডার */
+  border-radius: 4px; /* হালকা গোলাকার */
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-socials a:hover {
+  color: var(--text-color); /* or var(--accent-color) */
+  border-color: var(--text-muted); /* হোভারে বর্ডার কালার পরিবর্তন */
+}
+.footer-socials a svg {
+  width: 18px; /* আইকন সাইজ */
+  height: 18px;
+  fill: currentColor; /* Inherits the color from the <a> tag */
+}
+
+/* --- Footer Bottom Bar (Copyright) --- */
+.footer-secondary {
+  padding: 2rem 0; /* Vertical padding */
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  text-align: center; 
+}
+
+.footer-copyright {
+  margin: 0;
+}
+
+/* ============================================= */
+/* ===         [NEW] FOOTER RESPONSIVE         === */
+/* ============================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-primary {
+    /* Stack to 2 columns */
+    grid-template-columns: 1fr 1fr; 
+    gap: 3rem;
+  }
+
+  #footer-about {
+    /* On tablet, make the first column span both new columns */
+    grid-column: 1 / -1; 
+    max-width: 100%; /* Allow it to be full width */
+    text-align: center; /* Center everything on tablet */
+  }
+
+  #footer-about .logo,
+  #footer-about p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-socials {
+    justify-content: center; /* সোশ্যাল আইকন সেন্টারে আসবে */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  footer {
+    /* Align everything to the center on mobile */
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .footer-primary {
+    /* Stack to 1 column */
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-column {
+    /* Center-align all text and content */
+    text-align: center;
+  }
+
+  #footer-about {
+     max-width: 100%;
+  }
+
+  #footer-about .logo,
+  #footer-about p {
+    /* Center the logo and about text */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-item {
+    /* Center-align the contact items */
+    justify-content: center;
+    text-align: left; /* Keep text left-aligned relative to its icon */
+  }
+
+  .footer-socials {
+    /* Center the social icons */
+    justify-content: center;
+  }
+}

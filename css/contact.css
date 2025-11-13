@@ -1,0 +1,427 @@
+/* ============================================= */
+/* === 1. CONTACT SECTION (Apnar Notun CSS) === */
+/* ============================================= */
+.contact-section {
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-color);
+  padding: 10rem 3rem 6rem 3rem;
+  overflow: hidden;
+  min-height: 100vh; /* Ensure it fills the screen */
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+/* --- The animated background glow --- */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  z-index: 1; /* Layer 1: Bottom */
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  background-image: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.3),
+    rgba(168, 85, 247, 0.2),
+    rgba(0, 0, 0, 0) 60%
+  );
+  filter: blur(120px);
+  opacity: 0.8;
+  transform: translate(-50%, -50%);
+  animation: bg-spin 25s linear infinite;
+}
+
+/* --- The Canvas for "String" Animation --- */
+.contact-section #contact-canvas {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Layer 2: On top of glow */
+}
+
+/* ============================================= */
+/* === 2. FADE EFFECT (Apnar Notun CSS) === */
+/* ============================================= */
+.section-fade-top,
+.section-fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 3;
+  pointer-events: none;
+}
+.section-fade-top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color, #101014) 20%,
+    rgba(16, 16, 20, 0) 100%
+  );
+}
+.section-fade-bottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--bg-color, #101014) 20%,
+    rgba(16, 16, 20, 0) 100%
+  );
+}
+
+/* ============================================= */
+/* === 3. NEW TWO-COLUMN GRID (Apnar Notun CSS) === */
+/* ============================================= */
+.contact-grid {
+  position: relative;
+  z-index: 4; /* Layer 4: Sits ON TOP of the fade */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- Left Column (Text) --- */
+.contact-grid-left {
+  text-align: left;
+}
+
+.contact-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.contact-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.contact-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.contact-perks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.perk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(34, 211, 110, 0.1); /* Green from your theme */
+  color: var(--accent-color);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.perk-text h5 {
+  font-family: "Sora", sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin: 0 0 0.25rem 0;
+}
+.perk-text p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* --- Right Column (Form) --- */
+.contact-grid-right {
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group label {
+  font-family: "Sora", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a0a0a0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  padding-right: 2.5rem; /* Ensure text doesn't overlap arrow */
+}
+
+.form-group select option {
+  background-color: var(--bg-color, #101014);
+  color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(34, 211, 110, 0.3); /* Green glow */
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-submit {
+  margin-top: 1rem;
+}
+
+/* ============================================= */
+/* === 4. GRADIENT BUTTON (Apnar Notun CSS) === */
+/* ============================================= */
+
+.cta-button-gradient {
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 1),
+    rgba(59, 130, 246, 1)
+  );
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button-gradient:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+  transform: translateY(-2px);
+}
+
+/* ============================================= */
+/* === 5. RESPONSIVE (Apnar Notun CSS) === */
+/* ============================================= */
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .contact-grid-left {
+    text-align: center; /* Center text on mobile */
+  }
+  .contact-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-perks {
+    text-align: left; /* Keep perks text left-aligned */
+  }
+  .contact-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-group-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Re-use existing animation */
+@keyframes bg-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ============================================= */
+/* === 6. VALIDATION & MODAL (Jog Kora CSS) === */
+/* ============================================= */
+
+/* Ei style-ti invalid field-guloke red kore dekhabe */
+.form-group.is-invalid input,
+.form-group.is-invalid select,
+.form-group.is-invalid textarea {
+  border-color: #e74c3c !important; /* Red border */
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3) !important; /* Red glow */
+}
+
+.form-group.is-invalid label {
+  color: #e74c3c; /* Red label */
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 24, 39, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 2001;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.is-visible .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: var(--text-color);
+}
+
+.modal-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.modal-icon.success {
+  background-color: rgba(52, 211, 153, 0.2);
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.modal-icon.error {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+}
+
+.modal-content h4 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+
+/* --- Style for Modal Button --- */
+.modal-button {
+  display: inline-block;
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1.5rem; /* Space above the button */
+  
+  /* Using your accent color */
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.modal-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
